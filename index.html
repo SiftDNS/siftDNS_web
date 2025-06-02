@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiftDNS - Your Privacy. Your Performance. No Compromise.</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YOUR_MEASUREMENT_ID');
+    </script>
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --primary-light: #6366f1;
+            --secondary: #ec4899;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #f3f4f6 25%, transparent 25%), 
+                        linear-gradient(-45deg, #f3f4f6 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #f3f4f6 75%), 
+                        linear-gradient(-45deg, transparent 75%, #f3f4f6 75%);
+            background-size: 30px 30px;
+            background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+            opacity: 0.03;
+            animation: backgroundShift 20s ease infinite;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(30px) translateY(30px); }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button-disabled {
+            background: var(--gray-400);
+            color: white !important;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            color: white;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.2s; }
+        .stat-item:nth-child(2) { animation-delay: 0.4s; }
+        .stat-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .feature-card p {
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        .comparison {
+            padding: 5rem 2rem;
+            background: var(--gray-50);
+        }
+
+        .comparison-table {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-100);
+        }
+
+        .comparison-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .comparison-header h3 {
+            font-size: 1.75rem;
+            margin: 0;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 1.75rem 2rem;
+            border-bottom: 1px solid var(--gray-100);
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row:hover:not(.header) {
+            background: var(--gray-50);
+        }
+
+        .comparison-row.header {
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-50) 100%);
+            font-size: 1.1rem;
+            padding: 2rem 2rem;
+        }
+
+        .comparison-cell-sift {
+            font-weight: 700;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .comparison-cell-sift::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 60%;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        .check {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-shadow: 0 1px 2px rgba(16, 185, 129, 0.3);
+        }
+
+        .cross {
+            color: var(--gray-400);
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .partial {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .pricing {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            background: var(--gradient-primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.coming-soon {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            border: 2px dashed var(--gray-300);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .pricing-card.coming-soon:hover {
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 1rem 0;
+        }
+
+        .price sup {
+            font-size: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .coming-soon-badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .faq {
+            padding: 5rem 2rem;
+            background: var(--gray-50);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem 2rem;
+            border: none;
+            background: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 2rem 1.5rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        footer {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1rem;
+            color: var(--gray-300);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .stats {
+                gap: 2rem;
+            }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+
+            .comparison-row > div {
+                padding: 0.5rem 0;
+            }
+
+            .comparison-row.header > div:first-child {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid var(--primary);
+                padding-bottom: 0.5rem;
+            }
+
+            .comparison-row:not(.header) > div:nth-child(2)::before { content: "SiftDNS: "; font-weight: 600; color: var(--primary); }
+            .comparison-row:not(.header) > div:nth-child(3)::before { content: "Others: "; font-weight: 600; color: var(--gray-600); }
+            .comparison-row:not(.header) > div:nth-child(4)::before { content: "Your ISP: "; font-weight: 600; color: var(--gray-600); }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            width: 0;
+            z-index: 9999;
+            animation: loading 2s ease-out forwards;
+        }
+
+        @keyframes loading {
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-bar"></div>
+    <div class="animated-bg"></div>
+
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" 
+                          fill="url(#logoGradient)" opacity="0.9"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="white"/>
+                    <rect x="18" y="20" width="4" height="8" fill="white"/>
+                </svg>
+                SiftDNS
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#comparison">Compare</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://buy.stripe.com/YOUR_STRIPE_PAYMENT_LINK" class="cta-button">Start Free Trial</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Privacy.<br>Your Performance.<br>No Compromise.</h1>
+            <p class="tagline">Improve your online experience with secure, high-performance DNS. Block ads, stop malware, and browse with confidence on every device.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">350K+</span>
+                    <span class="stat-label">Domains Blocked</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Zero</span>
+                    <span class="stat-label">Logs Kept</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$3</span>
+                    <span class="stat-label">Per Month</span>
+                </div>
+            </div>
+
+            <a href="https://buy.stripe.com/YOUR_STRIPE_PAYMENT_LINK" class="cta-button" style="font-size: 1.2rem; padding: 1rem 3rem;">
+                Start Your Free Month →
+            </a>
+            <p style="margin-top: 1rem; opacity: 0.9;">30-day free trial, then from $3/month</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Why SiftDNS Outperforms</h2>
+            <p>More than just DNS. Experience unmatched security, speed, and reliability for a safer, more efficient online experience.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>True Independence</h3>
+                <p>We query root servers directly. No Google. No Cloudflare. No middlemen. Your queries, your privacy, guaranteed.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🚫</div>
+                <h3>Unmatched Blocking Power</h3>
+                <p>350,000+ domains blocked. The most comprehensive filtering available.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Performance</h3>
+                <p>Recursive caching and optimized routing. Lower latency than your ISP. Faster browsing without the tracking.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>Gamer's Edge</h3>
+                <p>Reduce ping. Prevent ISP throttling. Block DDoS attacks. The competitive advantage serious gamers need.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Zero Effort Setup</h3>
+                <p>No apps. No extensions. No updates. Just change one DNS setting and forget about it forever.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Global Availability</h3>
+                <p>Works everywhere. Any device. The internet as it was meant to be.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison" id="comparison">
+        <div class="section-header">
+            <h2>See The Difference</h2>
+            <p>Compare the features that matter most for your privacy and performance.</p>
+        </div>
+
+        <div class="comparison-table">
+            <div class="comparison-header">
+                <h3>SiftDNS vs. The Competition</h3>
+            </div>
+            <div class="comparison-row header">
+                <div>Feature</div>
+                <div>SiftDNS</div>
+                <div>Other DNS Services</div>
+                <div>Your ISP</div>
+            </div>
+            <div class="comparison-row">
+                <div>Domains Blocked</div>
+                <div class="comparison-cell-sift"><strong>350K+ domains</strong></div>
+                <div>100K-200K domains</div>
+                <div>None</div>
+            </div>
+            <div class="comparison-row">
+                <div>Software Required</div>
+                <div class="comparison-cell-sift"><strong>None (just set DNS)</strong></div>
+                <div>Apps/Browser setup</div>
+                <div>None</div>
+            </div>
+            <div class="comparison-row">
+                <div>Privacy Policy</div>
+                <div class="comparison-cell-sift"><strong>Zero logging</strong></div>
+                <div>Analytics & tracking</div>
+                <div>Full tracking</div>
+            </div>
+            <div class="comparison-row">
+                <div>Independence</div>
+                <div class="comparison-cell-sift"><strong>Fully independent</strong></div>
+                <div>Corporate backing</div>
+                <div>ISP controlled</div>
+            </div>
+            <div class="comparison-row">
+                <div>Ad-Blocking Power</div>
+                <div class="comparison-cell-sift"><strong>Extensive filtering</strong></div>
+                <div>Medium-High</div>
+                <div>None</div>
+            </div>
+            <div class="comparison-row">
+                <div>Subscription Model</div>
+                <div class="comparison-cell-sift"><strong>Paid & sustainable</strong></div>
+                <div>Freemium/Limited</div>
+                <div>"Free" (data sold)</div>
+            </div>
+            <div class="comparison-row">
+                <div>Account/Password Required</div>
+                <div class="comparison-cell-sift"><strong>None needed</strong></div>
+                <div>Account required</div>
+                <div>None needed</div>
+            </div>
+            <div class="comparison-row">
+                <div>Ease of Use</div>
+                <div class="comparison-cell-sift"><strong>Set and forget</strong></div>
+                <div>Manual setup required</div>
+                <div>Auto but no filtering</div>
+            </div>
+        </div>
+
+        <div style="background: var(--accent); color: white; padding: 2rem; border-radius: 12px; margin: 3rem auto; max-width: 800px;">
+            <h4 style="margin-bottom: 1rem; font-size: 1.3rem;">🏆 Why SiftDNS Wins:</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 0.5rem;">✅ <strong>Highest blacklist count</strong> — more domains blocked than most competitors</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>No software maintenance</strong> — users don't need to install apps or extensions</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>No passwords or accounts</strong> — just change your DNS and you're protected</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>Stronger privacy commitment</strong> — zero tracking or data logging</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>Independent, user-focused</strong> — not tied to big corporate entities</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Choose Your Plan</h2>
+            <p>Simple pricing for individuals. Business plans coming soon for teams and organizations.</p>
+        </div>
+
+        <div class="pricing-cards">
+            <div class="pricing-card featured">
+                <h3>Individual</h3>
+                <div class="price">
+                    <sup>$</sup>3
+                    <span>/ month</span>
+                </div>
+                <p style="margin-bottom: 2rem;">Perfect for personal use. Protect all your devices.</p>
+                <ul style="list-style: none; margin-bottom: 2rem;">
+                    <li>✓ 350K+ domains blocked</li>
+                    <li>✓ Zero logging guarantee</li>
+                    <li>✓ Direct root server queries</li>
+                    <li>✓ Unlimited personal devices</li>
+                    <li>✓ 30-day free trial</li>
+                </ul>
+                <a href="https://buy.stripe.com/YOUR_STRIPE_PAYMENT_LINK" class="cta-button" style="width: 100%; text-align: center;">Start Free Trial</a>
+            </div>
+
+            <div class="pricing-card coming-soon">
+                <div class="coming-soon-badge">Coming Soon</div>
+                <h3>Business</h3>
+                <div class="price">
+                    <sup>$</sup>10<sup style="font-size: 1rem;">*</sup>
+                    <span>/ month</span>
+                </div>
+                <p style="margin-bottom: 2rem;">Enhanced features for teams and businesses.</p>
+                <ul style="list-style: none; margin-bottom: 2rem;">
+                    <li>✓ Everything in Individual</li>
+                    <li>✓ Priority support</li>
+                    <li>✓ Custom whitelisting</li>
+                    <li>✓ Advanced analytics</li>
+                    <li>✓ Multiple locations support</li>
+                    <li>✓ Service level agreement (SLA)</li>
+                </ul>
+                <div class="cta-button-disabled" style="width: 100%; text-align: center;">Notify Me When Available</div>
+            </div>
+        </div>
+        
+        <div style="background: var(--gray-50); border-radius: 12px; padding: 1.5rem; margin: 2rem auto; max-width: 600px; border-left: 4px solid var(--accent);">
+            <p style="margin: 0; color: var(--gray-700);"><strong style="color: var(--accent);">📧 Service Updates:</strong> DNS server IPs may occasionally change for service improvements. We'll email you with new IPs and instructions if needed. These changes are rare with plenty of advance notice.</p>
+        </div>
+        
+        <p style="text-align: center; margin-top: 2rem; color: var(--gray-600); font-size: 0.9rem;">
+            * Business plan pricing is estimated and will include enhanced support and features for commercial use. Perfect for offices, teams, and organizations that need reliable DNS filtering across multiple locations. Sign up for individual now and get notified when business plans launch.
+        </p>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Some of the most common questions about SiftDNS</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What is DNS and why should I care?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>DNS is like the internet's phonebook. When you type a website address, DNS translates it into the numerical IP address computers understand. Your ISP's default DNS often tracks your browsing, serves ads, and can be slow. SiftDNS gives you a faster, private, ad-free alternative.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How difficult is it to set up?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Will this slow down my internet?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Actually, the opposite! SiftDNS often makes your internet faster. By blocking ads and trackers at the DNS level, pages load quicker. Plus, our optimized routing and caching means DNS lookups are lightning fast. Gamers report significantly lower ping times.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Do you really block 350K+ domains?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We maintain one of the most comprehensive blocklists available, covering ads, trackers, malware, and phishing sites. This is significantly more than most other DNS services. The result? Clean browsing across all your devices.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What about my privacy?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Zero logging. Period. We don't track, store, or sell your DNS queries. Unlike your ISP or free DNS services, we have no interest in your browsing data. We query root servers directly, ensuring complete independence from big tech companies.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can I use this for gaming?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! Gamers love SiftDNS. It prevents ISP throttling, reduces ping times, and protects against DDoS attacks. One user reported latency dropping from 27ms to 9ms. Works great with PlayStation, Xbox, Switch, and PC gaming.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Do the DNS server IP addresses ever change?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Occasionally, yes. We may update DNS server IPs for service improvements, security updates, or infrastructure maintenance. When this happens, we'll email all subscribers with the new IPs and clear instructions. These changes are rare and we provide plenty of advance notice.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What if I need help?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>We're here for you! All subscribers get support via email. We have detailed setup guides, and our team responds quickly to any questions. Plus, you can cancel anytime if you're not completely satisfied.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>When will business plans be available?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Business plans are coming soon! We're launching with individual subscriptions first to ensure excellent service quality. Business features will include custom whitelisting, advanced analytics, priority support, and enterprise SLAs. Sign up for individual service now and we'll notify you when business plans launch.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Why isn't this free like other DNS services?</span>
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Free DNS services make money by selling your data or showing ads. At $3/month, we can maintain true independence, zero logging, and the most comprehensive filtering available. No venture capital, no data mining—just honest service.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Still have questions?</p>
+            <a href="https://siftdns.com/setup" class="cta-button">View Setup Guide</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>SiftDNS</h3>
+                <p>Improving internet security and performance, one DNS query at a time.</p>
+                <p style="margin-top: 1rem; opacity: 0.7;">© 2025 SiftDNS. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="https://siftdns.com/setup">Setup Guide</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="https://siftdns.com/testimonials">Testimonials</a></li>
+                    <li><a href="https://stats.uptimerobot.com/6szE9Aycaz" target="_blank">System Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Plans</h4>
+                <ul>
+                    <li><a href="#pricing">Individual - $3/mo</a></li>
+                    <li><a href="#pricing">Business - Coming Soon</a></li>
+                    <li><a href="#pricing">30-Day Free Trial</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="mailto:support@siftdns.com">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.loading-bar').style.display = 'none';
+            }, 2000);
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiftDNS Terms of Service - Privacy-First DNS Service</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --primary-light: #6366f1;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .privacy-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .highlight-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Content */
+        .content {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .key-points {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .key-points h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .key-points li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-points li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .legal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .legal-content h2 {
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .legal-content h3 {
+            color: var(--gray-800);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-content p {
+            margin-bottom: 1rem;
+        }
+
+        .legal-content strong {
+            color: var(--gray-900);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .privacy-highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .legal-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" 
+                          fill="url(#logoGradient)" opacity="0.9"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="white"/>
+                    <rect x="18" y="20" width="4" height="8" fill="white"/>
+                </svg>
+                SiftDNS
+            </a>
+            <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Terms Built for Privacy</h1>
+        <p class="subtitle">Clear, honest terms that protect your privacy while ensuring great service.</p>
+        
+        <div class="privacy-highlights">
+            <div class="highlight-card">
+                <h3>🔒 Zero Data Collection</h3>
+                <p>We don't store your personal info. Stripe handles payments, we handle DNS.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>📝 No Hidden Clauses</h3>
+                <p>Straightforward terms. No surprise data collection or unexpected charges.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>🚫 Zero DNS Logging</h3>
+                <p>We never log what websites you visit. Your browsing stays private.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>💳 Stripe-Managed Billing</h3>
+                <p>All payments handled by Stripe. Cancel anytime through their secure portal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="key-points">
+            <h2>What Makes Our Terms Different</h2>
+            <ul>
+                <li><strong>Minimal Data Collection:</strong> We only collect support emails when you contact us</li>
+                <li><strong>Stripe Integration:</strong> All customer accounts and billing managed by Stripe</li>
+                <li><strong>No Account Database:</strong> We don't maintain customer records or personal information</li>
+                <li><strong>True Privacy:</strong> Zero DNS query logging, ever</li>
+                <li><strong>Easy Cancellation:</strong> Cancel anytime through Stripe's customer portal</li>
+                <li><strong>Transparent Pricing:</strong> $3/month Individual, $10/month Business, 30-day free trial</li>
+                <li><strong>Service Updates:</strong> We'll notify you in advance if DNS server IPs need updating</li>
+            </ul>
+        </div>
+
+        <div class="legal-content">
+            <h1>SiftDNS Terms of Service</h1>
+            <p><strong>Effective Date: [INSERT DATE]</strong></p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using SiftDNS services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use our services.</p>
+
+            <h2>2. Description of Service</h2>
+            <p>SiftDNS provides Domain Name System (DNS) resolution services with ad-blocking, malware protection, and privacy features. Our service blocks over 350,000 domains containing advertisements, trackers, malware, and other unwanted content.</p>
+
+            <h3>Service Features:</h3>
+            <ul>
+                <li>DNS resolution with comprehensive domain filtering</li>
+                <li>Zero-logging DNS queries</li>
+                <li>Direct root server queries for maximum privacy</li>
+                <li>Global DNS infrastructure</li>
+                <li>30-day free trial for new customers</li>
+            </ul>
+
+            <h3>Service Access:</h3>
+            <ul>
+                <li>DNS servers are publicly accessible once you have an active subscription</li>
+                <li>No account login or authentication required to use DNS servers</li>
+                <li>Service availability is tied to your Stripe subscription status</li>
+                <li>DNS server IP addresses are provided after successful subscription</li>
+                <li>Subscribers will be notified via email if DNS server IPs need updating</li>
+            </ul>
+
+            <h2>3. Payment and Subscription Management</h2>
+
+            <h3>3.1 Stripe Integration</h3>
+            <ul>
+                <li>All payment processing and customer account management is handled by Stripe</li>
+                <li>You create and manage your subscription directly through Stripe's system</li>
+                <li>SiftDNS receives only subscription status notifications (active/cancelled)</li>
+                <li>Stripe's Terms of Service and Privacy Policy govern the payment relationship</li>
+            </ul>
+
+            <h3>3.2 Eligibility</h3>
+            <ul>
+                <li>You must be at least 18 years old to use SiftDNS</li>
+                <li>You must have the legal capacity to enter into binding agreements</li>
+                <li>Use of our service must comply with all applicable laws and regulations</li>
+            </ul>
+
+            <h2>4. Subscription Plans and Payment</h2>
+
+            <h3>4.1 Subscription Plans</h3>
+            <ul>
+                <li><strong>Individual Plan:</strong> $3.00 per month for personal use</li>
+                <li><strong>Business Plan:</strong> $10.00 per month for commercial use</li>
+                <li>All new subscriptions include a 30-day free trial</li>
+            </ul>
+
+            <h3>4.2 Payment Terms</h3>
+            <ul>
+                <li>Subscription fees are billed monthly in advance</li>
+                <li>Payment processing is handled by Stripe, Inc.</li>
+                <li>All fees are non-refundable except as required by law or expressly stated in these Terms</li>
+                <li>Prices may change with 30 days advance notice</li>
+            </ul>
+
+            <h3>4.3 Free Trial</h3>
+            <ul>
+                <li>New customers receive a 30-day free trial</li>
+                <li>No payment is required during the trial period</li>
+                <li>Billing begins automatically after the trial period unless cancelled</li>
+                <li>You may cancel at any time during the trial without charge</li>
+            </ul>
+
+            <h3>4.4 Subscription Management</h3>
+            <ul>
+                <li>Subscriptions are managed entirely through Stripe</li>
+                <li>You may cancel your subscription at any time through Stripe's customer portal</li>
+                <li>Cancellation takes effect at the end of the current billing period</li>
+                <li>SiftDNS does not have direct access to modify your subscription</li>
+            </ul>
+
+            <h2>5. Acceptable Use Policy</h2>
+
+            <h3>5.1 Permitted Uses</h3>
+            <p>You may use SiftDNS for lawful DNS resolution purposes, including:</p>
+            <ul>
+                <li>Blocking unwanted advertisements and trackers</li>
+                <li>Protecting against malware and phishing sites</li>
+                <li>Improving browsing privacy and security</li>
+            </ul>
+
+            <h3>5.2 Prohibited Uses</h3>
+            <p>You may not:</p>
+            <ul>
+                <li>Use the service for any illegal activities</li>
+                <li>Attempt to circumvent or disable service filtering mechanisms</li>
+                <li>Reverse engineer, decompile, or attempt to extract source code</li>
+                <li>Use the service to harm others or violate their rights</li>
+                <li>Resell or redistribute access to SiftDNS without written permission</li>
+                <li>Use automated tools to abuse or overload our infrastructure</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+            </ul>
+
+            <h2>6. Service Availability and Performance</h2>
+
+            <h3>6.1 Service Level</h3>
+            <ul>
+                <li>We strive to maintain 99.9% uptime for our DNS services</li>
+                <li>Planned maintenance will be announced in advance when possible</li>
+                <li>DNS server IP addresses may occasionally change for service improvements, security updates, or infrastructure maintenance</li>
+                <li>Subscribers will be notified in advance of any required IP address updates</li>
+                <li>We are not liable for service interruptions due to circumstances beyond our control</li>
+            </ul>
+
+            <h3>6.2 No Warranties</h3>
+            <ul>
+                <li>Services are provided "AS IS" without warranties of any kind</li>
+                <li>We do not guarantee uninterrupted or error-free service</li>
+                <li>We do not warrant that our service will meet all your requirements</li>
+            </ul>
+
+            <h2>7. Privacy and Data Protection</h2>
+
+            <h3>7.1 Zero Logging Policy</h3>
+            <ul>
+                <li>SiftDNS does not log, store, or monitor DNS queries</li>
+                <li>We do not track websites you visit or maintain browsing histories</li>
+                <li>Network traffic flow is monitored for performance and security purposes only</li>
+            </ul>
+
+            <h3>7.2 Minimal Data Collection</h3>
+            <ul>
+                <li>SiftDNS collects no customer account or billing information directly</li>
+                <li>All customer data is managed by Stripe according to their privacy policies</li>
+                <li>We may retain support communications only when you contact us directly</li>
+                <li>For complete details, see our Privacy Policy</li>
+            </ul>
+
+            <h2>8. Intellectual Property</h2>
+
+            <h3>8.1 SiftDNS Rights</h3>
+            <ul>
+                <li>SiftDNS and all related trademarks, logos, and content are our property</li>
+                <li>Our DNS filtering lists and technology are proprietary and protected</li>
+            </ul>
+
+            <h3>8.2 User Rights</h3>
+            <ul>
+                <li>You retain all rights to any content you transmit through our service</li>
+                <li>You grant us no rights to your data beyond what's necessary to provide the service</li>
+            </ul>
+
+            <h2>9. Limitation of Liability</h2>
+
+            <h3>9.1 Liability Limits</h3>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
+            <ul>
+                <li>Our total liability shall not exceed the amount you paid for the service in the 12 months preceding the claim</li>
+                <li>We are not liable for indirect, incidental, consequential, or punitive damages</li>
+                <li>We are not responsible for data loss, business interruption, or loss of profits</li>
+            </ul>
+
+            <h3>9.2 Indemnification</h3>
+            <p>You agree to indemnify and hold SiftDNS harmless from any claims arising from your use of the service or violation of these Terms.</p>
+
+            <h2>10. Termination</h2>
+
+            <h3>10.1 Termination by You</h3>
+            <ul>
+                <li>You may cancel your subscription at any time through Stripe's customer portal</li>
+                <li>Cancellation takes effect at the end of the current billing period</li>
+                <li>You remain responsible for all charges incurred prior to cancellation</li>
+            </ul>
+
+            <h3>10.2 Service Suspension by SiftDNS</h3>
+            <p>We may suspend access to our DNS servers if you:</p>
+            <ul>
+                <li>Violate these Terms of Service</li>
+                <li>Engage in abusive behavior toward our infrastructure</li>
+                <li>Use the service for illegal activities</li>
+                <li>Note: We cannot directly cancel Stripe subscriptions - you must cancel through Stripe</li>
+            </ul>
+
+            <h3>10.3 Effect of Termination</h3>
+            <ul>
+                <li>Upon cancellation, your access to SiftDNS servers will cease</li>
+                <li>No refunds will be provided except as required by law or Stripe's policies</li>
+                <li>Provisions regarding liability and dispute resolution survive termination</li>
+            </ul>
+
+            <h2>11. Modifications to Terms</h2>
+            <ul>
+                <li>We may update these Terms from time to time</li>
+                <li>Changes will be posted on our website with an updated effective date</li>
+                <li>Continued use of the service after changes constitutes acceptance</li>
+                <li>Material changes will be communicated via email when possible</li>
+            </ul>
+
+            <h2>12. Dispute Resolution</h2>
+
+            <h3>12.1 Governing Law</h3>
+            <p>These Terms are governed by the laws of [YOUR JURISDICTION], without regard to conflict of law principles.</p>
+
+            <h3>12.2 Arbitration</h3>
+            <p>Any disputes arising from these Terms or your use of SiftDNS shall be resolved through binding arbitration rather than in court, except for claims of intellectual property infringement.</p>
+
+            <h3>12.3 Class Action Waiver</h3>
+            <p>You agree that any arbitration or legal proceeding shall be limited to the dispute between you and SiftDNS individually, and you waive any right to participate in class action lawsuits.</p>
+
+            <h2>13. Miscellaneous</h2>
+
+            <h3>13.1 Entire Agreement</h3>
+            <p>These Terms constitute the entire agreement between you and SiftDNS regarding the service.</p>
+
+            <h3>13.2 Severability</h3>
+            <p>If any provision of these Terms is found unenforceable, the remaining provisions shall remain in full force and effect.</p>
+
+            <h3>13.3 No Waiver</h3>
+            <p>Our failure to enforce any provision does not waive our right to enforce it later.</p>
+
+            <h2>14. Contact Information</h2>
+            <p>For questions about these Terms, please contact us at:</p>
+            <p><strong>Email:</strong> [INSERT EMAIL]<br>
+            <strong>Address:</strong> [INSERT ADDRESS]</p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--gray-200);">
+            <p><em>Last updated: [INSERT DATE]</em></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SiftDNS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

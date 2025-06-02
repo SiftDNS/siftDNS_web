@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiftDNS - Setup Guide</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --primary-light: #6366f1;
+            --secondary: #ec4899;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .setup-hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .setup-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .setup-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .setup-content {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .device-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .device-button {
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--gray-900);
+        }
+
+        .device-button:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .device-button.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        .device-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .setup-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .setup-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .setup-step {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .setup-step h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .setup-step ol, .setup-step ul {
+            padding-left: 1.5rem;
+        }
+
+        .setup-step li {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .dns-servers {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .dns-servers h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .dns-servers p {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .important-note {
+            background: var(--accent);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .important-note strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: var(--gray-200);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 768px) {
+            .device-selector {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .setup-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" 
+                          fill="url(#logoGradient)" opacity="0.9"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="white"/>
+                    <rect x="18" y="20" width="4" height="8" fill="white"/>
+                </svg>
+                SiftDNS
+            </a>
+            <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <section class="setup-hero">
+        <h1>Setup SiftDNS in 2 Minutes</h1>
+        <p>Choose your device below for step-by-step instructions. No technical skills required!</p>
+        <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">
+            <strong>New subscriber?</strong> First check your email for your DNS server addresses.
+        </p>
+    </section>
+
+    <div class="setup-content">
+        <div class="device-selector">
+            <button class="device-button active" data-device="windows">
+                <div class="device-icon">💻</div>
+                <h3>Windows</h3>
+            </button>
+            <button class="device-button" data-device="mac">
+                <div class="device-icon">🖥️</div>
+                <h3>macOS</h3>
+            </button>
+            <button class="device-button" data-device="android">
+                <div class="device-icon">📱</div>
+                <h3>Android</h3>
+            </button>
+            <button class="device-button" data-device="ios">
+                <div class="device-icon">📱</div>
+                <h3>iPhone/iPad</h3>
+            </button>
+            <button class="device-button" data-device="router">
+                <div class="device-icon">📡</div>
+                <h3>Router</h3>
+            </button>
+            <button class="device-button" data-device="gaming">
+                <div class="device-icon">🎮</div>
+                <h3>Gaming</h3>
+            </button>
+        </div>
+
+        <div class="important-note">
+            <strong>📧 Your DNS Server Addresses:</strong>
+            After completing your Stripe payment, you'll receive an email with your exclusive SiftDNS server addresses. Keep that email handy during setup!
+        </div>
+
+        <div class="dns-servers">
+            <h4>Primary DNS Server:</h4>
+            <p>Delivered via email after payment</p>
+            <h4>Secondary DNS Server:</h4>
+            <p>Delivered via email after payment</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--gray-600);">
+                <strong>New subscriber?</strong> Check your email inbox for "Welcome to SiftDNS" with your server addresses.
+            </p>
+        </div>
+
+        <div id="success-message" class="important-note" style="background: var(--accent); display: none;">
+            <strong>🎉 Welcome to SiftDNS!</strong>
+            Your subscription is active. Check your email for your exclusive DNS server addresses, then follow the setup instructions below. Your first month is free!
+        </div>
+
+        <div class="setup-section active" id="windows-setup">
+            <div class="setup-step">
+                <h3>Setting up SiftDNS on Windows 10/11</h3>
+                <ol>
+                    <li>
+                        <strong>Open Network Connections:</strong><br>
+                        Right-click on the Start Menu (Windows icon) and click on "Network Connections"
+                    </li>
+                    <li>
+                        <strong>Find Your Network Adapter:</strong><br>
+                        Right-click on your active connection (Wi-Fi or Ethernet) and select "Properties"
+                    </li>
+                    <li>
+                        <strong>Select Internet Protocol Version 4:</strong><br>
+                        Find and select "Internet Protocol Version 4 (TCP/IPv4)" and click "Properties"
+                    </li>
+                    <li>
+                        <strong>Change DNS Server Addresses:</strong><br>
+                        Select "Use the following DNS server addresses" and enter:
+                        <ul>
+                            <li>Preferred DNS server: <code>[Primary IP from email]</code></li>
+                            <li>Alternate DNS server: <code>[Secondary IP from email]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Save Your Changes:</strong><br>
+                        Click "OK" on all windows to save
+                    </li>
+                    <li>
+                        <strong>Flush DNS Cache (Recommended):</strong><br>
+                        Open Command Prompt and type: <code>ipconfig /flushdns</code>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="setup-section" id="mac-setup">
+            <div class="setup-step">
+                <h3>Setting up SiftDNS on macOS</h3>
+                <ol>
+                    <li>
+                        <strong>Open System Settings:</strong><br>
+                        Click the Apple menu (🍎) and select "System Settings" (or "System Preferences" on older versions)
+                    </li>
+                    <li>
+                        <strong>Go to Network:</strong><br>
+                        Click on "Network" in the settings window
+                    </li>
+                    <li>
+                        <strong>Select Your Connection:</strong><br>
+                        Choose your active connection (Wi-Fi or Ethernet) from the left sidebar
+                    </li>
+                    <li>
+                        <strong>Click Advanced:</strong><br>
+                        Click the "Advanced..." button at the bottom
+                    </li>
+                    <li>
+                        <strong>Go to DNS Tab:</strong><br>
+                        Click on the "DNS" tab in the popup window
+                    </li>
+                    <li>
+                        <strong>Add DNS Servers:</strong><br>
+                        Click the "+" button and add:
+                        <ul>
+                            <li><code>[Primary IP from email]</code></li>
+                            <li><code>[Secondary IP from email]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Apply Changes:</strong><br>
+                        Click "OK" then "Apply" to save your settings
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="setup-section" id="android-setup">
+            <div class="setup-step">
+                <h3>Setting up SiftDNS on Android</h3>
+                <ol>
+                    <li>
+                        <strong>Open Settings:</strong><br>
+                        Swipe down and tap the Settings icon (⚙️)
+                    </li>
+                    <li>
+                        <strong>Go to Network & Internet:</strong><br>
+                        Look for "Network & Internet", "Connections", or "Wi-Fi"
+                    </li>
+                    <li>
+                        <strong>Tap on Wi-Fi:</strong><br>
+                        Select Wi-Fi from the menu
+                    </li>
+                    <li>
+                        <strong>Long-Press Your Network:</strong><br>
+                        Find your connected Wi-Fi network and long-press on it
+                    </li>
+                    <li>
+                        <strong>Modify Network:</strong><br>
+                        Select "Modify network" or "Manage network settings"
+                    </li>
+                    <li>
+                        <strong>Show Advanced Options:</strong><br>
+                        Scroll down or tap on "Advanced options"
+                    </li>
+                    <li>
+                        <strong>Change IP Settings:</strong><br>
+                        Change "IP settings" from "DHCP" to "Static"
+                    </li>
+                    <li>
+                        <strong>Enter DNS Servers:</strong><br>
+                        In DNS 1: <code>[Primary IP from email]</code><br>
+                        In DNS 2: <code>[Secondary IP from email]</code>
+                    </li>
+                    <li>
+                        <strong>Save:</strong><br>
+                        Tap "Save" to apply changes
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="setup-section" id="ios-setup">
+            <div class="setup-step">
+                <h3>Setting up SiftDNS on iPhone/iPad</h3>
+                <ol>
+                    <li>
+                        <strong>Open Settings:</strong><br>
+                        Tap the Settings app on your home screen
+                    </li>
+                    <li>
+                        <strong>Tap on Wi-Fi:</strong><br>
+                        Select Wi-Fi from the settings menu
+                    </li>
+                    <li>
+                        <strong>Tap the "i" Icon:</strong><br>
+                        Find your connected network and tap the information icon (ⓘ) next to it
+                    </li>
+                    <li>
+                        <strong>Configure DNS:</strong><br>
+                        Scroll down and tap "Configure DNS"
+                    </li>
+                    <li>
+                        <strong>Select Manual:</strong><br>
+                        Choose "Manual" instead of "Automatic"
+                    </li>
+                    <li>
+                        <strong>Add DNS Servers:</strong><br>
+                        Tap "Add Server" and enter:
+                        <ul>
+                            <li><code>[Primary IP from email]</code></li>
+                            <li><code>[Secondary IP from email]</code></li>
+                        </ul>
+                        Remove any existing servers by tapping the red minus button
+                    </li>
+                    <li>
+                        <strong>Save:</strong><br>
+                        Tap "Save" in the top-right corner
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="setup-section" id="router-setup">
+            <div class="setup-step">
+                <h3>Setting up SiftDNS on Your Router (Recommended!)</h3>
+                <p style="margin-bottom: 1.5rem;">Setting up SiftDNS on your router protects ALL devices on your network automatically!</p>
+                
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">Method 1: Router Web Interface</h4>
+                <ol>
+                    <li>
+                        <strong>Access Your Router:</strong><br>
+                        Open a web browser and go to your router's IP address (usually <code>192.168.1.1</code> or <code>192.168.0.1</code>)
+                    </li>
+                    <li>
+                        <strong>Log In:</strong><br>
+                        Enter your router's username and password (check the sticker on your router if unsure)
+                    </li>
+                    <li>
+                        <strong>Find DNS Settings:</strong><br>
+                        Look for "DNS Settings", "Network Settings", or "Internet Settings"
+                    </li>
+                    <li>
+                        <strong>Enter SiftDNS Servers:</strong><br>
+                        Replace existing DNS with:
+                        <ul>
+                            <li>Primary DNS: <code>[Primary IP from email]</code></li>
+                            <li>Secondary DNS: <code>[Secondary IP from email]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Save and Restart:</strong><br>
+                        Save settings and restart your router if prompted
+                    </li>
+                </ol>
+
+                <h4 style="color: var(--primary); margin: 2rem 0 1rem;">Method 2: Router Mobile Apps</h4>
+                <p style="margin-bottom: 1rem;">Many newer routers use smartphone apps instead of web interfaces:</p>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li><strong>Eero:</strong> Open Eero app → Settings → Network Settings → DNS</li>
+                    <li><strong>Google Nest Wifi:</strong> Google Home app → WiFi → Settings → Advanced networking → DNS</li>
+                    <li><strong>ASUS:</strong> ASUS Router app → Settings → LAN → DNS Server</li>
+                    <li><strong>Netgear Orbi:</strong> Orbi app → Settings → Internet Settings → DNS</li>
+                    <li><strong>TP-Link Deco:</strong> Deco app → Advanced → IPv4 → DNS Server</li>
+                </ul>
+                <p style="margin-bottom: 1.5rem;">Look for "DNS", "Custom DNS", or "Advanced Network Settings" in your router's app, then enter your SiftDNS server addresses.</p>
+                
+                <div class="important-note" style="margin-top: 2rem;">
+                    <strong>✨ Pro Tip:</strong>
+                    This is the best option! All your devices (phones, tablets, smart TVs, gaming consoles) will automatically use SiftDNS without any individual setup.
+                </div>
+            </div>
+        </div>
+
+        <div class="setup-section" id="gaming-setup">
+            <div class="setup-step">
+                <h3>🎮 Gamer's Guide to SiftDNS</h3>
+                <p style="margin-bottom: 1.5rem;">Level up your gaming with faster connections and DDoS protection!</p>
+                
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">Why Gamers Love SiftDNS:</h4>
+                <ul style="margin-bottom: 2rem;">
+                    <li>✅ <strong>Reduced Ping:</strong> Direct root server queries mean faster DNS resolution</li>
+                    <li>✅ <strong>No ISP Throttling:</strong> Bypass ISP gaming traffic limitations</li>
+                    <li>✅ <strong>DDoS Protection:</strong> Hide your DNS queries from potential attackers</li>
+                    <li>✅ <strong>Faster Matchmaking:</strong> Quick DNS lookups for game servers</li>
+                </ul>
+
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">PlayStation Setup:</h4>
+                <ol>
+                    <li>Go to Settings → Network → Set Up Internet Connection</li>
+                    <li>Choose Wi-Fi or LAN Cable</li>
+                    <li>Select "Custom"</li>
+                    <li>For DNS Settings, choose "Manual"</li>
+                    <li>Enter Primary: <code>[Primary IP from email]</code> and Secondary: <code>[Secondary IP from email]</code></li>
+                </ol>
+
+                <h4 style="color: var(--primary); margin: 2rem 0 1rem;">Xbox Setup:</h4>
+                <ol>
+                    <li>Press Xbox button → Settings → Network</li>
+                    <li>Select "Network settings" → "Advanced settings"</li>
+                    <li>Select "DNS settings" → "Manual"</li>
+                    <li>Enter Primary: <code>[Primary IP from email]</code> and Secondary: <code>[Secondary IP from email]</code></li>
+                </ol>
+
+                <h4 style="color: var(--primary); margin: 2rem 0 1rem;">Nintendo Switch Setup:</h4>
+                <ol>
+                    <li>System Settings → Internet → Internet Settings</li>
+                    <li>Select your network → Change Settings</li>
+                    <li>DNS Settings → Manual</li>
+                    <li>Enter Primary: <code>[Primary IP from email]</code> and Secondary: <code>[Secondary IP from email]</code></li>
+                </ol>
+            </div>
+            
+            <div class="important-note">
+                <strong>🏆 Pro Gamer Tip:</strong>
+                One user reported their latency dropping from 27ms to 9ms after switching to SiftDNS. Your results may vary, but the improvement is real!
+            </div>
+        </div>
+
+        <div class="setup-step" style="margin-top: 4rem;">
+            <h3>🔧 Troubleshooting & Tips</h3>
+            
+            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Common Issues:</h4>
+            <ul>
+                <li><strong>Can't access certain websites:</strong> Some sites may be in our blocklist. Custom whitelisting is available for Business plan customers only. Individual plan users cannot modify the blocklist.</li>
+                <li><strong>Slow internet after setup:</strong> Try flushing your DNS cache or restarting your device.</li>
+                <li><strong>Settings won't save:</strong> Make sure you have admin/administrator privileges on your device.</li>
+                <li><strong>Gaming lag increased:</strong> Try using only the primary DNS server and leave secondary blank.</li>
+            </ul>
+
+            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Testing Your Setup:</h4>
+            <ol>
+                <li>Visit <strong>ads-blocker.com/testing</strong> - you should see no ads</li>
+                <li>Try browsing news websites - ads should be blocked</li>
+                <li>Check <strong>whatismydnsserver.com</strong> to verify you're using SiftDNS</li>
+                <li>If setup was successful, you should see significantly fewer ads across all websites</li>
+            </ol>
+
+            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Don't Have Your DNS Addresses Yet?</h4>
+            <p>You'll need an active SiftDNS subscription to get your exclusive server addresses. <a href="/" style="color: var(--primary); text-decoration: none;"><strong>Start your free trial here →</strong></a></p>
+            
+            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Need Help?</h4>
+            <p>Contact us at <strong>support@siftdns.com</strong> with your setup questions. We respond quickly and are here to help! Please include your email address from your Stripe purchase so we can verify your account.</p>
+        </div>
+    </div>
+
+    <script>
+        const deviceButtons = document.querySelectorAll('.device-button');
+        const setupSections = document.querySelectorAll('.setup-section');
+
+        deviceButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const device = button.getAttribute('data-device');
+                
+                deviceButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                setupSections.forEach(section => section.classList.remove('active'));
+                document.getElementById(`${device}-setup`).classList.add('active');
+            });
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('success-message').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
