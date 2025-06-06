@@ -709,7 +709,7 @@
             }
 
             .comparison-row:not(.header) > div:nth-child(2)::before { content: "SiftDNS: "; font-weight: 600; color: var(--primary); }
-            .comparison-row:not(.header) > div:nth-child(3)::before { content: "Others: "; font-weight: 600; color: var(--gray-600); }
+            .comparison-row:not(.header) > div:nth-child(3)::before { content: "Big Tech: "; font-weight: 600; color: var(--gray-600); }
             .comparison-row:not(.header) > div:nth-child(4)::before { content: "Your ISP: "; font-weight: 600; color: var(--gray-600); }
             
             .footer-content {
@@ -742,7 +742,7 @@
 
     <header id="header">
         <nav>
-            <div class="logo">
+            <a href="/" class="logo">
                 <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -756,11 +756,12 @@
                     <rect x="18" y="20" width="4" height="8" fill="white"/>
                 </svg>
                 SiftDNS
-            </div>
+            </a>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#comparison">Compare</a>
                 <a href="#pricing">Pricing</a>
+                <a href="/setup">Setup</a>
                 <a href="#faq">FAQ</a>
                 <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button">Start Free Trial</a>
             </div>
@@ -774,7 +775,7 @@
             
             <div class="stats">
                 <div class="stat-item">
-                    <span class="stat-number">350K+</span>
+                    <span class="stat-number">430K+</span>
                     <span class="stat-label">Domains Blocked</span>
                 </div>
                 <div class="stat-item">
@@ -791,7 +792,7 @@
                 Start Your Free Month →
             </a>
             <p style="margin-top: 1rem; opacity: 0.9;">30-day free trial, then from $3/month</p>
-            <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: rgba(255,255,255,0.9); text-decoration: underline;">invoice</a></p>
+            <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Your DNS server addresses are available immediately in your Stripe payment <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: white; text-decoration: underline;">invoice</a></p>
         </div>
     </section>
 
@@ -805,13 +806,13 @@
             <div class="feature-card">
                 <div class="feature-icon">🛡️</div>
                 <h3>True Independence</h3>
-                <p>We query root servers directly. No Google. No Cloudflare. No middlemen. Your queries, your privacy, guaranteed.</p>
+                <p>We query root servers directly. No Big Tech. No middlemen. Your queries, your privacy, guaranteed.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">🚫</div>
                 <h3>Unmatched Blocking Power</h3>
-                <p>350,000+ domains blocked. The most comprehensive filtering available.</p>
+                <p>430,000+ domains blocked. The most comprehensive filtering available.</p>
             </div>
 
             <div class="feature-card">
@@ -853,12 +854,12 @@
             <div class="comparison-row header">
                 <div>Feature</div>
                 <div>SiftDNS</div>
-                <div>Other DNS Services</div>
+                <div>Big Tech DNS Services</div>
                 <div>Your ISP</div>
             </div>
             <div class="comparison-row">
                 <div>Domains Blocked</div>
-                <div class="comparison-cell-sift"><strong>350K+ domains</strong></div>
+                <div class="comparison-cell-sift"><strong>430K+ domains</strong></div>
                 <div>100K-200K domains</div>
                 <div>None</div>
             </div>
@@ -909,7 +910,7 @@
         <div style="background: var(--accent); color: white; padding: 2rem; border-radius: 12px; margin: 3rem auto; max-width: 800px;">
             <h4 style="margin-bottom: 1rem; font-size: 1.3rem;">🏆 Why SiftDNS Wins:</h4>
             <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Highest blacklist count</strong> — more domains blocked than most competitors</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>Highest blacklist count</strong> — more domains blocked than Big Tech competitors</li>
                 <li style="margin-bottom: 0.5rem;">✅ <strong>No software maintenance</strong> — users don't need to install apps or extensions</li>
                 <li style="margin-bottom: 0.5rem;">✅ <strong>No passwords or accounts</strong> — just change your DNS and you're protected</li>
                 <li style="margin-bottom: 0.5rem;">✅ <strong>Stronger privacy commitment</strong> — zero tracking or data logging</li>
@@ -933,7 +934,7 @@
                 </div>
                 <p style="margin-bottom: 2rem;">Perfect for personal use. Protect all your devices.</p>
                 <ul style="list-style: none; margin-bottom: 2rem;">
-                    <li>✓ 350K+ domains blocked</li>
+                    <li>✓ 430K+ domains blocked</li>
                     <li>✓ Zero logging guarantee</li>
                     <li>✓ Direct root server queries</li>
                     <li>✓ Unlimited personal devices</li>
@@ -998,7 +999,7 @@
                     </svg>
                 </button>
                 <div class="faq-answer">
-                    <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device. Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a>.</p>
+                    <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device. Your DNS server addresses are available immediately in your Stripe payment <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--gray-600); text-decoration: underline;">invoice</a>.</p>
                 </div>
             </div>
 
@@ -1016,7 +1017,7 @@
 
             <div class="faq-item">
                 <button class="faq-question">
-                    <span>Do you really block 350K+ domains?</span>
+                    <span>Do you really block 430K+ domains?</span>
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M6 9l6 6 6-6"/>
                     </svg>
