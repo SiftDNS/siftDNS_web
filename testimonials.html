@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiftDNS - Real User Stories | Customer Testimonials</title>
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YOUR_MEASUREMENT_ID');
-    </script>
-    
     <style>
         :root {
             --primary: #4f46e5;
@@ -86,7 +77,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -257,7 +248,7 @@
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 900;
             margin-bottom: 1rem;
             background: var(--gradient-primary);
@@ -276,18 +267,19 @@
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-bottom: 4rem;
         }
 
         .testimonial-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 2.5rem;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--gray-100);
         }
 
         .testimonial-card::before {
@@ -303,8 +295,8 @@
         }
 
         .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
 
         .testimonial-card:hover::before {
@@ -328,7 +320,7 @@
             top: -1rem;
             left: -1rem;
             font-family: serif;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
         .testimonial-author {
@@ -348,6 +340,7 @@
             color: white;
             font-weight: 700;
             font-size: 1.2rem;
+            box-shadow: 0 3px 15px rgba(79, 70, 229, 0.3);
         }
 
         .author-info h4 {
@@ -435,6 +428,7 @@
             
             .testimonials-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .footer-content {
@@ -442,27 +436,9 @@
                 text-align: center;
             }
         }
-
-        .loading-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            width: 0;
-            z-index: 9999;
-            animation: loading 2s ease-out forwards;
-        }
-
-        @keyframes loading {
-            to {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="loading-bar"></div>
     <div class="animated-bg"></div>
 
     <header id="header">
@@ -528,6 +504,19 @@
                     <div class="author-info">
                         <h4>Jason P.</h4>
                         <p>Tech Enthusiast</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    My game (in the UK) currently had 0ms.
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">J</div>
+                    <div class="author-info">
+                        <h4>Jason P.</h4>
+                        <p>Gaming Performance</p>
                     </div>
                 </div>
             </div>
@@ -629,34 +618,6 @@
             } else {
                 header.classList.remove('scrolled');
             }
-        });
-
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.loading-bar').style.display = 'none';
-            }, 2000);
-        });
-
-        // Animate testimonial cards on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.testimonial-card').forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = `all 0.6s ease ${index * 0.1}s`;
-            observer.observe(el);
         });
     </script>
 </body>

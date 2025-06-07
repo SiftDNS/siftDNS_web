@@ -1,0 +1,115 @@
+# robots.txt for siftdns.com
+# This file tells search engine crawlers which pages to crawl and which to avoid
+
+User-agent: *
+
+# Allow crawling of main pages
+Allow: /
+Allow: /index.html
+Allow: /setup
+Allow: /setup.html
+Allow: /testimonials
+Allow: /testimonials.html
+Allow: /privacy
+Allow: /privacy.html
+Allow: /terms
+Allow: /terms.html
+
+# Allow crawling of common assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /assets/
+Allow: /favicon.ico
+Allow: /sitemap.xml
+
+# Disallow crawling of sensitive or unnecessary pages
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /config/
+Disallow: /logs/
+
+# Disallow crawling of dynamic URLs with parameters that might cause duplicate content
+Disallow: /*?success=*
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?source=*
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Throttle aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Block known bad bots
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: WebZip
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: Microsoft URL Control
+Disallow: /
+
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: EmailSiphon
+Disallow: /
+
+User-agent: WebBandit
+Disallow: /
+
+User-agent: EmailWolf
+Disallow: /
+
+User-agent: ExtractorPro
+Disallow: /
+
+User-agent: CopyRightCheck
+Disallow: /
+
+User-agent: psbot
+Disallow: /
+
+User-agent: asterias
+Disallow: /
+
+User-agent: suzuran
+Disallow: /
+
+User-agent: VoidEYE
+Disallow: /
+
+User-agent: Cyveillance
+Disallow: /
+
+# Sitemap location
+Sitemap: https://siftdns.com/sitemap.xml
