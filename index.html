@@ -576,6 +576,19 @@
             margin: 0 auto;
         }
 
+        .faq-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
         .faq-item {
             background: white;
             border-radius: 12px;
@@ -625,7 +638,7 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 300px;
+            max-height: 600px;
         }
 
         .faq-answer p {
@@ -835,7 +848,7 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🌍</div>
+                <div class="feature-icon">🌐</div>
                 <h3>Global Availability</h3>
                 <p>Works everywhere. Any device. The internet as it was meant to be.</p>
             </div>
@@ -911,11 +924,11 @@
         <div style="background: var(--accent); color: white; padding: 2rem; border-radius: 12px; margin: 3rem auto; max-width: 800px;">
             <h4 style="margin-bottom: 1rem; font-size: 1.3rem;">🏆 Why SiftDNS Wins:</h4>
             <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Highest blacklist count</strong> – more domains blocked than Big Tech competitors</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>No software maintenance</strong> – users don't need to install apps or extensions</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>No passwords or accounts</strong> – just change your DNS and you're protected</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Stronger privacy commitment</strong> – zero tracking or data logging</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Independent, user-focused</strong> – not tied to big corporate entities</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>Highest blacklist count</strong> — more domains blocked than Big Tech competitors</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>No software maintenance</strong> — users don't need to install apps or extensions</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>No passwords or accounts</strong> — just change your DNS and you're protected</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>Stronger privacy commitment</strong> — zero tracking or data logging</li>
+                <li style="margin-bottom: 0.5rem;">✅ <strong>Independent, user-focused</strong> — not tied to big corporate entities</li>
             </ul>
         </div>
     </section>
@@ -980,123 +993,367 @@
         </div>
 
         <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>What is DNS and why should I care?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>DNS is like the internet's phonebook. When you type a website address, DNS translates it into the numerical IP address computers understand. Your ISP's default DNS often tracks your browsing, serves ads, and can be slow. SiftDNS gives you a faster, private, ad-free alternative.</p>
+            <!-- Getting Started -->
+            <div class="faq-category">
+                <h3 class="category-title">Getting Started</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is DNS and why should I care?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>DNS is like the internet's phonebook. When you type a website address, DNS translates it into the numerical IP address computers understand. Your ISP's default DNS often tracks your browsing, serves ads, and can be slow. SiftDNS gives you a faster, private, ad-free alternative.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How difficult is it to set up?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device. Your DNS server addresses are available immediately in your Stripe payment <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--gray-600); text-decoration: underline;">invoice</a>.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Will SiftDNS work with my router/firewall/VPN?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>SiftDNS works with virtually all networking equipment. You can set it at the device level (Windows, Mac, iPhone, Android) or at your router level to protect all devices at once. It's compatible with VPNs, firewalls, and enterprise networking gear.</p>
+                        <p>VPNs and SiftDNS work great together as a team - SiftDNS blocks ads and malware at the DNS level while your VPN encrypts all your traffic and hides your IP address. This combination gives you maximum privacy and security. Most VPN services allow you to specify custom DNS servers, so you can enjoy both benefits simultaneously.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I use SiftDNS on public WiFi networks?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! SiftDNS is especially valuable on public networks where you can't control the default DNS. Set SiftDNS on your devices before connecting to coffee shops, hotels, or airports. You'll get ad blocking, malware protection, and privacy even on untrusted networks. Note that some captive portals may temporarily require the default DNS for initial login.</p>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <!-- Performance & Blocking -->
+            <div class="faq-category">
+                <h3 class="category-title">Performance & Blocking</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Will this slow down my internet?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Actually, the opposite! SiftDNS often makes your internet faster. By blocking ads and trackers at the DNS level, pages load quicker. Plus, our optimized routing and caching means DNS lookups are lightning fast. Gamers report significantly lower ping times.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How much faster will my internet feel with SiftDNS?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Speed improvements vary by usage, but most users notice:</p>
+                        <ul style="list-style: none; margin: 1rem 0; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">⚡ <strong>20-40% faster page loads</strong> due to blocked ads and trackers</li>
+                            <li style="margin-bottom: 0.5rem;">📱 <strong>Reduced data usage</strong> on mobile devices</li>
+                            <li style="margin-bottom: 0.5rem;">🎮 <strong>Lower ping times</strong> for gaming (often 5-15ms improvement)</li>
+                            <li style="margin-bottom: 0.5rem;">🌐 <strong>Smoother browsing</strong> without ad network delays</li>
+                        </ul>
+                        <p>The most noticeable improvement is on ad-heavy sites like news websites, where pages load dramatically faster without dozens of tracking scripts.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you really block 430K+ domains?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We maintain one of the most comprehensive blocklists available, covering ads, trackers, malware, and phishing sites. This is significantly more than most other DNS services. The result? Clean browsing across all your devices.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What if SiftDNS blocks a website I need to access?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>False positives are rare but can happen. If you need to access a blocked site temporarily, you can:</p>
+                        <ul style="list-style: none; margin: 1rem 0; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">🔄 Temporarily switch to another DNS (like 8.8.8.8) for that session</li>
+                            <li style="margin-bottom: 0.5rem;">📧 Contact our support team to request a review of the blocked domain</li>
+                            <li style="margin-bottom: 0.5rem;">🕵️ Use your device's private/incognito mode with different DNS settings</li>
+                            <li style="margin-bottom: 0.5rem;">📱 On mobile devices, quickly switch to cellular data for that specific access, then return to your protected WiFi</li>
+                        </ul>
+                        <p>We continuously refine our blocklists to minimize false positives while maintaining strong protection. The mobile cellular option is especially convenient - just toggle WiFi off, access what you need, then toggle back on to return to SiftDNS protection.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does SiftDNS compare to browser ad blockers like uBlock Origin?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>They work differently and complement each other:</p>
+                        <ul style="list-style: none; margin: 1rem 0; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">🛡️ <strong>SiftDNS:</strong> Blocks at the DNS level before requests leave your device. Works on all apps, games, and browsers automatically.</li>
+                            <li style="margin-bottom: 0.5rem;">🌐 <strong>Browser extensions:</strong> Block content after it's downloaded, only work in specific browsers, require manual installation/updates.</li>
+                        </ul>
+                        <p>Many users run both for maximum protection. SiftDNS handles the heavy lifting system-wide, while browser extensions catch any remaining ads that slip through.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Will SiftDNS break streaming services or online shopping?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, SiftDNS is carefully configured to preserve functionality of legitimate services. We don't block:</p>
+                        <ul style="list-style: none; margin: 1rem 0; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">📺 Netflix, Hulu, Disney+, YouTube, Spotify and other streaming platforms</li>
+                            <li style="margin-bottom: 0.5rem;">🛒 Amazon, eBay, shopping sites, or payment processors</li>
+                            <li style="margin-bottom: 0.5rem;">💬 Social media platforms, email services, or productivity tools</li>
+                            <li style="margin-bottom: 0.5rem;">🎮 Gaming services, app stores, or software updates</li>
+                        </ul>
+                        <p>We only block ads, trackers, malware, and phishing domains. Your normal browsing and app usage remains unaffected.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I use this for gaming?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! Gamers love SiftDNS. It prevents ISP throttling, reduces ping times, and protects against DDoS attacks. One user reported latency dropping from 27ms to 9ms. Works great with PlayStation, Xbox, Switch, and PC gaming.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>How difficult is it to set up?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device. Your DNS server addresses are available immediately in your Stripe payment <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--gray-600); text-decoration: underline;">invoice</a>.</p>
+            <!-- Privacy & Security -->
+            <div class="faq-category">
+                <h3 class="category-title">Privacy & Security</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What about my privacy?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Zero logging. Period. We don't track, store, or sell your DNS queries. Unlike your ISP or free DNS services, we have no interest in your browsing data. We query root servers directly, ensuring complete independence from big tech companies.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I know you actually don't log my DNS queries?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Trust is earned, not claimed. Here's our approach to transparency:</p>
+                        <ul style="list-style: none; margin: 1rem 0; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">💰 We have no business model requiring your data (you pay us directly)</li>
+                            <li style="margin-bottom: 0.5rem;">🔧 Our infrastructure is designed to process queries in memory without persistent storage</li>
+                            <li style="margin-bottom: 0.5rem;">🏢 We're not a venture-backed company with investors demanding data monetization</li>
+                            <li style="margin-bottom: 0.5rem;">📊 We publish regular transparency reports about our operations</li>
+                        </ul>
+                        <p>Unlike "free" services that must monetize users somehow, our $3/month fee eliminates any incentive to collect or sell your data.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can my ISP still see what websites I visit with SiftDNS?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>SiftDNS prevents your ISP from seeing DNS queries, but they can still see:</p>
+                        <ul style="list-style: none; margin: 1rem 0; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">🌐 IP addresses you connect to (though not what you do there)</li>
+                            <li style="margin-bottom: 0.5rem;">📊 Amount of data transferred</li>
+                            <li style="margin-bottom: 0.5rem;">⏰ Connection timestamps</li>
+                        </ul>
+                        <p>For complete privacy from your ISP, combine SiftDNS with a VPN. SiftDNS hides your browsing intentions at the DNS level, while a VPN encrypts all traffic. This combination provides maximum privacy and ad blocking.</p>
+                        <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); border: 1px solid #f59e0b; border-radius: 8px; padding: 1rem; margin: 1rem 0; color: #92400e;">
+                            <strong>Note:</strong> HTTPS websites (which most sites use) already encrypt content from your ISP, but DNS queries reveal your intentions before you connect.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What happens to my data if SiftDNS shuts down?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Since we don't store your browsing data, there's nothing to compromise if we shut down. The worst case scenario:</p>
+                        <ul style="list-style: none; margin: 1rem 0; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">📱 Your devices would fall back to default DNS (no data breach risk)</li>
+                            <li style="margin-bottom: 0.5rem;">🚫 You'd lose ad blocking until switching to another service</li>
+                            <li style="margin-bottom: 0.5rem;">🔒 No personal information would be exposed because we don't collect it</li>
+                        </ul>
+                        <p>This is the advantage of our privacy-first approach – your data can't be compromised because we don't have it to begin with.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Will this slow down my internet?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Actually, the opposite! SiftDNS often makes your internet faster. By blocking ads and trackers at the DNS level, pages load quicker. Plus, our optimized routing and caching means DNS lookups are lightning fast. Gamers report significantly lower ping times.</p>
+            <!-- Reliability & Support -->
+            <div class="faq-category">
+                <h3 class="category-title">Reliability & Support</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What happens if SiftDNS servers go down?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We provide multiple DNS server IPs for redundancy. Most devices automatically fail over to the secondary DNS if the primary is unavailable. We maintain 99.9%+ uptime, but as a backup, you can temporarily switch to another DNS service if needed. Our system status page shows real-time availability.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do the DNS server IP addresses ever change?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Occasionally, yes. We may update DNS server IPs for service improvements, security updates, or infrastructure maintenance. When this happens, we'll email all subscribers with the new IPs and clear instructions. These changes are rare and we provide plenty of advance notice.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What if I need help?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We're here for you! All subscribers get support via email. We have detailed setup guides, and our team responds quickly to any questions. Plus, you can cancel anytime if you're not completely satisfied.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Do you really block 430K+ domains?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes! We maintain one of the most comprehensive blocklists available, covering ads, trackers, malware, and phishing sites. This is significantly more than most other DNS services. The result? Clean browsing across all your devices.</p>
+            <!-- Family & Business Use -->
+            <div class="faq-category">
+                <h3 class="category-title">Family & Business Use</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I use one SiftDNS account for my whole family?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! The Individual plan covers unlimited personal devices. Set SiftDNS on your home router to protect all family devices automatically, or configure it on each device individually. Perfect for families who want comprehensive ad blocking and malware protection across all phones, tablets, laptops, and smart TVs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is SiftDNS suitable for small businesses?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Many small businesses use our Individual plan successfully. Benefits include:</p>
+                        <ul style="list-style: none; margin: 1rem 0; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">🛡️ Reduced malware risk from employee browsing</li>
+                            <li style="margin-bottom: 0.5rem;">⚡ Faster internet due to blocked ads and trackers</li>
+                            <li style="margin-bottom: 0.5rem;">📊 Lower bandwidth usage</li>
+                            <li style="margin-bottom: 0.5rem;">🔧 Simple setup on office router or individual devices</li>
+                        </ul>
+                        <p>Our upcoming Business plan will add features like custom whitelisting, usage analytics, and priority support specifically for commercial environments.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>When will business plans be available?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Business plans are coming soon! We're launching with individual subscriptions first to ensure excellent service quality. Business features will include custom whitelisting, advanced analytics, priority support, and enterprise SLAs. Sign up for individual service now and we'll notify you when business plans launch.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>What about my privacy?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Zero logging. Period. We don't track, store, or sell your DNS queries. Unlike your ISP or free DNS services, we have no interest in your browsing data. We query root servers directly, ensuring complete independence from big tech companies.</p>
+            <!-- Billing & Service -->
+            <div class="faq-category">
+                <h3 class="category-title">Billing & Service</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What happens after my free trial ends?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>After your 30-day free trial, Stripe automatically charges $3/month if you haven't cancelled. You can cancel anytime through the Stripe customer portal link in your invoice email. If you cancel, service continues until the end of your current billing period, then your DNS simply stops filtering (no data loss).</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Can I use this for gaming?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Absolutely! Gamers love SiftDNS. It prevents ISP throttling, reduces ping times, and protects against DDoS attacks. One user reported latency dropping from 27ms to 9ms. Works great with PlayStation, Xbox, Switch, and PC gaming.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Do the DNS server IP addresses ever change?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Occasionally, yes. We may update DNS server IPs for service improvements, security updates, or infrastructure maintenance. When this happens, we'll email all subscribers with the new IPs and clear instructions. These changes are rare and we provide plenty of advance notice.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>What if I need help?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>We're here for you! All subscribers get support via email. We have detailed setup guides, and our team responds quickly to any questions. Plus, you can cancel anytime if you're not completely satisfied.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>When will business plans be available?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Business plans are coming soon! We're launching with individual subscriptions first to ensure excellent service quality. Business features will include custom whitelisting, advanced analytics, priority support, and enterprise SLAs. Sign up for individual service now and we'll notify you when business plans launch.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Why isn't this free like other DNS services?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Free DNS services make money by selling your data or showing ads. At $3/month, we can maintain true independence, zero logging, and the most comprehensive filtering available. No venture capital, no data mining—just honest service.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Why isn't this free like other DNS services?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Free DNS services make money by selling your data or showing ads. At $3/month, we can maintain true independence, zero logging, and the most comprehensive filtering available. No venture capital, no data mining—just honest service.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1212,3 +1469,4 @@
     </script>
 </body>
 </html>
+                
