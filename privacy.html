@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SiftDNS Privacy Policy - Zero Logging DNS Service</title>
+    <meta name="description" content="SiftDNS is a zero-logging DNS service. Read our clear, simple privacy policy to understand what little data we handle and how we are committed to protecting your online privacy.">
+    <title>SiftDNS Privacy Policy - Zero-Log DNS Service</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -27,313 +28,62 @@
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--white);
-            color: var(--gray-900);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-weight: 800;
-            font-size: 1.75rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 12px;
-        }
-
-        .back-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .back-link:hover {
-            transform: translateX(-5px);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-
-        .hero .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .privacy-promise {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 600px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .privacy-promise h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .privacy-promise p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-
-        .privacy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 2rem auto 0;
-        }
-
-        .privacy-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-
-        .privacy-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .privacy-card p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Content */
-        .content {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        .privacy-summary {
-            background: var(--gray-50);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border-left: 4px solid var(--accent);
-        }
-
-        .privacy-summary h2 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .data-comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .data-we-dont-collect, .data-we-collect {
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .data-we-dont-collect {
-            background: #f0f9ff;
-            border: 1px solid #0ea5e9;
-        }
-
-        .data-we-collect {
-            background: #f0fdf4;
-            border: 1px solid var(--accent);
-        }
-
-        .data-we-dont-collect h3 {
-            color: #0ea5e9;
-            margin-bottom: 1rem;
-        }
-
-        .data-we-collect h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .data-comparison ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .data-comparison li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .data-we-dont-collect li::before {
-            content: "✗";
-            color: #ef4444;
-            font-weight: bold;
-        }
-
-        .data-we-collect li::before {
-            content: "✓";
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .legal-content {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .legal-content h2 {
-            color: var(--primary);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .legal-content h3 {
-            color: var(--gray-800);
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .legal-content ul, .legal-content ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-content li {
-            margin-bottom: 0.5rem;
-        }
-
-        .legal-content p {
-            margin-bottom: 1rem;
-        }
-
-        .legal-content strong {
-            color: var(--gray-900);
-        }
-
-        .highlight-box {
-            background: #fffbeb;
-            border: 1px solid #f59e0b;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-
-        .highlight-box strong {
-            color: #f59e0b;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--gradient-dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        /* Responsive */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: var(--white); color: var(--gray-900); line-height: 1.6; }
+        header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.75rem; color: var(--primary); text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; margin-right: 12px; }
+        .back-link { color: var(--primary); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease; }
+        .back-link:hover { transform: translateX(-5px); }
+        .hero { background: var(--gradient-primary); color: white; padding: 4rem 2rem; text-align: center; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 900; }
+        .hero .subtitle { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto;}
+        .privacy-promise { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 16px; padding: 2rem; margin: 2rem auto; max-width: 600px; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .privacy-promise h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .privacy-promise p { font-size: 1.1rem; opacity: 0.95; }
+        .content { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        .data-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        .data-card { padding: 2rem; border-radius: 12px; }
+        .data-card h3 { margin-bottom: 1rem; }
+        .data-card ul { list-style: none; padding: 0; }
+        .data-card li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        .data-card--no { background: #fff1f2; border: 1px solid #f43f5e; color: #9f1239;}
+        .data-card--no h3 { color: #be123c;}
+        .data-card--no li::before { content: "✗"; color: #f43f5e; font-weight: bold; }
+        .data-card--yes { background: #f0fdf4; border: 1px solid var(--accent); color: #14532d;}
+        .data-card--yes h3 { color: #166534;}
+        .data-card--yes li::before { content: "✓"; color: var(--accent); font-weight: bold; }
+        .legal-content { background: white; border-radius: 12px; padding: 3rem; box-shadow: var(--shadow-md); }
+        .legal-content h1, .legal-content h2, .legal-content h3 { color: var(--primary); margin-bottom: 1rem; }
+        .legal-content h1 { font-size: 2rem; }
+        .legal-content h2 { margin-top: 2.5rem; font-size: 1.5rem; border-bottom: 1px solid var(--gray-200); padding-bottom: 0.5rem; }
+        .legal-content p { margin-bottom: 1rem; }
+        .legal-content strong { color: var(--gray-900); }
+        .legal-content ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .legal-content li { margin-bottom: 0.5rem; }
+        .highlight-box { background: #fefce8; border: 1px solid #eab308; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; color: #713f12;}
+        .highlight-box strong { color: #854d0e; }
+        footer { background: var(--gradient-dark); color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .privacy-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .data-comparison {
-                grid-template-columns: 1fr;
-            }
-            
-            .legal-content {
-                padding: 2rem 1.5rem;
-            }
+            .hero h2 { font-size: 2rem; }
+            .data-comparison { grid-template-columns: 1fr; }
+            .legal-content { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
             <a href="/" class="logo">
-                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" 
-                          fill="url(#logoGradient)" opacity="0.9"/>
-                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="white"/>
-                    <rect x="18" y="20" width="4" height="8" fill="white"/>
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w.org/2000/svg" aria-hidden="true" focusable="false">
+                    <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" /></linearGradient></defs>
+                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" fill="url(#logoGradient)" opacity="0.9"/><path d="M15,15 L25,15 L23,20 L17,20 Z" fill="white"/><rect x="18" y="20" width="4" height="8" fill="white"/>
                 </svg>
                 SiftDNS
             </a>
             <a href="/" class="back-link">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                     <path d="M19 12H5M12 19l-7-7 7-7"/>
                 </svg>
                 Back to Home
@@ -341,345 +91,90 @@
         </nav>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
-        <h1>Privacy by Design</h1>
-        <p class="subtitle">We built SiftDNS to protect your privacy, not collect your data.</p>
-        
+        <h2>Privacy by Design</h2>
+        <p class="subtitle">Our business is protecting your privacy, not profiting from your data. This policy explains our simple, privacy-first approach.</p>
         <div class="privacy-promise">
-            <h2>🔒 Our Core Privacy Commitment</h2>
-            <p><strong>We do not log, store, or monitor your DNS queries.</strong><br>
-            We don't store your personal information. Period.</p>
-        </div>
-        
-        <div class="privacy-grid">
-            <div class="privacy-card">
-                <h3>🚫 Zero DNS Logging</h3>
-                <p>We never see what websites you visit. Your browsing history stays private.</p>
-            </div>
-            <div class="privacy-card">
-                <h3>💳 Stripe Handles Everything</h3>
-                <p>All payment and customer data is managed by Stripe. We don't store personal info.</p>
-            </div>
-            <div class="privacy-card">
-                <h3>📧 Support Emails Only</h3>
-                <p>The only data we might have is your email if you contact us for support.</p>
-            </div>
-            <div class="privacy-card">
-                <h3>🏗️ No Customer Database</h3>
-                <p>We don't maintain account records, passwords, or billing information.</p>
-            </div>
+            <h3>🔒 Our Core Privacy Commitment</h3>
+            <p><strong>We do not log, store, or sell your DNS queries. Period.</strong></p>
         </div>
     </section>
 
-    <!-- Content -->
     <div class="content">
-        <div class="privacy-summary">
-            <h2>The SiftDNS Privacy Difference</h2>
-            <p>Most DNS services collect and store your personal information. We designed SiftDNS differently:</p>
-            
-            <div class="data-comparison">
-                <div class="data-we-dont-collect">
-                    <h3>What We DON'T Collect</h3>
-                    <ul>
-                        <li>DNS queries or browsing history</li>
-                        <li>IP address logs</li>
-                        <li>Personal browsing data</li>
-                        <li>Account passwords or credentials</li>
-                        <li>Billing information</li>
-                        <li>Customer databases</li>
-                    </ul>
-                </div>
-                
-                <div class="data-we-collect">
-                    <h3>What We Might Collect</h3>
-                    <ul>
-                        <li>Support emails (only when you contact us)</li>
-                        <li>Subscription status from Stripe</li>
-                        <li>Aggregated network performance stats</li>
-                        <li>Website analytics (anonymized)</li>
-                    </ul>
-                </div>
+        <div class="data-comparison">
+            <div class="data-card data-card--no">
+                <h3>What We NEVER Collect</h3>
+                <ul>
+                    <li>DNS query logs</li>
+                    <li>Your IP address</li>
+                    <li>Browsing history</li>
+                    <li>Personal information</li>
+                    <li>Billing details</li>
+                </ul>
+            </div>
+            <div class="data-card data-card--yes">
+                <h3>The ONLY Data We Handle</h3>
+                <ul>
+                    <li>Your email (if you contact support)</li>
+                    <li>Subscription status from Stripe</li>
+                    <li>Anonymous website visit counts</li>
+                    <li>Aggregate network performance stats</li>
+                </ul>
             </div>
         </div>
 
         <div class="legal-content">
             <h1>SiftDNS Privacy Policy</h1>
-            <p><strong>Effective Date: 06-01-2025</strong></p>
+            <p><strong>Effective Date: September 3, 2025</strong></p>
+            <p>At SiftDNS ("we", "us", "our"), your privacy is the foundation of our service. This policy outlines the extremely limited information we handle and our unwavering commitment to protecting your data.</p>
 
-            <h2>1. Introduction</h2>
-            <p>SiftDNS is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect information when you use our DNS resolution services.</p>
-            
             <div class="highlight-box">
-                <p><strong>Our Core Privacy Commitment: We do not log, store, or monitor your DNS queries.</strong></p>
+                <p><strong>Important Distinction:</strong> Our **DNS Service** (the product you use) is separate from our **Website** (siftdns.com). This policy covers both. The DNS Service has a strict **zero-logging policy**. Our Website uses privacy-respecting analytics to count visitors, which does not track you across the internet.</p>
             </div>
 
-            <h2>2. Information We Collect</h2>
+            <h2>1. Our Zero-Log DNS Service</h2>
+            <p>Our core promise is simple: <strong>we do not log your DNS queries</strong>. When you use SiftDNS, we don't know who you are, what your IP address is, or what websites you visit. Your browsing activity is never stored, analyzed, or sold. It's your business, not ours.</p>
+            <p>To ensure our network runs smoothly, we monitor aggregate, anonymized traffic data (e.g., total queries per server). This data contains no personally identifiable information.</p>
 
-            <h3>2.1 Information We DO NOT Collect</h3>
+            <h2>2. What Information We Handle and Why</h2>
+            <p>We've built our systems to function without needing your personal data. The only situations where we encounter any information are:</p>
             <ul>
-                <li><strong>DNS Queries:</strong> We do not log what websites you visit</li>
-                <li><strong>Browsing History:</strong> We do not track your internet activity</li>
-                <li><strong>Personal Browsing Data:</strong> We do not store records of your online behavior</li>
-                <li><strong>IP Address Logs:</strong> We do not maintain logs associating your IP with specific queries</li>
+                <li><strong>When you pay for SiftDNS:</strong> Your payment and subscription are managed entirely by our payment processor, <strong>Stripe</strong>. We do not see or store your name, credit card details, or billing address. We only receive a basic token from Stripe that confirms you have an active subscription.</li>
+                <li><strong>When you contact us for support:</strong> If you email us for help, we will have your email address and the contents of our conversation. We only use this to help you and will delete the conversation upon your request.</li>
+                <li><strong>When you visit our website:</strong> We use a privacy-focused analytics tool to count website visitors and see which pages are popular. This helps us improve our site. This tool does not use cookies or track your activity across other sites.</li>
             </ul>
 
-            <h3>2.2 Information We DO Collect</h3>
-
-            <h4>Support Communications</h4>
-            <p>When you contact us for support, we may collect:</p>
+            <h2>3. Information Sharing</h2>
+            <p>We do not sell or rent your data. Because we collect almost no data, there is very little to share. The only circumstances in which information might be disclosed are:</p>
             <ul>
-                <li>Email address (only when you email us with questions)</li>
-                <li>Support inquiry details</li>
-                <li>Technical information you provide to help resolve issues</li>
+                <li><strong>With Service Providers:</strong> We use Stripe for payments and trusted vendors for our server infrastructure. These partners are chosen for their high security and privacy standards.</li>
+                <li><strong>To Comply with the Law:</strong> We are based in the United States. If we receive a valid legal order from a court with proper jurisdiction, we would be required to comply. However, since we do not store DNS logs or personally identifiable subscriber information, we would have nothing to provide in response to requests for that data.</li>
             </ul>
 
-            <h4>Payment Information</h4>
-            <p>All payment and subscription data is collected and managed by Stripe:</p>
+            <h2>4. Data Security and Retention</h2>
+            <p>We employ strong technical measures to protect our infrastructure, including encryption and secure server configurations. As we don't store your personal data, the risk of a breach is minimized by design.</p>
+            <p>Any support emails we have are retained only as long as needed to assist you and are deleted upon request.</p>
+            
+            <h2>5. Your Data Rights (GDPR, CCPA)</h2>
+            <p>You have rights over your data, such as the right to access, correct, or delete it. Since we hold almost no personal information, these rights are straightforward:</p>
             <ul>
-                <li>We do not directly collect or store any payment information</li>
-                <li>We do not maintain customer accounts or billing records</li>
-                <li>Stripe handles all subscription management and customer data</li>
-                <li>We receive minimal transaction notifications from Stripe (subscription status only)</li>
+                <li><strong>To manage your subscription and billing information</strong>, please use the Stripe customer portal, as they are the controller of that data.</li>
+                - **To access or delete a support conversation**, simply email us from the same address, and we will handle your request promptly.</li>
             </ul>
+            <p>Our service is not intended for individuals under the age of 18.</p>
 
-            <h4>Technical Information</h4>
-            <p>We collect minimal technical data for service operation:</p>
-            <ul>
-                <li>Network flow statistics (aggregated, non-personal)</li>
-                <li>Server performance metrics</li>
-                <li>DNS response times (aggregated)</li>
-                <li>Error logs that do not contain personal information</li>
-                <li>Email addresses for service notifications (IP address updates, maintenance notices)</li>
-            </ul>
+            <h2>6. Changes to This Policy</h2>
+            <p>We may update this policy from time to time to reflect changes in our practices or for legal reasons. We will post any updates on this page and notify active subscribers of significant changes via email.</p>
 
-            <h4>Website Analytics</h4>
-            <p>Our website may collect:</p>
-            <ul>
-                <li>IP addresses (for security and analytics)</li>
-                <li>Browser type and version</li>
-                <li>Referring website</li>
-                <li>Pages visited on our website</li>
-                <li>Time spent on website</li>
-            </ul>
-
-            <h2>3. How We Use Information</h2>
-
-            <h3>3.1 Support Communications</h3>
-            <ul>
-                <li>Responding to your technical support requests</li>
-                <li>Providing assistance with DNS configuration</li>
-                <li>Improving our service based on user feedback</li>
-            </ul>
-
-            <h3>3.2 Service Provision</h3>
-            <ul>
-                <li>Routing DNS queries to appropriate servers</li>
-                <li>Maintaining service performance and reliability</li>
-                <li>Detecting and preventing abuse</li>
-                <li>Improving our filtering capabilities</li>
-            </ul>
-
-            <h3>3.3 Stripe Integration</h3>
-            <ul>
-                <li>Receiving subscription status notifications (active/cancelled)</li>
-                <li>No direct customer data processing on our end</li>
-                <li>All customer communication handled by Stripe unless you contact us directly</li>
-            </ul>
-
-            <h2>4. Information Sharing and Disclosure</h2>
-
-            <h3>4.1 We Do Not Sell Personal Information</h3>
-            <p>SiftDNS does not sell, rent, or trade your personal information to third parties.</p>
-
-            <h3>4.2 Limited Sharing</h3>
-            <p>We may share information only in these specific circumstances:</p>
-
-            <h4>Service Providers</h4>
-            <ul>
-                <li><strong>Stripe:</strong> Payment processing (they handle all payment data according to their privacy policy)</li>
-                <li><strong>Infrastructure Providers:</strong> Hosting and technical services (no personal data shared)</li>
-                <li><strong>Email Services:</strong> For account and service communications</li>
-            </ul>
-
-            <h4>Legal Requirements</h4>
-            <p>We may disclose information if required by law:</p>
-            <ul>
-                <li>Court orders or legal process</li>
-                <li>Law enforcement requests with valid legal authority</li>
-                <li>Protection of our rights, property, or safety</li>
-                <li>Prevention of fraud or abuse</li>
-            </ul>
-
-            <h3>4.3 Business Transfers</h3>
-            <p>In the event of a merger, acquisition, or sale of assets, user information may be transferred as part of that transaction. We will notify users of any such change in ownership.</p>
-
-            <h2>5. Data Security</h2>
-
-            <h3>5.1 Security Measures</h3>
-            <p>We implement multiple security measures:</p>
-            <ul>
-                <li>Encrypted data transmission (TLS/SSL)</li>
-                <li>Secure server infrastructure</li>
-                <li>Access controls and authentication</li>
-                <li>Regular security audits and updates</li>
-                <li>Incident response procedures</li>
-            </ul>
-
-            <h3>5.2 DNS Query Security</h3>
-            <ul>
-                <li>DNS queries are processed in memory only</li>
-                <li>No persistent storage of query data</li>
-                <li>Encrypted DNS options available (DNS-over-HTTPS)</li>
-                <li>Direct root server queries for enhanced privacy</li>
-            </ul>
-
-            <h2>6. Data Retention</h2>
-
-            <h3>6.1 Support Communications</h3>
-            <ul>
-                <li>Support emails are retained only as long as necessary to resolve issues</li>
-                <li>You can request deletion of support communications at any time</li>
-                <li>We do not maintain long-term customer communication archives</li>
-            </ul>
-
-            <h3>6.2 Subscription Data</h3>
-            <ul>
-                <li>All customer and billing data is retained by Stripe according to their policies</li>
-                <li>SiftDNS only receives subscription status notifications (no personal data stored)</li>
-                <li>We do not retain payment or customer account information</li>
-            </ul>
-
-            <h3>6.3 DNS Query Data</h3>
-            <ul>
-                <li>DNS queries are not stored or logged</li>
-                <li>Query processing occurs in real-time with no retention</li>
-                <li>Network flow statistics are aggregated and anonymized</li>
-            </ul>
-
-            <h2>7. Your Rights and Choices</h2>
-
-            <h3>7.1 Subscription Management</h3>
-            <ul>
-                <li>All subscription changes must be made through Stripe's customer portal</li>
-                <li>You can access your billing information and payment history through Stripe</li>
-                <li>Cancellations and modifications are handled by Stripe directly</li>
-            </ul>
-
-            <h3>7.2 Support Data</h3>
-            <ul>
-                <li>You can request deletion of any support communications</li>
-                <li>We will delete support emails upon request</li>
-                <li>No other personal data is stored by SiftDNS</li>
-            </ul>
-
-            <h3>7.3 Data Subject Rights (GDPR/CCPA)</h3>
-            <p>Since we collect minimal data:</p>
-            <ul>
-                <li><strong>Access:</strong> We can provide any support communications we have</li>
-                <li><strong>Erasure:</strong> We can delete support communications upon request</li>
-                <li><strong>Portability:</strong> Any support data can be provided in a portable format</li>
-                <li>For subscription data, contact Stripe directly as they are the data controller</li>
-            </ul>
-
-            <h2>8. International Data Transfers</h2>
-
-            <h3>8.1 Data Location</h3>
-            <ul>
-                <li>Our servers are located in USA</li>
-                <li>Data may be processed in countries where our service providers operate</li>
-                <li>We ensure appropriate safeguards are in place for international transfers</li>
-            </ul>
-
-            <h3>8.2 Adequacy and Safeguards</h3>
-            <p>For transfers outside your jurisdiction, we rely on:</p>
-            <ul>
-                <li>Adequacy decisions by relevant authorities</li>
-                <li>Standard contractual clauses</li>
-                <li>Other appropriate safeguards as required by law</li>
-            </ul>
-
-            <h2>9. Children's Privacy</h2>
-            <p>SiftDNS is not intended for children under 18. We do not knowingly collect personal information from children. If we learn we have collected such information, we will delete it immediately.</p>
-
-            <h2>10. Third-Party Services</h2>
-
-            <h3>10.1 Payment Processing</h3>
-            <p>We use Stripe for payment processing. Stripe's privacy policy governs their handling of your payment information.</p>
-
-            <h3>10.2 Website Analytics</h3>
-            <p>We may use analytics services to understand website usage. These services are configured to respect user privacy and comply with applicable laws.</p>
-
-            <h3>10.3 Links to Other Sites</h3>
-            <p>Our website may contain links to third-party sites. We are not responsible for their privacy practices.</p>
-
-            <h2>11. Changes to This Policy</h2>
-
-            <h3>11.1 Policy Updates</h3>
-            <ul>
-                <li>We may update this Privacy Policy periodically</li>
-                <li>Changes will be posted on our website with a new effective date</li>
-                <li>Material changes will be communicated via email</li>
-                <li>Continued use constitutes acceptance of changes</li>
-            </ul>
-
-            <h3>11.2 Notification</h3>
-            <p>We will notify you of significant changes by:</p>
-            <ul>
-                <li>Email notification to your account email</li>
-                <li>Prominent notice on our website</li>
-                <li>In-service notifications when appropriate</li>
-            </ul>
-
-            <h2>12. Contact Information</h2>
-
-            <h3>12.1 Privacy Questions</h3>
-            <p>For questions about this Privacy Policy or our privacy practices:</p>
-            <p><strong>Email:</strong> support@siftdns.com<br>
-
-            <h3>12.2 Data Protection Officer</h3>
-            <p>If required by applicable law, you can contact our Data Protection Officer at:<br>
-            <strong>Email:</strong> support@siftdns.com</p>
-
-            <h3>12.3 Supervisory Authority</h3>
-            <p>You have the right to lodge a complaint with your local data protection authority if you believe we have not handled your personal information properly.</p>
-
-            <h2>13. Specific Jurisdictional Provisions</h2>
-
-            <h3>13.1 European Union (GDPR)</h3>
-            <p>For EU residents, we process personal data under the following legal bases:</p>
-            <ul>
-                <li><strong>Contract:</strong> To provide our services</li>
-                <li><strong>Legitimate Interest:</strong> For service improvement and security</li>
-                <li><strong>Consent:</strong> For marketing communications</li>
-            </ul>
-
-            <h3>13.2 California (CCPA)</h3>
-            <p>For California residents, you have additional rights under the California Consumer Privacy Act, including the right to know, delete, and opt-out of the sale of personal information.</p>
-
-            <h3>13.3 Other Jurisdictions</h3>
-            <p>We comply with applicable privacy laws in all jurisdictions where we operate.</p>
+            <h2>7. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please don't hesitate to reach out.</p>
+            <p><strong>Email:</strong> support@siftdns.com</p>
 
             <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--gray-200);">
-
-            <h2>Summary</h2>
-            <p><strong>What makes SiftDNS different:</strong></p>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 0.5rem;">✅ Zero logging of DNS queries</li>
-                <li style="margin-bottom: 0.5rem;">✅ Direct root server queries</li>
-                <li style="margin-bottom: 0.5rem;">✅ Minimal data collection (only support emails when you contact us)</li>
-                <li style="margin-bottom: 0.5rem;">✅ Stripe handles all customer data - we don't store personal information</li>
-                <li style="margin-bottom: 0.5rem;">✅ No account databases or customer records maintained by us</li>
-                <li style="margin-bottom: 0.5rem;">✅ Strong security measures for DNS infrastructure</li>
-                <li style="margin-bottom: 0.5rem;">✅ Transparent privacy practices</li>
-                <li style="margin-bottom: 0.5rem;">✅ No selling of personal information</li>
-            </ul>
-
-            <p><em>Last updated: 06-01-2025</em></p>
+            <p><em>Last updated: September 3, 2025</em></p>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 SiftDNS. All rights reserved.</p>
     </footer>
