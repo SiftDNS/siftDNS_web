@@ -99,11 +99,11 @@
         nav {
             max-width: 1200px;
             margin: 0 auto;
-            /* MODIFICATION 1: Reduced vertical padding to make header shorter */
             padding: 0.75rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative; /* Added for mobile menu positioning */
         }
 
         .logo {
@@ -114,6 +114,7 @@
             color: var(--primary);
             cursor: pointer;
             transition: transform 0.3s ease;
+            text-decoration: none; /* MODIFICATION: Removed underline from logo link */
         }
 
         .logo:hover {
@@ -134,7 +135,6 @@
 
         .nav-links {
             display: flex;
-            /* MODIFICATION 2: Reduced gap between navigation links */
             gap: 2rem;
             align-items: center;
         }
@@ -212,6 +212,76 @@
             opacity: 0.7;
         }
 
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none; /* Hidden by default, shown on mobile */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 1001; /* Ensure it's above other content */
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: var(--gray-700);
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger.active .bar1 {
+            transform: translateY(11px) rotate(45deg);
+        }
+        .hamburger.active .bar2 {
+            opacity: 0;
+        }
+        .hamburger.active .bar3 {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+
+        .mobile-nav-links {
+            display: none; /* Hidden by default, shown when active on mobile */
+            flex-direction: column;
+            position: absolute;
+            top: 100%; /* Position right below the header */
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-md);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+        }
+
+        .mobile-nav-links.active {
+            max-height: 500px; /* Adjust as needed */
+            padding: 1rem 2rem;
+        }
+
+        .mobile-nav-links a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 500;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-links a:last-child {
+            border-bottom: none;
+            margin-top: 0.5rem;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero section and other existing styles */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -693,7 +763,11 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                display: none; /* Hide desktop nav links on mobile */
+            }
+
+            .hamburger {
+                display: flex; /* Show hamburger on mobile */
             }
             
             .hero h1 {
@@ -782,6 +856,15 @@
                 <a href="https://siftdns.com/testimonials">Testimonials</a>
                 <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button">Start Free Trial</a>
             </div>
+
+            <div class="hamburger" id="hamburger-menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+
+            <div class="mobile-nav-links" id="mobile-nav-links">
+                </div>
         </nav>
     </header>
 
@@ -842,6 +925,7 @@
                 <div class="feature-icon">🎮</div>
                 <h3>Gamer's Edge</h3>
                 <p>Reduce ping. Prevent ISP throttling. Block DDoS attacks. The competitive advantage serious gamers need.</p>
+            </p>
             </div>
 
             <div class="feature-card">
@@ -1466,6 +1550,76 @@
                     faqItem.classList.add('active');
                 }
             });
+        });
+
+        // Hamburger Menu Logic
+        const hamburger = document.getElementById('hamburger-menu');
+        const mobileNavLinks = document.getElementById('mobile-nav-links');
+        const desktopNavLinks = document.querySelector('.nav-links');
+
+        // Clone desktop nav links to mobile menu on load
+        function populateMobileNav() {
+            mobileNavLinks.innerHTML = ''; // Clear existing
+            Array.from(desktopNavLinks.children).forEach(link => {
+                const clonedLink = link.cloneNode(true);
+                // Remove the '::after' pseudo-element from cloned links if they have it
+                // and ensure CTA button looks correct in mobile menu
+                if (clonedLink.classList.contains('cta-button')) {
+                    clonedLink.style.background = 'var(--gradient-primary)';
+                    clonedLink.style.color = 'white';
+                    clonedLink.style.width = '100%';
+                    clonedLink.style.textAlign = 'center';
+                    clonedLink.style.marginTop = '1rem';
+                    clonedLink.style.boxShadow = 'none'; // Remove box shadow for a cleaner look in mobile menu
+                    clonedLink.style.padding = '0.75rem 1rem'; // Adjust padding for mobile button
+                    clonedLink.style.fontSize = '1rem';
+                    clonedLink.addEventListener('mouseenter', () => clonedLink.style.transform = 'none'); // Disable hover animation
+                    clonedLink.addEventListener('mouseleave', () => clonedLink.style.transform = 'none');
+                    // Remove the ::before shine effect
+                    const beforeElement = clonedLink.querySelector('::before');
+                    if (beforeElement) beforeElement.remove();
+
+                } else {
+                    // Remove the ::after underline effect for regular links in mobile menu
+                    const styleTag = document.createElement('style');
+                    styleTag.textContent = `
+                        .mobile-nav-links a::after {
+                            display: none !important;
+                        }
+                    `;
+                    mobileNavLinks.appendChild(styleTag);
+                }
+                
+                clonedLink.addEventListener('click', () => {
+                    if (mobileNavLinks.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        mobileNavLinks.classList.remove('active');
+                        document.body.style.overflow = ''; // Re-enable scroll
+                    }
+                });
+                mobileNavLinks.appendChild(clonedLink);
+            });
+        }
+
+        populateMobileNav(); // Call on load
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNavLinks.classList.toggle('active');
+            if (mobileNavLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            } else {
+                document.body.style.overflow = ''; // Re-enable scroll
+            }
+        });
+
+        // Close mobile menu if window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileNavLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                mobileNavLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     </script>
 </body>
