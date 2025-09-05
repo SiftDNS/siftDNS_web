@@ -130,7 +130,6 @@
 
         .nav-links {
             display: flex;
-            /* Fix: Adjusted gap for more navigation links */
             gap: 1.5rem; 
             align-items: center;
         }
@@ -141,7 +140,7 @@
             font-weight: 500;
             position: relative;
             transition: color 0.3s ease;
-            white-space: nowrap; /* Prevents links from wrapping */
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -460,15 +459,16 @@
             }
         }
         
-        /* Updated Responsive Styles to handle more nav links and better header spacing */
-        @media (max-width: 1024px) { /* Increased breakpoint for mobile menu */
+        @media (max-width: 1024px) {
             .nav-links {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: var(--white);
+                /* FIX: Changed to background-color and added z-index to ensure opacity */
+                background-color: var(--white);
+                z-index: 1000;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -482,7 +482,7 @@
             }
             
             .nav-links a {
-                font-size: 1.8rem; /* Slightly larger font for mobile menu */
+                font-size: 1.8rem;
             }
 
             .mobile-nav-toggle {
