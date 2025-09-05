@@ -6,32 +6,28 @@
 
     <title>About SiftDNS - Premium DNS Without the Premium Price</title>
 
-    <!-- SEO basics -->
     <meta name="description" content="SiftDNS delivers enterprise-grade DNS filtering and zero-logging privacy for $3/month. 430,000+ domains blocked, direct root queries, and consumer-friendly pricing.">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="/about">
+    <link rel="canonical" href="https://yourdomain.com/about">
 
-    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="SiftDNS — Premium DNS Without the Premium Price">
     <meta property="og:description" content="Enterprise-grade filtering, zero-compromise privacy, and lightning-fast direct root queries for $3/month.">
-    <meta property="og:url" content="/about">
-    <!-- Optional: swap for your real asset -->
-    <meta property="og:image" content="/assets/og/siftdns-og.jpg">
+    <meta property="og:url" content="https://yourdomain.com/about">
+    <meta property="og:image" content="https://yourdomain.com/assets/og/siftdns-og.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SiftDNS — Premium DNS Without the Premium Price">
     <meta name="twitter:description" content="Enterprise-grade filtering, zero-compromise privacy, and lightning-fast direct root queries for $3/month.">
-    <meta name="twitter:image" content="/assets/og/siftdns-og.jpg">
+    <meta name="twitter:image" content="https://yourdomain.com/assets/og/siftdns-og.jpg">
 
-    <!-- JSON-LD: Service offering -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
       "name": "SiftDNS",
       "serviceType": "Premium DNS Filtering & Privacy",
-      "url": "/about",
+      "url": "https://yourdomain.com/about",
       "provider": {
         "@type": "Organization",
         "name": "SiftDNS"
@@ -129,8 +125,7 @@
             top: 2rem;
             left: 2rem;
             color: rgba(255, 255, 255, 0.9);
-            text-decoration: underline;
-            text-underline-offset: 3px;
+            text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
             transition: all 0.2s ease;
@@ -176,7 +171,7 @@
             font-size: 1.2rem;
             line-height: 1.8;
             color: var(--gray-700);
-            opacity: 1; /* default; JS will tweak on intersect */
+            opacity: 1;
             transform: none;
             transition: all 0.8s ease;
         }
@@ -190,6 +185,31 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .diagram-container {
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 700px;
+            padding: 1rem;
+            background-color: var(--gray-100);
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+        }
+        .diagram-container figure {
+            margin: 0;
+        }
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        .diagram-container figcaption {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--gray-600);
         }
 
         .highlight-stat {
@@ -244,6 +264,20 @@
             text-align: center;
             margin-top: 4rem;
         }
+        .cta-section h2 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        .cta-section p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .cta-section p:last-of-type {
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+
         .cta-button {
             background: white;
             color: var(--primary);
@@ -291,9 +325,10 @@
             .back-to-home { top: 1rem; left: 1rem; font-size: 0.9rem; }
             .story-section { padding: 3rem 1rem; }
             .story-content { padding: 2.5rem; font-size: 1.1rem; }
+            .diagram-container { margin: 2rem auto; padding: 0.75rem; }
+            .diagram-container figcaption { font-size: 0.85rem; }
         }
 
-        /* Respect reduced motion preferences */
         @media (prefers-reduced-motion: reduce) {
             * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
             header.hero-section::before,
@@ -305,7 +340,7 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <header class="hero-section" role="banner">
+    <header class="hero-section">
         <a href="/" class="back-to-home" aria-label="Back to the SiftDNS home page">Back to Home</a>
         <div class="hero-content">
             <div class="hero-logo" aria-hidden="true">
@@ -328,6 +363,14 @@
     </header>
 
     <main id="main-content" tabindex="-1">
+        
+        <div class="diagram-container">
+            <figure class="diagram">
+                <img src="assets/images/dns-diagram2.png" alt="Diagram showing how a DNS query resolves a domain name into an IP address." loading="lazy">
+                <figcaption>A simplified diagram of the DNS lookup process.</figcaption>
+            </figure>
+        </div>
+        
         <section class="story-section">
             <div class="story-content">
                 <p><strong>DNS is the foundation of every single thing you do online.</strong> Every click, every page load, every app notification starts with a DNS query. It's the internet's most critical infrastructure, yet most people are stuck using systems that are slow, invasive, and legacy providers are somehow proud of it.</p>
@@ -384,10 +427,10 @@
         </section>
 
         <section class="cta-section" aria-labelledby="cta-heading">
-            <h2 id="cta-heading" style="margin-bottom: 1rem; font-size: 2.5rem;">Ready for Enterprise-Grade DNS at Consumer Prices?</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.2rem; opacity: 0.9;">Stop overpaying for inferior DNS or accepting free surveillance. Upgrade to enterprise-grade infrastructure that respects your privacy and delivers premium performance.</p>
+            <h2 id="cta-heading">Ready for Enterprise-Grade DNS at Consumer Prices?</h2>
+            <p>Stop overpaying for inferior DNS or accepting free surveillance. Upgrade to enterprise-grade infrastructure that respects your privacy and delivers premium performance.</p>
             <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button" target="_blank" rel="noopener noreferrer" aria-label="Start your free month with SiftDNS (opens in new tab)">Start Your Free Month →</a>
-            <p style="margin-top: 1rem; opacity: 0.9;">30-day trial, then $3/month. Your DNS addresses available immediately.</p>
+            <p>30-day trial, then $3/month. Your DNS addresses available immediately.</p>
         </section>
     </main>
 
@@ -425,4 +468,3 @@
     </script>
 </body>
 </html>
-
