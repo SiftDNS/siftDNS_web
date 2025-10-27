@@ -14,6 +14,8 @@ Allow: /privacy
 Allow: /privacy.html
 Allow: /terms
 Allow: /terms.html
+Allow: /about
+Allow: /about.html
 
 # Allow crawling of common assets
 Allow: /css/
@@ -21,6 +23,10 @@ Allow: /js/
 Allow: /images/
 Allow: /assets/
 Allow: /favicon.ico
+Allow: /apple-touch-icon.png
+Allow: /favicon-32x32.png
+Allow: /favicon-16x16.png
+Allow: /site.webmanifest
 Allow: /sitemap.xml
 
 # Disallow crawling of sensitive or unnecessary pages

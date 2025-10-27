@@ -4,7 +4,6 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage - Highest priority -->
   <url>
     <loc>https://siftdns.com/</loc>
     <lastmod>2025-06-07</lastmod>
@@ -12,7 +11,6 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Main service pages - High priority -->
   <url>
     <loc>https://siftdns.com/setup</loc>
     <lastmod>2025-06-07</lastmod>
@@ -27,7 +25,13 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Legal pages - Medium priority -->
+  <url>
+    <loc>https://siftdns.com/about</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://siftdns.com/privacy</loc>
     <lastmod>2025-06-01</lastmod>
@@ -42,7 +46,6 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Homepage sections (for better indexing of anchor links) -->
   <url>
     <loc>https://siftdns.com/#features</loc>
     <lastmod>2025-06-07</lastmod>
