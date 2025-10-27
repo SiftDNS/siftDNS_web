@@ -1,61 +1,28 @@
 # robots.txt for siftdns.com
-# This file tells search engine crawlers which pages to crawl and which to avoid
+# Optimized for Google SEO, Core Vitals, and mobile-first indexing.
+# Managed by SiftDNS SEO automation pipeline — Last updated 2025-10-27
 
+# === Default: Allow Google and major crawlers to fully render the site ===
 User-agent: *
-
-# Allow crawling of main pages
-Allow: /
-Allow: /index.html
-Allow: /setup
-Allow: /setup.html
-Allow: /testimonials
-Allow: /testimonials.html
-Allow: /privacy
-Allow: /privacy.html
-Allow: /terms
-Allow: /terms.html
-Allow: /about
-Allow: /about.html
-
-# Allow crawling of common assets
-Allow: /css/
-Allow: /js/
-Allow: /images/
-Allow: /assets/
-Allow: /favicon.ico
-Allow: /apple-touch-icon.png
-Allow: /favicon-32x32.png
-Allow: /favicon-16x16.png
-Allow: /site.webmanifest
-Allow: /sitemap.xml
-
-# Disallow crawling of sensitive or unnecessary pages
 Disallow: /admin/
 Disallow: /private/
-Disallow: /temp/
-Disallow: /tmp/
-Disallow: /.git/
-Disallow: /node_modules/
 Disallow: /config/
 Disallow: /logs/
+Disallow: /tmp/
+Disallow: /temp/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /staging/
+Disallow: /test/
+Disallow: /backup/
 
-# Disallow crawling of dynamic URLs with parameters that might cause duplicate content
-Disallow: /*?success=*
-Disallow: /*?utm_*
-Disallow: /*?ref=*
-Disallow: /*?source=*
+# === Prevent duplicate content from tracking parameters ===
+Disallow: /*?*utm_*
+Disallow: /*?*ref=*
+Disallow: /*?*source=*
+Disallow: /*?*success=*
 
-# Allow specific bots
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-# Throttle aggressive crawlers
+# === Specific bot behavior (non-Google) ===
 User-agent: AhrefsBot
 Crawl-delay: 10
 
@@ -65,57 +32,11 @@ Crawl-delay: 10
 User-agent: MJ12bot
 Crawl-delay: 10
 
-# Block known bad bots
-User-agent: SiteSnagger
+User-agent: DotBot
 Disallow: /
 
-User-agent: WebZip
+User-agent: BLEXBot
 Disallow: /
 
-User-agent: WebCopier
-Disallow: /
-
-User-agent: Offline Explorer
-Disallow: /
-
-User-agent: HTTrack
-Disallow: /
-
-User-agent: Microsoft URL Control
-Disallow: /
-
-User-agent: EmailCollector
-Disallow: /
-
-User-agent: EmailSiphon
-Disallow: /
-
-User-agent: WebBandit
-Disallow: /
-
-User-agent: EmailWolf
-Disallow: /
-
-User-agent: ExtractorPro
-Disallow: /
-
-User-agent: CopyRightCheck
-Disallow: /
-
-User-agent: psbot
-Disallow: /
-
-User-agent: asterias
-Disallow: /
-
-User-agent: suzuran
-Disallow: /
-
-User-agent: VoidEYE
-Disallow: /
-
-User-agent: Cyveillance
-Disallow: /
-
-# Sitemap location
+# === Sitemap ===
 Sitemap: https://siftdns.com/sitemap.xml
