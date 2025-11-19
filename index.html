@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="theme-color" content="#1a1a1a">
 
-    <!-- SEO: Optimized title for better search engine visibility -->
     <title>SiftDNS | Secure DNS for Ad Blocking, Privacy & Performance</title>
     
-    <!-- SEO: Added crucial meta description for search results -->
     <meta name="description" content="SiftDNS offers a secure, high-performance DNS service that blocks ads and malware, protects your privacy with a zero-log policy, and speeds up your internet on all devices.">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -25,28 +25,41 @@
     
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --primary-light: #6366f1;
-            --secondary: #ec4899;
-            --accent: #10b981;
-            --dark: #0f172a;
-            --gray-900: #111827;
-            --gray-800: #1f2937;
-            --gray-700: #374151;
-            --gray-600: #4b5563;
-            --gray-500: #6b7280;
-            --gray-400: #9ca3af;
-            --gray-300: #d1d5db;
-            --gray-200: #e5e7eb;
-            --gray-100: #f3f4f6;
-            --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            /* --- Sediment & Stream Palette --- */
+            
+            /* Backgrounds */
+            --bg-main: #1a1a1a;       /* Deep Bedrock */
+            --bg-card: #2C2C2C;       /* Dark Stone */
+            --bg-header: #232323;     /* Header BG */
+            
+            /* Brand Colors */
+            --primary: #466D87;       /* Slate Blue */
+            --primary-dark: #355266;  /* Dark Slate */
+            --primary-light: #598392; /* Eucalyptus */
+            
+            /* Accents */
+            --accent: #D4A373;        /* Raw Copper (Buttons/Highlights) */
+            --accent-hover: #E0C097;  /* Sand */
+            --secondary: #8EB69B;     /* Sage Green (Success/Status) */
+            --error: #D98C8C;         /* Muted Red */
+
+            /* Text */
+            --text-main: #f0f0f0;     /* Off-white Mist */
+            --text-muted: #b0b0b0;    /* Stone Grey text */
+            --text-on-accent: #1a1a1a; /* Dark text for copper buttons */
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #466D87 0%, #2E4A5C 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #232323 100%);
+            
+            /* Shadows (Dark Mode Optimized) */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            
+            /* Borders */
+            --border-color: #3a3a3a;
         }
 
         * {
@@ -57,12 +70,30 @@
 
         html {
             scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--bg-main);
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 6px;
+            border: 3px solid var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--accent);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--white);
-            color: var(--gray-900);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -74,13 +105,13 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(45deg, #f3f4f6 25%, transparent 25%), 
-                        linear-gradient(-45deg, #f3f4f6 25%, transparent 25%), 
-                        linear-gradient(45deg, transparent 75%, #f3f4f6 75%), 
-                        linear-gradient(-45deg, transparent 75%, #f3f4f6 75%);
+            background: linear-gradient(45deg, #232323 25%, transparent 25%), 
+                        linear-gradient(-45deg, #232323 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #232323 75%), 
+                        linear-gradient(-45deg, transparent 75%, #232323 75%);
             background-size: 30px 30px;
             background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
-            opacity: 0.03;
+            opacity: 0.05;
             animation: backgroundShift 20s ease infinite;
         }
 
@@ -95,10 +126,10 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(26, 26, 26, 0.95); /* Dark background */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
 
@@ -121,7 +152,7 @@
             align-items: center;
             font-weight: 800;
             font-size: 1.75rem;
-            color: var(--primary);
+            color: var(--primary); /* Slate Blue */
             cursor: pointer;
             transition: transform 0.3s ease;
             text-decoration: none;
@@ -151,7 +182,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--gray-700);
+            color: var(--text-main);
             font-weight: 500;
             position: relative;
             transition: color 0.3s ease;
@@ -164,30 +195,31 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: var(--accent); /* Copper underline */
             transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .nav-links a:hover::after {
             width: 100%;
         }
 
+        /* Primary Button (Copper) */
         .cta-button {
-            background: var(--gradient-primary);
-            color: white !important;
+            background: var(--accent);
+            color: var(--text-on-accent) !important; /* Dark text on copper */
             padding: 0.75rem 2rem;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             display: inline-block;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.2); /* Copper glow */
         }
 
         .cta-button::before {
@@ -197,13 +229,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             transition: left 0.5s ease;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+            background-color: var(--accent-hover);
+            box-shadow: 0 6px 20px rgba(212, 163, 115, 0.3);
         }
 
         .cta-button:hover::before {
@@ -211,8 +244,9 @@
         }
 
         .cta-button-disabled {
-            background: var(--gray-400);
-            color: white !important;
+            background: var(--bg-card);
+            color: var(--text-muted) !important;
+            border: 1px solid var(--border-color);
             padding: 0.75rem 2rem;
             border-radius: 50px;
             font-weight: 600;
@@ -237,7 +271,7 @@
         .hamburger div {
             width: 30px;
             height: 3px;
-            background-color: var(--gray-700);
+            background-color: var(--text-main);
             border-radius: 2px;
             transition: all 0.3s ease-in-out;
         }
@@ -259,10 +293,10 @@
             top: 100%; 
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(26, 26, 26, 0.98); /* Dark BG */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border-color);
             box-shadow: var(--shadow-md);
             max-height: 0;
             overflow: hidden;
@@ -276,10 +310,10 @@
 
         .mobile-nav-links a {
             text-decoration: none;
-            color: var(--gray-800);
+            color: var(--text-main);
             font-weight: 500;
             padding: 0.8rem 0;
-            border-bottom: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--border-color);
             transition: color 0.3s ease;
         }
 
@@ -289,7 +323,7 @@
         }
 
         .mobile-nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .hero {
@@ -298,7 +332,8 @@
             align-items: center;
             justify-content: center;
             padding: 6rem 2rem 4rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Dark Slate Gradient for Hero */
+            background: linear-gradient(135deg, #1a1a1a 0%, #2E4A5C 100%);
             position: relative;
             overflow: hidden;
         }
@@ -310,7 +345,7 @@
             right: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: rotate 60s linear infinite;
         }
@@ -323,7 +358,7 @@
         .hero-content {
             max-width: 900px;
             text-align: center;
-            color: white;
+            color: var(--text-main);
             z-index: 1;
             animation: fadeInUp 1s ease;
         }
@@ -344,13 +379,15 @@
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: var(--text-main);
         }
 
         .hero .tagline {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
+            opacity: 0.9;
             font-weight: 300;
+            color: var(--text-muted);
         }
 
         .hero .stats {
@@ -381,11 +418,13 @@
             font-size: 2.5rem;
             font-weight: 900;
             display: block;
+            color: var(--accent); /* Copper stats */
         }
 
         .stat-label {
             font-size: 1rem;
             opacity: 0.9;
+            color: var(--text-muted);
         }
 
         .features {
@@ -403,15 +442,14 @@
             font-size: 3rem;
             font-weight: 900;
             margin-bottom: 1rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
+            background: none;
+            -webkit-text-fill-color: initial;
         }
 
         .section-header p {
             font-size: 1.25rem;
-            color: var(--gray-600);
+            color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
         }
@@ -423,7 +461,8 @@
         }
 
         .feature-card {
-            background: white;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 2.5rem;
             box-shadow: var(--shadow-md);
@@ -439,7 +478,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: var(--gradient-primary);
+            background: var(--primary); /* Slate accent on cards */
             transform: translateX(-100%);
             transition: transform 0.3s ease;
         }
@@ -447,6 +486,7 @@
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
         }
 
         .feature-card:hover::before {
@@ -469,32 +509,33 @@
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--gray-900);
+            color: var(--primary);
         }
 
         .feature-card p {
-            color: var(--gray-600);
+            color: var(--text-muted);
             line-height: 1.8;
         }
 
         .comparison {
             padding: 5rem 2rem;
-            background: var(--gray-50);
+            background: var(--bg-main);
         }
 
         .comparison-table {
             max-width: 1200px;
             margin: 3rem auto 0;
-            background: white;
+            background: var(--bg-card);
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow-xl);
-            border: 1px solid var(--gray-100);
+            border: 1px solid var(--border-color);
         }
 
         .comparison-header {
-            background: var(--gradient-primary);
-            color: white;
+            background: var(--bg-header);
+            border-bottom: 3px solid var(--primary);
+            color: var(--text-main);
             padding: 2.5rem;
             text-align: center;
         }
@@ -502,15 +543,17 @@
         .comparison-header h3 {
             font-size: 1.75rem;
             margin: 0;
+            color: var(--primary);
         }
 
         .comparison-row {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             padding: 1.75rem 2rem;
-            border-bottom: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--border-color);
             align-items: center;
             transition: background-color 0.2s ease;
+            color: var(--text-muted);
         }
 
         .comparison-row:last-child {
@@ -518,23 +561,22 @@
         }
 
         .comparison-row:hover:not(.header) {
-            background: var(--gray-50);
+            background: #333; /* Slightly lighter on hover */
         }
 
         .comparison-row.header {
             font-weight: 700;
-            background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-50) 100%);
+            background: var(--bg-header);
+            color: var(--text-main);
             font-size: 1.1rem;
             padding: 2rem 2rem;
         }
 
         .comparison-cell-sift {
             font-weight: 700;
-            color: var(--primary);
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent); /* Copper text for SiftDNS column */
+            background: none;
+            -webkit-text-fill-color: initial;
             position: relative;
         }
 
@@ -546,33 +588,34 @@
             transform: translateY(-50%);
             width: 4px;
             height: 60%;
-            background: var(--gradient-primary);
+            background: var(--accent);
             border-radius: 2px;
             opacity: 0.7;
         }
 
         .check {
-            color: var(--accent);
+            color: var(--secondary); /* Sage Green */
             font-size: 1.5rem;
             font-weight: 900;
-            text-shadow: 0 1px 2px rgba(16, 185, 129, 0.3);
+            text-shadow: 0 1px 2px rgba(0,0,0, 0.5);
         }
 
         .cross {
-            color: var(--gray-400);
+            color: var(--text-muted);
             font-size: 1.5rem;
             font-weight: 900;
+            opacity: 0.3;
         }
 
         .partial {
-            color: var(--secondary);
+            color: var(--accent);
             font-size: 1.5rem;
             font-weight: 900;
         }
 
         .pricing {
             padding: 5rem 2rem;
-            background: white;
+            background: var(--bg-main);
         }
 
         .pricing-cards {
@@ -584,7 +627,8 @@
         }
 
         .pricing-card {
-            background: white;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 3rem 2rem;
             box-shadow: var(--shadow-lg);
@@ -595,15 +639,16 @@
         }
 
         .pricing-card.featured {
-            background: var(--gradient-primary);
-            color: white;
+            background: var(--bg-card);
+            border: 2px solid var(--accent); /* Copper border for featured */
             transform: scale(1.05);
         }
 
         .pricing-card.coming-soon {
-            background: var(--gray-100);
-            color: var(--gray-600);
-            border: 2px dashed var(--gray-300);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: 2px dashed var(--border-color);
+            opacity: 0.7;
         }
 
         .pricing-card:hover {
@@ -615,28 +660,31 @@
             transform: translateY(-10px) scale(1.05);
         }
 
-        .pricing-card.coming-soon:hover {
-            transform: translateY(-5px);
+        .pricing-card h3 {
+            color: var(--primary);
         }
 
         .price {
             font-size: 4rem;
             font-weight: 900;
             margin: 1rem 0;
+            color: var(--text-main);
         }
 
         .price sup {
             font-size: 1.5rem;
+            color: var(--accent);
         }
 
         .price span {
             font-size: 1rem;
             font-weight: 400;
             opacity: 0.8;
+            color: var(--text-muted);
         }
 
         .coming-soon-badge {
-            background: var(--secondary);
+            background: var(--primary);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 20px;
@@ -647,9 +695,14 @@
             right: 1rem;
         }
 
+        .pricing-card ul li {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
         .faq {
             padding: 5rem 2rem;
-            background: var(--gray-50);
+            background: var(--bg-main);
         }
 
         .faq-container {
@@ -667,11 +720,12 @@
             color: var(--primary);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--gray-200);
+            border-bottom: 2px solid var(--border-color);
         }
 
         .faq-item {
-            background: white;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             margin-bottom: 1rem;
             box-shadow: var(--shadow-sm);
@@ -681,6 +735,7 @@
 
         .faq-item:hover {
             box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
 
         .faq-question {
@@ -688,10 +743,10 @@
             text-align: left;
             padding: 1.5rem 2rem;
             border: none;
-            background: white;
+            background: var(--bg-card);
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--gray-900);
+            color: var(--text-main);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -700,12 +755,13 @@
         }
 
         .faq-question:hover {
-            background: var(--gray-50);
+            background: #333;
         }
 
         .faq-icon {
             transition: transform 0.3s ease;
             flex-shrink: 0;
+            color: var(--primary);
         }
 
         .faq-item.active .faq-icon {
@@ -724,14 +780,15 @@
 
         .faq-answer p {
             padding: 0 2rem 1.5rem;
-            color: var(--gray-600);
+            color: var(--text-muted);
             line-height: 1.8;
         }
 
         footer {
-            background: var(--gradient-dark);
-            color: white;
+            background: var(--bg-header);
+            color: var(--text-muted);
             padding: 4rem 2rem 2rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-content {
@@ -746,11 +803,12 @@
         .footer-brand h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         .footer-links h4 {
             margin-bottom: 1rem;
-            color: var(--gray-300);
+            color: var(--text-main);
         }
 
         .footer-links ul {
@@ -758,13 +816,13 @@
         }
 
         .footer-links a {
-            color: var(--gray-400);
+            color: var(--text-muted);
             transition: color 0.3s ease;
             text-decoration: none;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--accent);
         }
 
         .footer-links li {
@@ -806,9 +864,9 @@
                 padding-bottom: 0.5rem;
             }
 
-            .comparison-row:not(.header) > div:nth-child(2)::before { content: "SiftDNS: "; font-weight: 600; color: var(--primary); }
-            .comparison-row:not(.header) > div:nth-child(3)::before { content: "Legacy Providers: "; font-weight: 600; color: var(--gray-600); }
-            .comparison-row:not(.header) > div:nth-child(4)::before { content: "Your ISP: "; font-weight: 600; color: var(--gray-600); }
+            .comparison-row:not(.header) > div:nth-child(2)::before { content: "SiftDNS: "; font-weight: 600; color: var(--accent); }
+            .comparison-row:not(.header) > div:nth-child(3)::before { content: "Legacy Providers: "; font-weight: 600; color: var(--text-muted); }
+            .comparison-row:not(.header) > div:nth-child(4)::before { content: "Your ISP: "; font-weight: 600; color: var(--text-muted); }
             
             .footer-content {
                 grid-template-columns: 1fr;
@@ -821,7 +879,7 @@
             top: 0;
             left: 0;
             height: 3px;
-            background: var(--gradient-primary);
+            background: var(--accent); /* Copper loading bar */
             width: 0;
             z-index: 9999;
             animation: loading 2s ease-out forwards;
@@ -844,14 +902,14 @@
                 <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <defs>
                         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
                         </linearGradient>
                     </defs>
                     <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" 
-                          fill="url(#logoGradient)" opacity="0.9"/>
-                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="white"/>
-                    <rect x="18" y="20" width="4" height="8" fill="white"/>
+                          fill="url(#logoGradient)" opacity="1"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="#D4A373"/>
+                    <rect x="18" y="20" width="4" height="8" fill="#D4A373"/>
                 </svg>
                 SiftDNS
             </a>
@@ -867,7 +925,6 @@
                 <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button">Start Free Trial</a>
             </div>
 
-            <!-- Accessibility: Changed div to button and added ARIA attributes -->
             <button class="hamburger" id="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-links">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -878,11 +935,9 @@
         </nav>
     </header>
 
-    <!-- Semantic HTML: Wrapped main content in a <main> tag -->
     <main>
         <section class="hero">
             <div class="hero-content">
-                <!-- Ad Copy: Refined for a stronger, more active tone -->
                 <h1>Your Privacy.<br>Your Performance.<br>Uncompromised.</h1>
                 <p class="tagline">Improve your online experience with secure, high-performance DNS. Block ads, stop malware, and browse with confidence on every device.</p>
                 
@@ -905,7 +960,7 @@
                     Start Your Free Month →
                 </a>
                 <p style="margin-top: 1rem; opacity: 0.9;">30-day free trial, then from $3/month</p>
-                <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: white; text-decoration: underline;">invoice</a></p>
+                <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a></p>
             </div>
         </section>
 
@@ -924,7 +979,6 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">🚫</div>
-                    <!-- Ad Copy: Refined "Unmatched" to "Industry-Leading" for better credibility -->
                     <h3>Industry-Leading Blocking</h3>
                     <p>Over 630,000 domains blocked. Comprehensive filtering against ads, malware, and trackers.</p>
                 </div>
@@ -937,7 +991,6 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">🎮</div>
-                    <!-- Ad Copy: Refined claims for technical accuracy -->
                     <h3>Gamer's Edge</h3>
                     <p>Lower your ping with our optimized network. Helps mitigate ISP throttling and reduces risk from DNS-based attacks.</p>
                 </div>
@@ -1022,14 +1075,14 @@
                 </div>
             </div>
 
-            <div style="background: var(--accent); color: white; padding: 2rem; border-radius: 12px; margin: 3rem auto; max-width: 800px;">
-                <h4 style="margin-bottom: 1rem; font-size: 1.3rem;">🏆 Why SiftDNS Wins:</h4>
+            <div style="background: var(--bg-card); border: 1px solid var(--secondary); color: var(--text-main); padding: 2rem; border-radius: 12px; margin: 3rem auto; max-width: 800px;">
+                <h4 style="margin-bottom: 1rem; font-size: 1.3rem; color: var(--secondary);">🏆 Why SiftDNS Wins:</h4>
                 <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 0.5rem;">✅ <strong>Highest blacklist count</strong> — more domains blocked than legacy provider competitors</li>
-                    <li style="margin-bottom: 0.5rem;">✅ <strong>No software maintenance</strong> — users don't need to install apps or extensions</li>
-                    <li style="margin-bottom: 0.5rem;">✅ <strong>No passwords or accounts</strong> — just change your DNS and you're protected</li>
-                    <li style="margin-bottom: 0.5rem;">✅ <strong>Stronger privacy commitment</strong> — zero tracking or data logging</li>
-                    <li style="margin-bottom: 0.5rem;">✅ <strong>Independent, user-focused</strong> — not tied to big corporate entities</li>
+                    <li style="margin-bottom: 0.5rem;"><span class="check">✓</span> <strong>Highest blacklist count</strong> — more domains blocked than legacy provider competitors</li>
+                    <li style="margin-bottom: 0.5rem;"><span class="check">✓</span> <strong>No software maintenance</strong> — users don't need to install apps or extensions</li>
+                    <li style="margin-bottom: 0.5rem;"><span class="check">✓</span> <strong>No passwords or accounts</strong> — just change your DNS and you're protected</li>
+                    <li style="margin-bottom: 0.5rem;"><span class="check">✓</span> <strong>Stronger privacy commitment</strong> — zero tracking or data logging</li>
+                    <li style="margin-bottom: 0.5rem;"><span class="check">✓</span> <strong>Independent, user-focused</strong> — not tied to big corporate entities</li>
                 </ul>
             </div>
         </section>
@@ -1047,7 +1100,7 @@
                         <sup>$</sup>3
                         <span>/ month</span>
                     </div>
-                    <p style="margin-bottom: 2rem;">Perfect for personal use. Protect all your devices.</p>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Perfect for personal use. Protect all your devices.</p>
                     <ul style="list-style: none; margin-bottom: 2rem;">
                         <li>✓ 630K+ domains blocked</li>
                         <li>✓ Zero logging guarantee</li>
@@ -1065,7 +1118,7 @@
                         <sup>$</sup>10<sup style="font-size: 1rem;">*</sup>
                         <span>/ month</span>
                     </div>
-                    <p style="margin-bottom: 2rem;">Enhanced features for teams and businesses.</p>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Enhanced features for teams and businesses.</p>
                     <ul style="list-style: none; margin-bottom: 2rem;">
                         <li>✓ Everything in Individual</li>
                         <li>✓ Priority support</li>
@@ -1078,11 +1131,11 @@
                 </div>
             </div>
             
-            <div style="background: var(--gray-50); border-radius: 12px; padding: 1.5rem; margin: 2rem auto; max-width: 600px; border-left: 4px solid var(--accent);">
-                <p style="margin: 0; color: var(--gray-700);"><strong style="color: var(--accent);">🔧 Service Updates:</strong> DNS server IPs may occasionally change for service improvements. We'll email you with new IPs and instructions if needed. These changes are rare with plenty of advance notice.</p>
+            <div style="background: var(--bg-card); border-radius: 12px; padding: 1.5rem; margin: 2rem auto; max-width: 600px; border-left: 4px solid var(--secondary);">
+                <p style="margin: 0; color: var(--text-muted);"><strong style="color: var(--secondary);">🔧 Service Updates:</strong> DNS server IPs may occasionally change for service improvements. We'll email you with new IPs and instructions if needed. These changes are rare with plenty of advance notice.</p>
             </div>
             
-            <p style="text-align: center; margin-top: 2rem; color: var(--gray-600); font-size: 0.9rem;">
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;">
                 * Business plan pricing is estimated and will include enhanced support and features for commercial use. Perfect for offices, teams, and organizations that need reliable DNS filtering across multiple locations. Sign up for individual now and get notified when business plans launch.
             </p>
         </section>
@@ -1098,7 +1151,6 @@
                     <h3 class="category-title">Getting Started</h3>
                     
                     <div class="faq-item">
-                        <!-- Accessibility: Added ARIA attributes -->
                         <button class="faq-question" aria-expanded="false" aria-controls="faq1-answer">
                             <span>What is DNS and why should I care?</span>
                             <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -1108,7 +1160,6 @@
                         <div class="faq-answer" id="faq1-answer">
                             <p>DNS is like the internet's phonebook. When you type a website address, DNS translates it into the numerical IP address computers understand. Your ISP's default DNS often tracks your browsing, serves ads, and can be slow. SiftDNS gives you a faster, private, ad-free alternative.</p>
                             <div style="text-align: center; margin: 20px 0;">
-                                <!-- Asset Optimization: Added lazy loading -->
                                 <img src="dns-diagram.png" alt="DNS Diagram showing how domain names are translated to IP addresses" style="max-width: 100%; border-radius: 8px; box-shadow: var(--shadow-md);" loading="lazy">
                             </div>
                         </div>
@@ -1122,7 +1173,7 @@
                             </svg>
                         </button>
                         <div class="faq-answer" id="faq2-answer">
-                            <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device. Your DNS server addresses are available immediately in your Stripe payment <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--gray-600); text-decoration: underline;">invoice</a>.</p>
+                            <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device. Your DNS server addresses are available immediately in your Stripe payment <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a>.</p>
                         </div>
                     </div>
 
@@ -1328,8 +1379,8 @@
                                 <li style="margin-bottom: 0.5rem;">⏰ Connection timestamps</li>
                             </ul>
                             <p>For complete privacy from your ISP, combine SiftDNS with a VPN. SiftDNS hides your browsing intentions at the DNS level, while a VPN encrypts all traffic. This combination provides maximum privacy and ad blocking.</p>
-                            <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); border: 1px solid #f59e0b; border-radius: 8px; padding: 1rem; margin: 1rem 0; color: #92400e;">
-                                <strong>Note:</strong> HTTPS websites (which most sites use) already encrypt content from your ISP, but DNS queries reveal your intentions before you connect.
+                            <div style="background: #333; border: 1px solid var(--accent); border-radius: 8px; padding: 1rem; margin: 1rem 0; color: var(--text-muted);">
+                                <strong style="color: var(--accent);">Note:</strong> HTTPS websites (which most sites use) already encrypt content from your ISP, but DNS queries reveal your intentions before you connect.
                             </div>
                         </div>
                     </div>
@@ -1470,7 +1521,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Still have questions?</p>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-muted);">Still have questions?</p>
                 <a href="https://siftdns.com/setup" class="cta-button">View Setup Guide</a>
             </div>
         </section>
@@ -1634,4 +1685,3 @@
     </script>
 </body>
 </html>
-

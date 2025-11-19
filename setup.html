@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a1a">
     <title>SiftDNS - Setup Guide</title>
 
     <meta name="description" content="Step-by-step instructions to set up SiftDNS on Windows, macOS, Android, iOS, routers, and gaming consoles in under 2 minutes.">
@@ -15,28 +16,34 @@
 
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --primary-light: #6366f1;
-            --secondary: #ec4899;
-            --accent: #10b981;
-            --dark: #0f172a;
-            --gray-900: #111827;
-            --gray-800: #1f2937;
-            --gray-700: #374151;
-            --gray-600: #4b5563;
-            --gray-500: #6b7280;
-            --gray-400: #9ca3af;
-            --gray-300: #d1d5db;
-            --gray-200: #e5e7eb;
-            --gray-100: #f3f4f6;
-            --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            /* --- Sediment & Stream Palette --- */
+            
+            /* Backgrounds */
+            --bg-main: #1a1a1a;       /* Deep Bedrock */
+            --bg-card: #2C2C2C;       /* Dark Stone */
+            --bg-header: #232323;     /* Header BG */
+            
+            /* Brand Colors */
+            --primary: #466D87;       /* Slate Blue */
+            --primary-dark: #355266;  /* Dark Slate */
+            --primary-light: #598392; /* Eucalyptus */
+            
+            /* Accents */
+            --accent: #D4A373;        /* Raw Copper */
+            --accent-hover: #E0C097;  /* Sand */
+            
+            /* Text */
+            --text-main: #f0f0f0;     /* Off-white */
+            --text-muted: #b0b0b0;    /* Light Grey */
+            --text-on-accent: #1a1a1a; /* Dark text for buttons */
+            
+            /* Borders */
+            --border-color: #3a3a3a;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
         }
 
         * {
@@ -45,10 +52,32 @@
             box-sizing: border-box;
         }
 
+        html { 
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--bg-main);
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 6px;
+            border: 3px solid var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--accent);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--white);
-            color: var(--gray-900);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
@@ -57,8 +86,8 @@
             position: absolute;
             top: -100px;
             left: 0;
-            background: var(--dark);
-            color: white;
+            background: var(--accent);
+            color: var(--text-on-accent);
             padding: 1rem;
             z-index: 9999;
             transition: top 0.3s ease-in-out;
@@ -68,10 +97,10 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(26, 26, 26, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -102,29 +131,32 @@
         }
 
         .back-link {
-            color: var(--primary);
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .back-link:hover {
             transform: translateX(-5px);
+            color: var(--accent);
         }
 
         .setup-hero {
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2E4A5C 100%);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .setup-hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: var(--text-main);
         }
 
         .setup-hero p {
@@ -132,6 +164,7 @@
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
+            color: var(--text-muted);
         }
 
         .setup-content {
@@ -148,27 +181,28 @@
         }
 
         .device-button {
-            background: white;
-            border: 2px solid var(--gray-200);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            color: var(--gray-900);
+            color: var(--text-muted);
         }
 
         .device-button:hover {
-            border-color: var(--primary);
+            border-color: var(--accent);
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            color: var(--text-main);
         }
 
         .device-button.active {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: white;
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--text-on-accent);
         }
 
         .device-icon {
@@ -191,7 +225,8 @@
         }
 
         .setup-step {
-            background: var(--gray-50);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -205,6 +240,7 @@
 
         .setup-step ol, .setup-step ul {
             padding-left: 1.5rem;
+            color: var(--text-muted);
         }
 
         .setup-step li {
@@ -212,9 +248,13 @@
             line-height: 1.8;
         }
 
+        .setup-step strong {
+            color: var(--text-main);
+        }
+
         .dns-servers {
-            background: white;
-            border: 2px solid var(--primary);
+            background: var(--bg-header);
+            border: 1px solid var(--primary);
             border-radius: 8px;
             padding: 1.5rem;
             margin: 1rem 0;
@@ -229,12 +269,15 @@
             font-family: 'Courier New', monospace;
             font-size: 1.1rem;
             margin: 0.5rem 0;
+            color: var(--text-main);
         }
 
+        /* Updated Note Style to match About page "obsolete-callout" vibe */
         .important-note {
-            background: var(--accent);
-            color: white;
-            padding: 1rem;
+            background: rgba(212, 163, 115, 0.1); /* Low opacity copper */
+            border: 1px solid var(--accent);
+            color: var(--text-main);
+            padding: 1.5rem;
             border-radius: 8px;
             margin: 2rem 0;
         }
@@ -242,13 +285,37 @@
         .important-note strong {
             display: block;
             margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        /* Success Message - Keeping it solid for visibility */
+        #success-message {
+            background: var(--accent);
+            color: var(--text-on-accent);
+            border: none;
+        }
+        #success-message strong {
+            color: var(--text-on-accent);
+        }
+        #success-message a {
+            color: var(--text-on-accent) !important;
+            font-weight: bold;
         }
 
         code {
-            background: var(--gray-200);
+            background: #111; /* Deep black for code blocks */
+            color: var(--accent); /* Copper text for IPs/commands */
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
+            border: 1px solid #333;
+        }
+
+        a {
+            color: var(--primary);
+        }
+        a:hover {
+            color: var(--accent);
         }
 
         @media (max-width: 768px) {
@@ -271,14 +338,14 @@
                 <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <defs>
                         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
                         </linearGradient>
                     </defs>
                     <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z"
-                          fill="url(#logoGradient)" opacity="0.9"/>
-                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="white"/>
-                    <rect x="18" y="20" width="4" height="8" fill="white"/>
+                          fill="url(#logoGradient)" opacity="1"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="#D4A373"/>
+                    <rect x="18" y="20" width="4" height="8" fill="#D4A373"/>
                 </svg>
                 SiftDNS
             </a>
@@ -297,7 +364,7 @@
             <p>Choose your device below for step-by-step instructions.</p>
             <p style="margin-top: 0.5rem;">No technical skills required!</p>
             <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">
-                <strong>New subscriber?</strong> Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: rgba(255,255,255,0.9); text-decoration: underline;">invoice</a> and will also be sent via email.
+                <strong>New subscriber?</strong> Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> and will also be sent via email.
             </p>
         </section>
 
@@ -331,20 +398,20 @@
 
             <div class="important-note">
                 <strong>📧 Your DNS Server Addresses:</strong>
-                After completing your Stripe payment, your exclusive SiftDNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: white; text-decoration: underline;">invoice</a> and will also be emailed to you shortly. Keep both handy during setup!
+                After completing your Stripe payment, your exclusive SiftDNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> and will also be emailed to you shortly. Keep both handy during setup!
             </div>
 
             <div class="dns-servers">
                 <h4>Primary DNS Server:</h4>
-                <p>Available in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> and delivered via email</p>
+                <p>Available in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> and delivered via email</p>
                 <h4>Secondary DNS Server:</h4>
-                <p>Available in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> and delivered via email</p>
-                <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--gray-600);">
-                    <strong>New subscriber?</strong> Check the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> immediately or your email inbox for "Welcome to SiftDNS" with your server addresses.
+                <p>Available in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> and delivered via email</p>
+                <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-muted);">
+                    <strong>New subscriber?</strong> Check the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> immediately or your email inbox for "Welcome to SiftDNS" with your server addresses.
                 </p>
             </div>
 
-            <div id="success-message" class="important-note" style="background: var(--accent); display: none;">
+            <div id="success-message" class="important-note" style="background: var(--accent); display: none; border: none;">
                 <strong>🎉 Welcome to SiftDNS!</strong>
                 Your subscription is active. Your exclusive DNS server addresses are in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: white; text-decoration: underline;">invoice</a> and will also be emailed to you. Follow the setup instructions below. Your first month is free!
             </div>
@@ -369,8 +436,8 @@
                             <strong>Change DNS Server Addresses:</strong><br>
                             Select "Use the following DNS server addresses" and enter:
                             <ul>
-                                <li>Preferred DNS server: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
-                                <li>Alternate DNS server: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li>Preferred DNS server: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li>Alternate DNS server: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
                             </ul>
                         </li>
                         <li>
@@ -413,8 +480,8 @@
                             <strong>Add DNS Servers:</strong><br>
                             Click the "+" button and add:
                             <ul>
-                                <li><code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
-                                <li><code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li><code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li><code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
                             </ul>
                         </li>
                         <li>
@@ -459,8 +526,8 @@
                         </li>
                         <li>
                             <strong>Enter DNS Servers:</strong><br>
-                            In DNS 1: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code><br>
-                            In DNS 2: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code>
+                            In DNS 1: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code><br>
+                            In DNS 2: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code>
                         </li>
                         <li>
                             <strong>Save:</strong><br>
@@ -498,8 +565,8 @@
                             <strong>Add DNS Servers:</strong><br>
                             Tap "Add Server" and enter:
                             <ul>
-                                <li><code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
-                                <li><code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li><code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li><code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
                             </ul>
                             Remove any existing servers by tapping the red minus button
                         </li>
@@ -534,8 +601,8 @@
                             <strong>Enter SiftDNS Servers:</strong><br>
                             Replace existing DNS with:
                             <ul>
-                                <li>Primary DNS: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
-                                <li>Secondary DNS: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li>Primary DNS: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li>Secondary DNS: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
                             </ul>
                         </li>
                         <li>
@@ -557,7 +624,7 @@
                         <li><strong>TP-Link (Deco App):</strong> Deco app → Advanced → IPv4 → DNS Server</li>
                         <li><strong>Ubiquiti UniFi:</strong> UniFi Network app → Settings → Networks → [Your Network] → DHCP DNS Server</li>
                     </ul>
-                    <p style="margin-bottom: 1.5rem;">Look for "DNS", "Custom DNS", or "Advanced Network Settings" in your router's app, then enter your SiftDNS server addresses from the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> or email.</p>
+                    <p style="margin-bottom: 1.5rem;">Look for "DNS", "Custom DNS", or "Advanced Network Settings" in your router's app, then enter your SiftDNS server addresses from the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> or email.</p>
 
                     <div class="important-note" style="margin-top: 2rem;">
                         <strong>✨ Pro Tip:</strong>
@@ -585,7 +652,7 @@
                         <li>Choose Wi-Fi or LAN Cable</li>
                         <li>Select "Custom"</li>
                         <li>For DNS Settings, choose "Manual"</li>
-                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
                     </ol>
 
                     <h4 style="color: var(--primary); margin: 2rem 0 1rem;">Xbox Setup:</h4>
@@ -593,7 +660,7 @@
                         <li>Press Xbox button → Settings → Network</li>
                         <li>Select "Network settings" → "Advanced settings"</li>
                         <li>Select "DNS settings" → "Manual"</li>
-                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
                     </ol>
 
                     <h4 style="color: var(--primary); margin: 2rem 0 1rem;">Nintendo Switch Setup:</h4>
@@ -601,7 +668,7 @@
                         <li>System Settings → Internet → Internet Settings</li>
                         <li>Select your network → Change Settings</li>
                         <li>DNS Settings → Manual</li>
-                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--primary); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
                     </ol>
                 </div>
 
@@ -623,13 +690,13 @@
 
                 <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Testing Your Setup:</h4>
                 <ol>
-                    <li>Visit <a href="https://ads-blocker.com/testing" target="_blank" rel="noopener noreferrer">ads-blocker.com/testing</a> — you should see fewer or no ads.</li>
-                    <li>Run a DNS leak test at <a href="https://www.dnsleaktest.com" target="_blank" rel="noopener noreferrer">dnsleaktest.com</a> to confirm your queries are going through DigitalOcean, SiftDNS's cloud host.</li>
+                    <li>Visit <a href="https://ads-blocker.com/testing" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">ads-blocker.com/testing</a> — you should see fewer or no ads.</li>
+                    <li>Run a DNS leak test at <a href="https://www.dnsleaktest.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">dnsleaktest.com</a> to confirm your queries are going through DigitalOcean, SiftDNS's cloud host.</li>
                     <li>Try browsing news websites — ads should be blocked or reduced.</li>
                 </ol>
 
                 <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Don't Have Your DNS Addresses Yet?</h4>
-                <p>You'll need an active SiftDNS subscription to get your exclusive server addresses. <a href="/" style="color: var(--primary); text-decoration: none;"><strong>Start your free trial here →</strong></a></p>
+                <p>You'll need an active SiftDNS subscription to get your exclusive server addresses. <a href="/" style="color: var(--accent); text-decoration: none;"><strong>Start your free trial here →</strong></a></p>
 
                 <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Need Help?</h4>
                 <p>Contact us at <strong>support@siftdns.com</strong> with your setup questions. We respond quickly and are here to help! Please include your email address from your Stripe purchase so we can verify your account.</p>

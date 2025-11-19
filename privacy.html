@@ -3,68 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a1a">
     <meta name="description" content="SiftDNS is a zero-logging DNS service. Read our clear, simple privacy policy to understand what little data we handle and how we are committed to protecting your online privacy.">
     <title>SiftDNS Privacy Policy - Zero-Log DNS Service</title>
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --primary-light: #6366f1;
-            --accent: #10b981;
-            --dark: #0f172a;
-            --gray-900: #111827;
-            --gray-800: #1f2937;
-            --gray-700: #374151;
-            --gray-600: #4b5563;
-            --gray-500: #6b7280;
-            --gray-400: #9ca3af;
-            --gray-300: #d1d5db;
-            --gray-200: #e5e7eb;
-            --gray-100: #f3f4f6;
-            --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            /* --- Sediment & Stream Palette --- */
+            
+            /* Backgrounds */
+            --bg-main: #1a1a1a;       /* Deep Bedrock */
+            --bg-card: #2C2C2C;       /* Dark Stone */
+            --bg-header: #232323;     /* Header BG */
+            
+            /* Brand Colors */
+            --primary: #466D87;       /* Slate Blue */
+            --primary-dark: #355266;  /* Dark Slate */
+            --primary-light: #598392; /* Eucalyptus */
+            
+            /* Accents */
+            --accent: #D4A373;        /* Raw Copper */
+            --accent-hover: #E0C097;  /* Sand */
+            --success: #8EB69B;       /* Sage Green */
+            --error: #D98C8C;         /* Muted Red */
+            
+            /* Text */
+            --text-main: #f0f0f0;     /* Off-white */
+            --text-muted: #b0b0b0;    /* Light Grey */
+            --text-on-accent: #1a1a1a; /* Dark text for buttons */
+            
+            /* Borders */
+            --border-color: #3a3a3a;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
         }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: var(--white); color: var(--gray-900); line-height: 1.6; }
-        header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+        }
+        
+        /* Custom Scrollbars */
+        html { 
+            scrollbar-width: thin; 
+            scrollbar-color: var(--primary) var(--bg-main); 
+        }
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background-color: var(--primary); border-radius: 6px; border: 3px solid var(--bg-main); }
+        ::-webkit-scrollbar-thumb:hover { background-color: var(--accent); }
+
+        header { 
+            background: rgba(26, 26, 26, 0.95); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--border-color); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
         nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        
         .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.75rem; color: var(--primary); text-decoration: none; }
         .logo-icon { width: 40px; height: 40px; margin-right: 12px; }
-        .back-link { color: var(--primary); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease; }
-        .back-link:hover { transform: translateX(-5px); }
-        .hero { background: var(--gradient-primary); color: white; padding: 4rem 2rem; text-align: center; }
-        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 900; }
-        .hero .subtitle { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto;}
-        .privacy-promise { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 16px; padding: 2rem; margin: 2rem auto; max-width: 600px; border: 1px solid rgba(255, 255, 255, 0.2); }
-        .privacy-promise h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .privacy-promise p { font-size: 1.1rem; opacity: 0.95; }
+        
+        .back-link { color: var(--text-muted); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease, color 0.3s ease; }
+        .back-link:hover { transform: translateX(-5px); color: var(--accent); }
+        
+        .hero { 
+            background: linear-gradient(135deg, #1a1a1a 0%, #2E4A5C 100%); 
+            color: white; 
+            padding: 4rem 2rem; 
+            text-align: center; 
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 900; color: var(--text-main); }
+        .hero .subtitle { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto; color: var(--text-muted); }
+        
+        .privacy-promise { 
+            background: rgba(26, 26, 26, 0.6); 
+            backdrop-filter: blur(10px); 
+            border-radius: 16px; 
+            padding: 2rem; 
+            margin: 2rem auto; 
+            max-width: 600px; 
+            border: 1px solid var(--accent); 
+        }
+        .privacy-promise h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent); }
+        .privacy-promise p { font-size: 1.1rem; opacity: 0.95; color: var(--text-main); }
+        
         .content { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        
         .data-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
-        .data-card { padding: 2rem; border-radius: 12px; }
+        .data-card { padding: 2rem; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color); }
         .data-card h3 { margin-bottom: 1rem; }
         .data-card ul { list-style: none; padding: 0; }
-        .data-card li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
-        .data-card--no { background: #fff1f2; border: 1px solid #f43f5e; color: #9f1239;}
-        .data-card--no h3 { color: #be123c;}
-        .data-card--no li::before { content: "✗"; color: #f43f5e; font-weight: bold; }
-        .data-card--yes { background: #f0fdf4; border: 1px solid var(--accent); color: #14532d;}
-        .data-card--yes h3 { color: #166534;}
-        .data-card--yes li::before { content: "✓"; color: var(--accent); font-weight: bold; }
-        .legal-content { background: white; border-radius: 12px; padding: 3rem; box-shadow: var(--shadow-md); }
+        .data-card li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted); }
+        
+        /* "No" Card (Muted Red) */
+        .data-card--no { border-color: var(--error); background: rgba(217, 140, 140, 0.05); }
+        .data-card--no h3 { color: var(--error); }
+        .data-card--no li::before { content: "✗"; color: var(--error); font-weight: bold; }
+        
+        /* "Yes" Card (Sage Green) */
+        .data-card--yes { border-color: var(--success); background: rgba(142, 182, 155, 0.05); }
+        .data-card--yes h3 { color: var(--success); }
+        .data-card--yes li::before { content: "✓"; color: var(--success); font-weight: bold; }
+        
+        .legal-content { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 3rem; box-shadow: var(--shadow-md); }
         .legal-content h1, .legal-content h2, .legal-content h3 { color: var(--primary); margin-bottom: 1rem; }
         .legal-content h1 { font-size: 2rem; }
-        .legal-content h2 { margin-top: 2.5rem; font-size: 1.5rem; border-bottom: 1px solid var(--gray-200); padding-bottom: 0.5rem; }
-        .legal-content p { margin-bottom: 1rem; }
-        .legal-content strong { color: var(--gray-900); }
-        .legal-content ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .legal-content h2 { margin-top: 2.5rem; font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        .legal-content p { margin-bottom: 1rem; color: var(--text-muted); }
+        .legal-content strong { color: var(--text-main); }
+        .legal-content ul { margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-muted); }
         .legal-content li { margin-bottom: 0.5rem; }
-        .highlight-box { background: #fefce8; border: 1px solid #eab308; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; color: #713f12;}
-        .highlight-box strong { color: #854d0e; }
-        footer { background: var(--gradient-dark); color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+        
+        .highlight-box { 
+            background: rgba(212, 163, 115, 0.1); /* Low opacity copper */
+            border: 1px solid var(--accent); 
+            border-radius: 8px; 
+            padding: 1.5rem; 
+            margin: 1.5rem 0; 
+            color: var(--text-main);
+        }
+        .highlight-box strong { color: var(--accent); }
+        
+        footer { background: var(--bg-header); color: var(--text-muted); text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color); }
+        
         @media (max-width: 768px) {
             .hero h2 { font-size: 2rem; }
             .data-comparison { grid-template-columns: 1fr; }
@@ -77,8 +150,15 @@
         <nav>
             <a href="/" class="logo">
                 <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w.org/2000/svg" aria-hidden="true" focusable="false">
-                    <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" /></linearGradient></defs>
-                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" fill="url(#logoGradient)" opacity="0.9"/><path d="M15,15 L25,15 L23,20 L17,20 Z" fill="white"/><rect x="18" y="20" width="4" height="8" fill="white"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" fill="url(#logoGradient)" opacity="1"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="#D4A373"/>
+                    <rect x="18" y="20" width="4" height="8" fill="#D4A373"/>
                 </svg>
                 SiftDNS
             </a>
@@ -159,7 +239,7 @@
             <p>You have rights over your data, such as the right to access, correct, or delete it. Since we hold almost no personal information, these rights are straightforward:</p>
             <ul>
                 <li><strong>To manage your subscription and billing information</strong>, please use the Stripe customer portal, as they are the controller of that data.</li>
-                - **To access or delete a support conversation**, simply email us from the same address, and we will handle your request promptly.</li>
+                <li><strong>To access or delete a support conversation</strong>, simply email us from the same address, and we will handle your request promptly.</li>
             </ul>
             <p>Our service is not intended for individuals under the age of 18.</p>
 
@@ -170,7 +250,7 @@
             <p>If you have any questions about this Privacy Policy, please don't hesitate to reach out.</p>
             <p><strong>Email:</strong> support@siftdns.com</p>
 
-            <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--gray-200);">
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border-color);">
             <p><em>Last updated: September 3, 2025</em></p>
         </div>
     </div>
