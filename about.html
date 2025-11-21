@@ -165,6 +165,8 @@
         .story-content p { margin-bottom: 2rem; }
         .story-content strong { color: var(--text-main); }
         .story-content h3 { color: var(--primary); font-size: 1.8rem; font-weight: 800; margin: 3rem 0 1.5rem 0; background: none; -webkit-text-fill-color: initial; }
+        /* Style specifically for sub-headings in the technical section */
+        .story-content h4 { color: var(--text-main); margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.2rem; font-weight: 700; }
 
         .diagram-container { text-align: center; margin: 3rem auto; max-width: 700px; padding: 1rem; background-color: var(--bg-header); border: 1px solid var(--border-color); border-radius: 10px; box-shadow: var(--shadow-md); }
         .diagram-container figure { margin: 0; }
@@ -254,7 +256,7 @@
         
         <div class="diagram-container">
             <figure class="diagram">
-                                <img src="dns-diagram2.png" alt="Diagram showing how a DNS query resolves a domain name into an IP address." loading="lazy">
+                <img src="dns-diagram2.png" alt="Diagram showing how a DNS query resolves a domain name into an IP address." loading="lazy">
                 <figcaption>A simplified diagram of the DNS lookup process.</figcaption>
             </figure>
         </div>
@@ -284,12 +286,26 @@
                         <p>Direct queries to authoritative root servers ensuring privacy and eliminating third-party dependencies.</p>
                     </div>
                 </div>
-                                 <img src="network-diagram.png" alt="SiftDNS Network Architecture Diagram" style="width:100%;max-width:1000px;margin:3rem auto 0;display:block;border-radius:24px;box-shadow:var(--shadow-xl);opacity:0.9;">
+                 <img src="network-diagram.png" alt="SiftDNS Network Architecture Diagram" style="width:100%;max-width:1000px;margin:3rem auto 0;display:block;border-radius:24px;box-shadow:var(--shadow-xl);opacity:0.9;">
             </div>
         </section>
         
         <section class="story-section">
             <div class="story-content">
+                <h3 style="display: flex; align-items: center; gap: 1rem; margin-top: 0; margin-bottom: 2rem;">
+                    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width: 40px; height: 40px; min-width: 40px; animation: logoFloat 6s ease-in-out infinite;">
+                        <defs>
+                            <linearGradient id="foundationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" fill="url(#foundationGradient)" opacity="1"/>
+                        <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="#D4A373"/>
+                        <rect x="18" y="20" width="4" height="8" fill="#D4A373"/>
+                    </svg>
+                    The Forgotten Foundation
+                </h3>
                 <p><strong>DNS is the foundation of every single thing you do online.</strong> Every click, every page load, every app notification starts with a DNS query. It's the internet's most critical infrastructure, however, many standard DNS services haven't kept pace with the modern need for speed and privacy.</p>
 
                 <p>Many ISP and free DNS services may log your browsing data, which can then be used for marketing. We believe your privacy is a core priority, and your choice of DNS provider directly impacts it.</p>
@@ -330,6 +346,41 @@
                 <p><strong>This is what premium DNS looks like when the primary focus is on the user experience.</strong> It’s about optimizing for performance, choosing technical excellence, and delivering a service you can trust.</p>
 
                 <p>We believe everyone deserves access to a faster, safer, and more private internet. SiftDNS makes enterprise-grade performance and privacy accessible to everyone. Experience the difference a modern, user-focused DNS service can make.</p>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="story-content">
+                <h3 style="display: flex; align-items: center; gap: 1rem; margin-top: 3rem;">
+                    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width: 40px; height: 40px; min-width: 40px; animation: logoFloat 6s ease-in-out infinite;">
+                        <defs>
+                            <linearGradient id="staticSectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" fill="url(#staticSectionGradient)" opacity="1"/>
+                        <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="#D4A373"/>
+                        <rect x="18" y="20" width="4" height="8" fill="#D4A373"/>
+                    </svg>
+                    Website Engineered for Resilience
+                </h3>
+                <p>We explicitly separate our static <strong>public website</strong> from our dynamic DNS service. While our filtering engine updates routinely, the pages you are reading now are pre-built static files. This architecture delivers three key benefits:</p>
+
+                <h4>1. Rapid Global Speed</h4>
+                <p>No database queries mean negligible wait times. Our content is served from the "edge" closest to you—not a central server—minimizing load times globally.</p>
+
+                <h4>2. Hardened Security</h4>
+                <p>With no underlying database or server-side code on our public site, common exploits like SQL injection are virtually eliminated. Your browsing experience here is secure by default.</p>
+
+                <h4>3. Decoupled Reliability</h4>
+                <p>Our website is independent of our service backend. Even during maintenance windows, our documentation and support pages remain accessible.</p>
+
+                <div class="highlight-stat">
+                    Zero Databases. Zero Server-Side Code. Maximum Stability.
+                </div>
+
+                <p><strong>The Bottom Line:</strong> A static website is simply the superior engineering choice for speed and security. It offers a cleaner codebase and a hardened attack surface, treating website delivery with the rigor a security product demands.</p>
             </div>
         </section>
 
