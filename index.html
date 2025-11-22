@@ -1032,6 +1032,19 @@
                 width: 100%;
             }
         }
+
+        /* ========== Status banner styles (inserted) ========== */
+        /* Keep these compact and dark-theme friendly */
+        #service-status { max-width:1200px; margin:84px auto 1rem; padding:0 2rem; }
+        #service-status .banner{padding:12px;border-radius:8px;margin-bottom:8px;box-shadow: var(--shadow-sm);border:1px solid var(--border-color)}
+        #status-banner.up{background: #e6ffed;color: #055a2d;border-color: rgba(142,182,155,0.18)}
+        #status-banner.degraded{background: #fff4ce;color:#6a4b00;border-color: rgba(212,163,115,0.12)}
+        #status-banner.down{background: #ffe6e6;color:#6a0505;border-color: rgba(217,140,140,0.12)}
+        /* Small responsive adjustment so banner doesn't crowd mobile header */
+        @media (max-width:768px){
+          #service-status{margin-top:110px;padding:0 1rem}
+        }
+        /* ========== end status styles ========== */
     </style>
 </head>
 <body>
@@ -1076,6 +1089,20 @@
             <div class="mobile-nav-links" id="mobile-nav-links"></div>
         </nav>
     </header>
+
+    <!-- STATUS START -->
+    <!-- choose one from below  -->
+    <!--  ACTIVE     <section id="service-status" aria-live="polite" style="max-width:1200px;margin:84px auto 1rem;padding:0 2rem;">   --> 
+    <!--  DISABLED   <section id="service-status" aria-live="polite" style="display: none;max-width:1200px;margin:84px auto 1rem;padding:0 2rem;">   -->
+
+<section id="service-status" aria-live="polite" style="display: none;max-width:1200px;margin:84px auto 1rem;padding:0 2rem;">
+      <div id="status-banner" class="banner up" role="status" style="padding:12px;border-radius:8px;margin-bottom:8px;">
+        <strong id="status-title">Status:</strong>
+        <span id="status-summary" style="margin-left:0.5rem;">This is a temporary status placeholder — no active incidents. Welcome!</span>
+        <div class="timestamp" id="status-timestamp" style="font-size:0.9rem;color:var(--text-muted);margin-top:8px;">Updated — local placeholder</div>
+      </div>
+    </section>
+    <!-- STATUS END -->
 
     <main>
         <section class="hero">
