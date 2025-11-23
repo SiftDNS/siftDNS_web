@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1a1a1a">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
 
     <title>About SiftDNS - Premium DNS Without the Premium Price</title>
 
-    <meta name="description" content="SiftDNS delivers enterprise-grade DNS filtering and zero-logging privacy for $3/month. 630,000+ domains blocked, direct root queries, and consumer-friendly pricing.">
+    <meta name="description" content="SiftDNS delivers premium DNS filtering and zero-logging privacy for $3/month. Experience privacy-focused DNS with enterprise-grade security and 630,000+ blocked domains.">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://yourdomain.com/about">
+
+    <link rel="preload" as="image" href="dns-diagram2.png">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourdomain.com/about">
@@ -116,11 +120,18 @@
             background-color: var(--bg-main);
             color: var(--text-main);
             line-height: 1.7;
-            text-align: center; /* Center justify entire page */
+            text-align: center;
         }
         
+        /* Global Focus Styles */
+        :focus-visible {
+            outline: 3px solid var(--focus);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
         .skip-link { position: absolute; left: 0; top: -40px; background: var(--accent); color: var(--text-on-accent); padding: 8px 12px; border-radius: 0 0 8px 0; z-index: 999; transition: transform .2s ease; }
-        .skip-link:focus { top: 0; outline: 3px solid var(--focus); }
+        .skip-link:focus { top: 0; outline: none; } /* handled by global focus-visible */
 
         a:focus-visible, button:focus-visible, .cta-button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 8px; }
 
@@ -190,6 +201,15 @@
         .diagram-container img { max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; opacity: 0.9; }
         .diagram-container figcaption { margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted); }
 
+        /* Reusable classes replacing inline styles */
+        .diagram-clean { background: transparent; border: none; box-shadow: none; margin: 1.5rem auto; padding: 0; }
+        .diagram-clean img { width: 100%; border-radius: 12px; box-shadow: var(--shadow-lg); display: block; margin: 0 auto; }
+        
+        .diagram-lg { width: 100%; max-width: 1000px; margin: 0 auto; display: block; border-radius: 24px; box-shadow: var(--shadow-xl); opacity: 0.9; }
+        .diagram-lg-spaced { margin-top: 2rem; }
+        
+        .text-caption { text-align: center; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem; }
+
         .highlight-stat { background: linear-gradient(135deg, var(--primary-dark), var(--bg-header)); border: 1px solid var(--primary); color: var(--accent); padding: 1.5rem; border-radius: 12px; text-align: center; margin: 1.5rem auto; max-width: 800px; font-weight: 700; font-size: 1.3rem; box-shadow: var(--shadow-md); }
 
         .value-callout { background: #111; color: var(--text-main); padding: 2rem; border-radius: 20px; margin: 1.5rem 0; text-align: center; position: relative; overflow: hidden; border: 1px solid var(--border-color); }
@@ -214,7 +234,6 @@
         .architecture::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:var(--primary)}
         .architecture-title{text-align:center;font-size:2rem;font-weight:700;margin-bottom:2rem;color:var(--primary)}
         
-        /* UPDATED GRID TO FORCE 2x2 ON DESKTOP */
         .architecture-flow{display:grid; grid-template-columns: repeat(2, 1fr); gap:1.5rem; align-items:center; position:relative}
         
         .flow-step{text-align:center;padding:1.5rem;background: var(--bg-main); border-radius:20px;border:1px solid var(--border-color);transition:all .4s ease;position:relative;overflow:hidden}
@@ -237,7 +256,7 @@
             .diagram-container { margin: 1rem auto; padding: 0.75rem; }
             .diagram-container figcaption { font-size: 0.85rem; }
             .architecture { padding: 1.5rem; }
-            .architecture-flow { grid-template-columns: 1fr; } /* Mobile Stack */
+            .architecture-flow { grid-template-columns: 1fr; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -275,14 +294,14 @@
         
         <div class="diagram-container">
             <figure class="diagram">
-                <img src="dns-diagram2.png" alt="Diagram showing how a DNS query resolves a domain name into an IP address." loading="lazy">
+                <img src="dns-diagram2.png" alt="Process flow diagram showing a DNS query resolving a domain name into an IP address" width="100%" height="auto">
                 <figcaption>A simplified diagram of the DNS lookup process.</figcaption>
             </figure>
         </div>
 
         <div class="diagram-container" style="margin-top: 1.5rem;">
             <figure class="diagram">
-                <img src="1763920731185.png" alt="Desktop protection diagram showing blocked threats." loading="lazy">
+                <img src="1763920731185.png" alt="Desktop interface showing blocked malicious ads and trackers via SiftDNS" loading="lazy">
                 <figcaption>Desktop Protection: Blocking malware and trackers at the source.</figcaption>
             </figure>
         </div>
@@ -292,34 +311,36 @@
                 <h3 class="architecture-title">DNS Request Processing Flow</h3>
                 <div class="architecture-flow">
                     <div class="flow-step">
-                        <div class="flow-icon">📱</div>
+                        <div class="flow-icon" aria-hidden="true">📱</div>
                         <h4>Client Device</h4>
                         <p>User configures device DNS settings to point to SiftDNS servers. No software installation required.</p>
                     </div>
                     <div class="flow-step">
-                        <div class="flow-icon">⚡</div>
+                        <div class="flow-icon" aria-hidden="true">⚡</div>
                         <h4>Cloud Load Balancer</h4>
                         <p>Managed load balancer distributes queries across multiple DNS servers with automatic failover.</p>
                     </div>
                     <div class="flow-step">
-                        <div class="flow-icon">🛡️</div>
+                        <div class="flow-icon" aria-hidden="true">🛡️</div>
                         <h4>DNS Filtering Engine</h4>
                         <p>Real-time filtering against 630K+ domain blocklist (and growing) with recursive caching for performance.</p>
                     </div>
                     <div class="flow-step">
-                        <div class="flow-icon">🌐</div>
+                        <div class="flow-icon" aria-hidden="true">🌐</div>
                         <h4>Root DNS Servers</h4>
                         <p>Direct queries to authoritative root servers ensuring privacy and eliminating third-party dependencies.</p>
                     </div>
                 </div>
                  
                  <figure style="margin: 2rem 0 0 0;">
-                    <img src="network-diagram.png" alt="SiftDNS Network Architecture Diagram" style="width:100%;max-width:1000px;margin:0 auto;display:block;border-radius:24px;box-shadow:var(--shadow-xl);opacity:0.9;">
-                    <figcaption style="text-align: center; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">SiftDNS Network Architecture: High availability and failover by design.</figcaption>
+                    <img src="network-diagram.png" alt="Network architecture diagram displaying high availability and failover mechanisms" class="diagram-lg" loading="lazy">
+                    <figcaption class="text-caption">SiftDNS Network Architecture: High availability and failover by design.</figcaption>
                  </figure>
                  
-                 <img src="1763920897092.png" alt="Enterprise protection diagram showing ransomware blocking." style="width:100%;max-width:1000px;margin:2rem auto 0;display:block;border-radius:24px;box-shadow:var(--shadow-xl);opacity:0.9;">
-                 <p style="text-align: center; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Enterprise-grade threat prevention.</p>
+                 <figure>
+                    <img src="1763920897092.png" alt="Enterprise protection diagram showing the blocking of ransomware C2 servers" class="diagram-lg diagram-lg-spaced" loading="lazy">
+                    <figcaption class="text-caption">Enterprise-grade threat prevention.</figcaption>
+                 </figure>
             </div>
         </section>
         
@@ -349,9 +370,9 @@
 
                 <p>While some services offer basic filtering, we believe a truly comprehensive approach is needed for modern threats. Protecting your devices requires a robust and proactive blocklist that is always up to date.</p>
 
-                <div class="diagram-container" style="background: transparent; border: none; box-shadow: none; margin: 1.5rem auto; padding: 0;">
-                    <img src="1763920920491.png" alt="Mobile protection diagram." style="width: 100%; border-radius: 12px; box-shadow: var(--shadow-lg); display: block; margin: 0 auto;">
-                    <figcaption>Mobile Protection: Securing devices on the go.</figcaption>
+                <div class="diagram-clean">
+                    <img src="1763920920491.png" alt="Mobile device showing protection from phishing SMS and malicious apps" loading="lazy">
+                    <figcaption class="text-caption">Mobile Protection: Securing devices on the go.</figcaption>
                 </div>
 
                 <h3>Our Commitment to a Better DNS</h3>
@@ -359,7 +380,7 @@
                 <p><strong>SiftDNS was designed from the ground up for the modern internet.</strong> Our philosophy is built on three key principles: comprehensive protection, absolute privacy, and maximum performance.</p>
 
                 <div class="highlight-stat">
-                    630,000+ blocked domains for comprehensive <br>protection against modern threats
+                    630,000+ blocked domains for comprehensive protection against modern threats
                 </div>
 
                 <p>We maintain a comprehensive, constantly-updated blocklist of over 630,000 domains. Every ad network, tracking script, malware domain, and phishing site we can identify gets blocked at the DNS level before it ever reaches your device.</p>
@@ -378,7 +399,7 @@
                 <p>By building SiftDNS from the ground up with modern technology, we designed a streamlined architecture that avoids the compromises inherent in older systems. We have no legacy infrastructure holding back innovation, allowing us to focus purely on delivering our core principles.</p>
 
                 <div class="highlight-stat">
-                    $3/month buys you enterprise-grade DNS <br>worth hundreds in privacy and performance
+                    $3/month buys you enterprise-grade DNS worth hundreds in privacy and performance
                 </div>
 
                 <p><strong>This is what premium DNS looks like when the primary focus is on the user experience.</strong> It’s about optimizing for performance, choosing technical excellence, and delivering a service you can trust.</p>
