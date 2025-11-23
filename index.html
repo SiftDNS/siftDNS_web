@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    
     <meta name="theme-color" content="#1a1a1a">
-
-    <meta name="robots" content="index, follow">
 
     <title>SiftDNS | Secure DNS for Ad Blocking, Privacy & Performance</title>
     
-    <meta name="description" content="SiftDNS offers a secure, high-performance DNS service that blocks ads and malware, protects your privacy with a zero-log policy, and speeds up your internet on all devices.">
-
+    <link rel="canonical" href="https://siftdns.com/">
     <meta property="og:title" content="SiftDNS | Secure DNS for Ad Blocking, Privacy & Performance">
     <meta property="og:description" content="SiftDNS offers a secure, high-performance DNS service that blocks ads and malware, protects your privacy with a zero-log policy, and speeds up your internet on all devices.">
     <meta property="og:image" content="https://siftdns.com/og-image.png">
     <meta property="og:url" content="https://siftdns.com/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://buy.stripe.com">
+    <link rel="preconnect" href="https://billing.stripe.com">
+    <link rel="preconnect" href="https://stats.uptimerobot.com">
+    <link rel="preconnect" href="https://github.com">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -36,22 +37,16 @@
             /* Brand Colors */
             --primary: #466D87;       /* Slate Blue */
             --primary-dark: #355266;  /* Dark Slate */
-            --primary-light: #598392; /* Eucalyptus */
             
             /* Accents */
             --accent: #D4A373;        /* Raw Copper (Buttons/Highlights) */
             --accent-hover: #E0C097;  /* Sand */
             --secondary: #8EB69B;     /* Sage Green (Success/Status) */
-            --error: #D98C8C;         /* Muted Red */
 
             /* Text */
             --text-main: #f0f0f0;     /* Off-white Mist */
             --text-muted: #b0b0b0;    /* Stone Grey text */
             --text-on-accent: #1a1a1a; /* Dark text for copper buttons */
-            
-            /* Gradients */
-            --gradient-primary: linear-gradient(135deg, #466D87 0%, #2E4A5C 100%);
-            --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #232323 100%);
             
             /* Shadows (Dark Mode Optimized) */
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
@@ -91,6 +86,24 @@
             background-color: var(--accent);
         }
 
+        /* Screen Reader Only Utility Class */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Utility class for toggling visibility */
+        .hidden {
+            display: none !important;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--bg-main);
@@ -102,7 +115,7 @@
         /* --- HERO LOGO ANIMATION CSS --- */
         .hero-logo-container.combined-logo {
             position: relative;
-            width: 180px; /* Increased size */
+            width: 180px; 
             height: 180px;
             margin: 0 auto 2.5rem;
         }
@@ -112,47 +125,39 @@
             position: relative;
             width: 100%;
             height: 100%;
-            z-index: 10; /* Keeps logo above the rings */
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            z-index: 10; 
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
         }
 
         /* --- Part 1: The Blueprint Drawing --- */
-        
-        /* Shared Initial State for Paths */
         .draw-part {
-            fill-opacity: 0;          /* Start transparent */
-            stroke-width: 0.5px;      /* Thin wireframe line */
+            fill-opacity: 0;          
+            stroke-width: 0.5px;      
             stroke-linecap: round;
             stroke-linejoin: round;
         }
 
-        /* Shield Specifics */
         .draw-part.shield {
-            stroke: #466D87;          /* Slate outline */
-            stroke-dasharray: 150;    /* Length of line */
-            stroke-dashoffset: 150;   /* Start hidden */
-            /* Animation: Draw Line (2s) -> Wait -> Fade to Solid Fill (1s) */
+            stroke: #466D87;          
+            stroke-dasharray: 150;    
+            stroke-dashoffset: 150;   
             animation: drawLine 2s ease-out forwards, 
                        fillShield 0.8s ease-out 2.2s forwards;
         }
 
-        /* Funnel Specifics */
         .draw-part.funnel path, 
         .draw-part.funnel rect {
-            stroke: #D4A373;          /* Copper outline */
+            stroke: #D4A373;          
             stroke-dasharray: 50;
             stroke-dashoffset: 50;
-            /* Delay start by 0.5s so it draws after shield starts */
             animation: drawLine 2s ease-out 0.5s forwards, 
                        fillFunnel 0.8s ease-out 2.4s forwards;
         }
 
-        /* Drawing Keyframes */
         @keyframes drawLine {
             to { stroke-dashoffset: 0; }
         }
 
-        /* Filling Keyframes (Shield) */
         @keyframes fillShield {
             to { 
                 fill: url(#combinedLogoGrad); 
@@ -161,7 +166,6 @@
             }
         }
 
-        /* Filling Keyframes (Funnel) */
         @keyframes fillFunnel {
             to { 
                 fill: #D4A373; 
@@ -171,27 +175,24 @@
         }
 
         /* --- Part 2: The Pulse (Active) --- */
-
         .logo-ring {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            border: 2px solid #D4A373; /* Copper pulse */
+            border: 2px solid #D4A373;
             border-radius: 50%;
             width: 100%; 
             height: 100%;
-            opacity: 0; /* Start invisible */
-            z-index: 1; /* Behind logo */
+            opacity: 0; 
+            z-index: 1; 
             pointer-events: none;
             box-sizing: border-box;
         }
 
-        /* Ring 1 Animation: Starts at 3.0s (after drawing finishes) */
         .logo-ring.ring-1 {
             animation: activePulse 3s infinite linear 3.2s;
         }
 
-        /* Ring 2 Animation: Starts at 4.5s (staggered) */
         .logo-ring.ring-2 {
             animation: activePulse 3s infinite linear 4.7s;
         }
@@ -240,7 +241,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(26, 26, 26, 0.95); /* Dark background */
+            background: rgba(26, 26, 26, 0.95); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
@@ -266,7 +267,7 @@
             align-items: center;
             font-weight: 800;
             font-size: 1.75rem;
-            color: var(--primary); /* Slate Blue */
+            color: var(--primary);
             cursor: pointer;
             transition: transform 0.3s ease;
             text-decoration: none;
@@ -309,7 +310,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent); /* Copper underline */
+            background: var(--accent);
             transition: width 0.3s ease;
         }
 
@@ -324,7 +325,7 @@
         /* Primary Button (Copper) */
         .cta-button {
             background: var(--accent);
-            color: var(--text-on-accent) !important; /* Dark text on copper */
+            color: var(--text-on-accent) !important;
             padding: 0.75rem 2rem;
             border-radius: 50px;
             font-weight: 700;
@@ -333,7 +334,11 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.2); /* Copper glow */
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.2);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
         }
 
         .cta-button::before {
@@ -368,6 +373,8 @@
             display: inline-block;
             cursor: not-allowed;
             opacity: 0.7;
+            font-family: inherit;
+            font-size: 1rem;
         }
 
         .hamburger {
@@ -382,12 +389,13 @@
             border: none;
         }
 
-        .hamburger div {
+        .hamburger span {
             width: 30px;
             height: 3px;
             background-color: var(--text-main);
             border-radius: 2px;
             transition: all 0.3s ease-in-out;
+            display: block; 
         }
 
         .hamburger.active .bar1 {
@@ -407,7 +415,7 @@
             top: 100%; 
             left: 0;
             width: 100%;
-            background: rgba(26, 26, 26, 0.98); /* Dark BG */
+            background: rgba(26, 26, 26, 0.98); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
@@ -446,7 +454,6 @@
             align-items: center;
             justify-content: center;
             padding: 6rem 2rem 4rem;
-            /* Dark Slate Gradient for Hero */
             background: linear-gradient(135deg, #1a1a1a 0%, #2E4A5C 100%);
             position: relative;
             overflow: hidden;
@@ -489,7 +496,8 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            /* FIX: Adjusted clamp min size to 1.8rem for smaller screens */
+            font-size: clamp(1.8rem, 5vw, 4rem);
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.2;
@@ -532,7 +540,7 @@
             font-size: 2.5rem;
             font-weight: 900;
             display: block;
-            color: var(--accent); /* Copper stats */
+            color: var(--accent); 
         }
 
         .stat-label {
@@ -592,7 +600,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: var(--primary); /* Slate accent on cards */
+            background: var(--primary); 
             transform: translateX(-100%);
             transition: transform 0.3s ease;
         }
@@ -675,7 +683,7 @@
         }
 
         .comparison-row:hover:not(.header) {
-            background: #333; /* Slightly lighter on hover */
+            background: #333; 
         }
 
         .comparison-row.header {
@@ -688,7 +696,7 @@
 
         .comparison-cell-sift {
             font-weight: 700;
-            color: var(--accent); /* Copper text for SiftDNS column */
+            color: var(--accent); 
             background: none;
             -webkit-text-fill-color: initial;
             position: relative;
@@ -708,7 +716,7 @@
         }
 
         .check {
-            color: var(--secondary); /* Sage Green */
+            color: var(--secondary); 
             font-size: 1.5rem;
             font-weight: 900;
             text-shadow: 0 1px 2px rgba(0,0,0, 0.5);
@@ -754,7 +762,7 @@
 
         .pricing-card.featured {
             background: var(--bg-card);
-            border: 2px solid var(--accent); /* Copper border for featured */
+            border: 2px solid var(--accent); 
             transform: scale(1.05);
         }
 
@@ -952,7 +960,7 @@
             border: 1px solid var(--border-color);
             padding: 6px 16px;
             border-radius: 50px;
-            font-size: 0.85rem; /* Slightly smaller for footer */
+            font-size: 0.85rem; 
             font-weight: 500;
             color: var(--text-muted);
             text-decoration: none;
@@ -968,6 +976,48 @@
         }
         .github-icon { fill: currentColor; opacity: 0.9; }
 
+        /* Loading Bar with no animation duration (handled by JS load event) */
+        /* Removed keyframes and animation as requested */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent); 
+            width: 0;
+            z-index: 9999;
+        }
+
+        /* Status Banner Styles (CSP Friendly) */
+        #service-status {
+            max-width: 1200px;
+            margin: 84px auto 1rem;
+            padding: 0 2rem;
+        }
+        .banner {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+        #status-banner.up {
+            background: #e6ffed;
+            color: #055a2d;
+            border-color: rgba(142, 182, 155, 0.18);
+        }
+        #status-banner.degraded {
+            background: #fff4ce;
+            /* FIX: Darkened text for WCAG contrast (was #5c4100) */
+            color: #4a3000;
+            border-color: rgba(212, 163, 115, 0.12);
+        }
+        #status-banner.down {
+            background: #ffe6e6;
+            color: #6a0505;
+            border-color: rgba(217, 140, 140, 0.12);
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none; 
@@ -984,68 +1034,49 @@
             .hero .stats {
                 gap: 2rem;
             }
+
+            #service-status {
+                margin-top: 110px;
+                padding: 0 1rem;
+            }
             
+            /* Responsive Comparison Table */
+            .comparison-row.header {
+                display: none;
+            }
+            
+            /* FIX: Override grid with block for stacking */
             .comparison-row {
-                grid-template-columns: 1fr;
-                text-align: center;
+                display: block;
+                text-align: right;
                 gap: 0.5rem;
                 padding: 1rem;
+                border-bottom: 2px solid var(--border-color);
             }
 
             .comparison-row > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 padding: 0.5rem 0;
             }
 
-            .comparison-row.header > div:first-child {
-                font-size: 1.1rem;
-                margin-bottom: 1rem;
-                border-bottom: 2px solid var(--primary);
-                padding-bottom: 0.5rem;
+            .comparison-row > div::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-muted);
+                text-align: left;
             }
 
-            .comparison-row:not(.header) > div:nth-child(2)::before { content: "SiftDNS: "; font-weight: 600; color: var(--accent); }
-            .comparison-row:not(.header) > div:nth-child(3)::before { content: "Legacy Providers: "; font-weight: 600; color: var(--text-muted); }
-            .comparison-row:not(.header) > div:nth-child(4)::before { content: "Your ISP: "; font-weight: 600; color: var(--text-muted); }
-            
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
             
             .github-source-link {
-                margin: 1.5rem auto 0; /* Center on mobile */
+                margin: 1.5rem auto 0; 
             }
         }
-
-        .loading-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--accent); /* Copper loading bar */
-            width: 0;
-            z-index: 9999;
-            animation: loading 2s ease-out forwards;
-        }
-
-        @keyframes loading {
-            to {
-                width: 100%;
-            }
-        }
-
-        /* ========== Status banner styles (inserted) ========== */
-        /* Keep these compact and dark-theme friendly */
-        #service-status { max-width:1200px; margin:84px auto 1rem; padding:0 2rem; }
-        #service-status .banner{padding:12px;border-radius:8px;margin-bottom:8px;box-shadow: var(--shadow-sm);border:1px solid var(--border-color)}
-        #status-banner.up{background: #e6ffed;color: #055a2d;border-color: rgba(142,182,155,0.18)}
-        #status-banner.degraded{background: #fff4ce;color:#6a4b00;border-color: rgba(212,163,115,0.12)}
-        #status-banner.down{background: #ffe6e6;color:#6a0505;border-color: rgba(217,140,140,0.12)}
-        /* Small responsive adjustment so banner doesn't crowd mobile header */
-        @media (max-width:768px){
-          #service-status{margin-top:110px;padding:0 1rem}
-        }
-        /* ========== end status styles ========== */
     </style>
 </head>
 <body>
@@ -1054,7 +1085,7 @@
 
     <header id="header">
         <nav>
-            <a href="/" class="logo">
+            <a href="/" class="logo" aria-current="page">
                 <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <defs>
                         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1078,21 +1109,22 @@
                 <a href="/setup">Setup</a>
                 <a href="https://stats.uptimerobot.com/6szE9Aycaz" target="_blank" rel="noopener noreferrer">System Status</a>
                 <a href="https://siftdns.com/testimonials">Testimonials</a>
-                <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+                <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
             </div>
 
             <button class="hamburger" id="hamburger-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-links">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
+                <span class="bar1"></span>
+                <span class="bar2"></span>
+                <span class="bar3"></span>
             </button>
 
-            <div class="mobile-nav-links" id="mobile-nav-links"></div>
+            <div class="mobile-nav-links" id="mobile-nav-links" role="navigation" aria-label="Mobile navigation"></div>
         </nav>
     </header>
 
-    <section id="service-status" style="display: none;max-width:1200px;margin:84px auto 1rem;padding:0 2rem;">
-      <div id="status-banner" class="banner up" role="status" style="padding:12px;border-radius:8px;margin-bottom:8px;">
+    <section id="service-status" class="hidden" aria-live="polite">
+      <h2 class="sr-only">System Status</h2>
+      <div id="status-banner" class="banner up" role="status">
         <strong id="status-title">Status:</strong>
         <span id="status-summary" style="margin-left:0.5rem;">This is a temporary status placeholder — no active incidents. Welcome!</span>
         <div class="timestamp" id="status-timestamp" style="font-size:0.9rem;color:var(--text-muted);margin-top:8px;">Updated — local placeholder</div>
@@ -1103,16 +1135,13 @@
             <div class="hero-content">
                 
                 <div class="hero-logo-container combined-logo">
-                    <svg width="0" height="0" style="position: absolute; visibility: hidden;">
+                    <svg viewBox="0 0 40 40" class="hero-svg-combined">
                         <defs>
                             <linearGradient id="combinedLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
                                 <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                    </svg>
-
-                    <svg viewBox="0 0 40 40" class="hero-svg-combined">
                         <path class="draw-part shield" 
                               d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" />
                         
@@ -1143,11 +1172,11 @@
                     </div>
                 </div>
 
-                <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1rem 3rem;">
+                <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1rem 3rem;">
                     Start Your Free Month →
                 </a>
                 <p style="margin-top: 1rem; opacity: 0.9;">30-day free trial, then from $3/month</p>
-                <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">invoice</a></p>
+                <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" class="stripe-invoice-link" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">invoice</a></p>
             </div>
         </section>
 
@@ -1213,70 +1242,70 @@
                     <div>Your ISP</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Domains Blocked</div>
-                    <div class="comparison-cell-sift"><strong>630K+ domains</strong></div>
-                    <div>100K-200K domains</div>
-                    <div>None</div>
+                    <div data-label="Feature">Domains Blocked</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>630K+ domains</strong></div>
+                    <div data-label="Legacy Provider DNS">100K-200K domains</div>
+                    <div data-label="Your ISP">None</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Blocklist Transparency</div>
-                    <div class="comparison-cell-sift"><strong>100% Auditable</strong></div>
-                    <div>Hidden / Proprietary</div>
-                    <div>N/A</div>
+                    <div data-label="Feature">Blocklist Transparency</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>100% Auditable</strong></div>
+                    <div data-label="Legacy Provider DNS">Hidden / Proprietary</div>
+                    <div data-label="Your ISP">N/A</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Deep Malware Blocking</div>
-                    <div class="comparison-cell-sift"><strong>Extensive Threat Lists</strong></div>
-                    <div>Basic Phishing</div>
-                    <div>None</div>
+                    <div data-label="Feature">Deep Malware Blocking</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>Extensive Threat Lists</strong></div>
+                    <div data-label="Legacy Provider DNS">Basic Phishing</div>
+                    <div data-label="Your ISP">None</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Deep Adblocking</div>
-                    <div class="comparison-cell-sift"><strong>ABP-Style Patterns</strong></div>
-                    <div>Exact Domain Only</div>
-                    <div>None</div>
+                    <div data-label="Feature">Deep Adblocking</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>ABP-Style Patterns</strong></div>
+                    <div data-label="Legacy Provider DNS">Exact Domain Only</div>
+                    <div data-label="Your ISP">None</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Root DNS Server Querying</div>
-                    <div class="comparison-cell-sift"><strong>Direct / Authoritative Only</strong></div>
-                    <div>Recursive Forwarding</div>
-                    <div>Cached / Forwarding</div>
+                    <div data-label="Feature">Root DNS Server Querying</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>Direct / Authoritative Only</strong></div>
+                    <div data-label="Legacy Provider DNS">Recursive Forwarding</div>
+                    <div data-label="Your ISP">Cached / Forwarding</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Privacy Policy</div>
-                    <div class="comparison-cell-sift"><strong>Zero logging</strong></div>
-                    <div>Analytics & tracking</div>
-                    <div>Full tracking</div>
+                    <div data-label="Feature">Privacy Policy</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>Zero logging</strong></div>
+                    <div data-label="Legacy Provider DNS">Analytics & tracking</div>
+                    <div data-label="Your ISP">Full tracking</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Software Required</div>
-                    <div class="comparison-cell-sift"><strong>None (just set DNS)</strong></div>
-                    <div>Apps/Browser setup</div>
-                    <div>None</div>
+                    <div data-label="Feature">Software Required</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>None (just set DNS)</strong></div>
+                    <div data-label="Legacy Provider DNS">Apps/Browser setup</div>
+                    <div data-label="Your ISP">None</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Server Reliability</div>
-                    <div class="comparison-cell-sift"><strong>Geo-Redundant HA</strong></div>
-                    <div>Varies</div>
-                    <div>Local Only</div>
+                    <div data-label="Feature">Server Reliability</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>Geo-Redundant HA</strong></div>
+                    <div data-label="Legacy Provider DNS">Varies</div>
+                    <div data-label="Your ISP">Local Only</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Infrastructure Patching</div>
-                    <div class="comparison-cell-sift"><strong>Monthly Hardening</strong></div>
-                    <div>Unknown</div>
-                    <div>Infrequent</div>
+                    <div data-label="Feature">Infrastructure Patching</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>Monthly Hardening</strong></div>
+                    <div data-label="Legacy Provider DNS">Unknown</div>
+                    <div data-label="Your ISP">Infrequent</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Subscription Model</div>
-                    <div class="comparison-cell-sift"><strong>Paid & sustainable</strong></div>
-                    <div>Freemium/Limited</div>
-                    <div>"Free" (data sold)</div>
+                    <div data-label="Feature">Subscription Model</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>Paid & sustainable</strong></div>
+                    <div data-label="Legacy Provider DNS">Freemium/Limited</div>
+                    <div data-label="Your ISP">"Free" (data sold)</div>
                 </div>
                 <div class="comparison-row">
-                    <div>Account/Password Required</div>
-                    <div class="comparison-cell-sift"><strong>None needed</strong></div>
-                    <div>Account required</div>
-                    <div>None needed</div>
+                    <div data-label="Feature">Account/Password Required</div>
+                    <div class="comparison-cell-sift" data-label="SiftDNS"><strong>None needed</strong></div>
+                    <div data-label="Legacy Provider DNS">Account required</div>
+                    <div data-label="Your ISP">None needed</div>
                 </div>
             </div>
 
@@ -1317,7 +1346,7 @@
                         <li>✓ Unlimited personal devices</li>
                         <li>✓ 30-day free trial</li>
                     </ul>
-                    <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button" target="_blank" rel="noopener noreferrer" style="width: 100%; text-align: center;">Start Free Trial</a>
+                    <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer" style="width: 100%; text-align: center;">Start Free Trial</a>
                 </div>
 
                 <div class="pricing-card coming-soon">
@@ -1336,7 +1365,7 @@
                         <li>✓ Multiple locations support</li>
                         <li>✓ Service level agreement (SLA)</li>
                     </ul>
-                    <div class="cta-button-disabled" style="width: 100%; text-align: center;">Notify Me When Available</div>
+                    <button class="cta-button-disabled" disabled style="width: 100%; text-align: center;">Notify Me When Available</button>
                 </div>
             </div>
             
@@ -1369,7 +1398,12 @@
                         <div class="faq-answer" id="faq1-answer">
                             <p>DNS is like the internet's phonebook. When you type a website address, DNS translates it into the numerical IP address computers understand. Your ISP's default DNS often tracks your browsing, serves ads, and can be slow. SiftDNS gives you a faster, private, ad-free alternative.</p>
                             <div style="text-align: center; margin: 20px 0;">
-                                <img src="dns-diagram.png" alt="DNS Diagram showing how domain names are translated to IP addresses" width="800" height="400" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: var(--shadow-md);" loading="lazy">
+                                <img src="dns-diagram.png" 
+                                     srcset="dns-diagram-small.png 500w, dns-diagram.png 800w" 
+                                     sizes="(max-width: 600px) 100vw, 800px" 
+                                     alt="DNS resolution diagram" 
+                                     width="800" height="400" 
+                                     style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: var(--shadow-md);">
                             </div>
                         </div>
                     </div>
@@ -1382,7 +1416,7 @@
                             </svg>
                         </button>
                         <div class="faq-answer" id="faq2-answer">
-                            <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device. Your DNS server addresses are available immediately in your Stripe payment <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">invoice</a>.</p>
+                            <p>Incredibly easy! It takes about 2 minutes. Just change one setting in your device or router, and you're done. No software to install, no updates to manage. We have step-by-step guides for every device. Your DNS server addresses are available immediately in your Stripe payment <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" class="stripe-invoice-link" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">invoice</a>.</p>
                         </div>
                     </div>
 
@@ -1741,7 +1775,7 @@
             <div class="footer-brand">
                 <h3>SiftDNS</h3>
                 <p>Improving internet security and performance, one DNS query at a time.</p>
-                <p style="margin-top: 1rem; opacity: 0.7;">© 2025 SiftDNS. All rights reserved.</p>
+                <p style="margin-top: 1rem; opacity: 0.7;">&copy; 2025 SiftDNS. All rights reserved.</p>
                 
                 <a href="https://github.com/SiftDNS/siftDNS_web" target="_blank" rel="noopener noreferrer" class="github-source-link" aria-label="View website source code on GitHub">
                     <svg class="github-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
@@ -1783,7 +1817,12 @@
         </div>
     </footer>
 
-    <script type="module" defer>
+    <script>
+    (function() {
+        // FIX: Centralized Stripe URL constants
+        const STRIPE_URL = "https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00";
+        const STRIPE_INVOICE_URL = "https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00";
+
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
@@ -1807,13 +1846,18 @@
         });
 
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                // Fix: Added guard check for loading bar
-                const loadingBar = document.querySelector('.loading-bar');
-                if (loadingBar) {
-                    loadingBar.style.display = 'none';
-                }
-            }, 2000);
+            // FIX: Removed loading logic from CSS animation delay. 
+            // Hides immediately upon load event.
+            const loadingBar = document.querySelector('.loading-bar');
+            if (loadingBar) {
+                loadingBar.style.display = 'none';
+            }
+            // FIX: Populate mobile nav logic now guards against duplication internally
+            populateMobileNav();
+            
+            // FIX: Hydrate Stripe links dynamically
+            document.querySelectorAll('.stripe-link').forEach(el => el.href = STRIPE_URL);
+            document.querySelectorAll('.stripe-invoice-link').forEach(el => el.href = STRIPE_INVOICE_URL);
         });
 
         const observerOptions = {
@@ -1842,13 +1886,11 @@
                 const faqItem = button.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 
-                // Close all other items
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                     item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                 });
                 
-                // Toggle the clicked item
                 if (!isActive) {
                     faqItem.classList.add('active');
                     button.setAttribute('aria-expanded', 'true');
@@ -1856,29 +1898,27 @@
             });
         });
 
-        // Hamburger Menu Logic
         const hamburger = document.getElementById('hamburger-menu');
         const mobileNavLinks = document.getElementById('mobile-nav-links');
         const desktopNavLinks = document.querySelector('.nav-links');
 
         function populateMobileNav() {
-            mobileNavLinks.innerHTML = ''; 
+            // FIX: Guard clause prevents duplicate cloning on resize
+            if (mobileNavLinks.children.length > 0) return;
+            
             Array.from(desktopNavLinks.children).forEach(link => {
                 const clonedLink = link.cloneNode(true);
-                
-                clonedLink.addEventListener('click', () => {
-                    if (mobileNavLinks.classList.contains('active')) {
-                        hamburger.classList.remove('active');
-                        hamburger.setAttribute('aria-expanded', 'false'); // Accessibility
-                        mobileNavLinks.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
+                clonedLink.addEventListener('click', closeMobileMenu);
                 mobileNavLinks.appendChild(clonedLink);
             });
         }
 
-        populateMobileNav();
+        function closeMobileMenu() {
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileNavLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
         hamburger.addEventListener('click', () => {
             const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
@@ -1895,12 +1935,10 @@
 
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768 && mobileNavLinks.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false'); // Accessibility
-                mobileNavLinks.classList.remove('active');
-                document.body.style.overflow = '';
+                closeMobileMenu();
             }
         });
+    })();
     </script>
 </body>
 </html>
