@@ -10,4 +10,4 @@ Thumbs.db
 *.log
 
 # Optional: If you don't want the scripts on the public repo, uncomment the next line:
-scripts/
+## scripts/
