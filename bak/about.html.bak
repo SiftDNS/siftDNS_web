@@ -295,14 +295,14 @@
         
         <div class="diagram-container">
             <figure class="diagram">
-                <img src="assets/images/dns-diagram2.png" alt="Process flow diagram showing a DNS query resolving a domain name into an IP address" width="100%" height="auto">
+                <img src="dns-diagram2.png" alt="Process flow diagram showing a DNS query resolving a domain name into an IP address" width="100%" height="auto">
                 <figcaption>A simplified diagram of the DNS lookup process.</figcaption>
             </figure>
         </div>
 
         <div class="diagram-container" style="margin-top: 1.5rem;">
             <figure class="diagram">
-                <img src="assets/images/1763920731185.png" alt="Desktop interface showing blocked malicious ads and trackers via SiftDNS" loading="lazy">
+                <img src="1763920731185.png" alt="Desktop interface showing blocked malicious ads and trackers via SiftDNS" loading="lazy">
                 <figcaption>Desktop Protection: Blocking malware and trackers at the source.</figcaption>
             </figure>
         </div>
@@ -334,12 +334,12 @@
                 </div>
                  
                  <figure style="margin: 2rem 0 0 0;">
-                    <img src="assets/images/network-diagram.png" alt="Network architecture diagram displaying high availability and failover mechanisms" class="diagram-lg" loading="lazy">
+                    <img src="network-diagram.png" alt="Network architecture diagram displaying high availability and failover mechanisms" class="diagram-lg" loading="lazy">
                     <figcaption class="text-caption">SiftDNS Network Architecture: High availability and failover by design.</figcaption>
                  </figure>
                  
                  <figure>
-                    <img src="assets/images/1763920897092.png" alt="Enterprise protection diagram showing the blocking of ransomware C2 servers" class="diagram-lg diagram-lg-spaced" loading="lazy">
+                    <img src="1763920897092.png" alt="Enterprise protection diagram showing the blocking of ransomware C2 servers" class="diagram-lg diagram-lg-spaced" loading="lazy">
                     <figcaption class="text-caption">Enterprise-grade threat prevention.</figcaption>
                  </figure>
             </div>
@@ -372,7 +372,7 @@
                 <p>While some services offer basic filtering, we believe a truly comprehensive approach is needed for modern threats. Protecting your devices requires a robust and proactive blocklist that is always up to date.</p>
 
                 <div class="diagram-clean">
-                    <img src="assets/images/1763920920491.png" alt="Mobile device showing protection from phishing SMS and malicious apps" loading="lazy">
+                    <img src="1763920920491.png" alt="Mobile device showing protection from phishing SMS and malicious apps" loading="lazy">
                     <figcaption class="text-caption">Mobile Protection: Securing devices on the go.</figcaption>
                 </div>
 

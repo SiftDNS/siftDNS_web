@@ -1418,7 +1418,7 @@
                         <div class="faq-answer" id="faq1-answer">
                             <p>DNS is like the internet's phonebook. When you type a website address, DNS translates it into the numerical IP address computers understand. Your ISP's default DNS often tracks your browsing, serves ads, and can be slow. SiftDNS gives you a faster, private, ad-free alternative.</p>
                             <div style="text-align: center; margin: 20px 0;">
-                                <img src="assets/images/dns-diagram.png" 
+                                <img src="dns-diagram.png" 
                                      srcset="dns-diagram-small.png 500w, dns-diagram.png 800w" 
                                      sizes="(max-width: 600px) 100vw, 800px" 
                                      alt="DNS resolution diagram" 

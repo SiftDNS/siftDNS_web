@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="Clear and user-friendly Terms of Service for SiftDNS, a privacy-first DNS service. Learn about our zero-logging policy, Stripe-managed billing, and commitment to your data protection.">
+    <title>SiftDNS Terms of Service - Privacy-First DNS</title>
+    <style>
+        :root {
+            /* --- Sediment & Stream Palette --- */
+            
+            /* Backgrounds */
+            --bg-main: #1a1a1a;       /* Deep Bedrock */
+            --bg-card: #2C2C2C;       /* Dark Stone */
+            --bg-header: #232323;     /* Header BG */
+            
+            /* Brand Colors */
+            --primary: #466D87;       /* Slate Blue */
+            --primary-dark: #355266;  /* Dark Slate */
+            --primary-light: #598392; /* Eucalyptus */
+            
+            /* Accents */
+            --accent: #D4A373;        /* Raw Copper */
+            --accent-hover: #E0C097;  /* Sand */
+            
+            /* Text */
+            --text-main: #f0f0f0;     /* Off-white */
+            --text-muted: #b0b0b0;    /* Light Grey */
+            
+            /* Borders */
+            --border-color: #3a3a3a;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+        }
+
+        /* Custom Scrollbars */
+        html { 
+            scrollbar-width: thin; 
+            scrollbar-color: var(--primary) var(--bg-main); 
+        }
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background-color: var(--primary); border-radius: 6px; border: 3px solid var(--bg-main); }
+        ::-webkit-scrollbar-thumb:hover { background-color: var(--accent); }
+        
+        header { 
+            background: rgba(26, 26, 26, 0.95); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--border-color); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
+        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.75rem; color: var(--primary); text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; margin-right: 12px; }
+        
+        .back-link { color: var(--text-muted); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease, color 0.3s ease; }
+        .back-link:hover { transform: translateX(-5px); color: var(--accent); }
+        
+        .hero { 
+            background: linear-gradient(135deg, #1a1a1a 0%, #2E4A5C 100%); 
+            color: white; 
+            padding: 4rem 2rem; 
+            text-align: center; 
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 900; color: var(--text-main); }
+        .hero .subtitle { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; color: var(--text-muted); }
+        
+        .privacy-highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        
+        .highlight-card { 
+            background: rgba(44, 44, 44, 0.6); 
+            padding: 1.5rem; 
+            border-radius: 12px; 
+            backdrop-filter: blur(10px); 
+            border: 1px solid var(--border-color);
+        }
+        .highlight-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; color: var(--primary); }
+        .highlight-card p { font-size: 0.9rem; opacity: 0.9; color: var(--text-muted); }
+        
+        .content { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        
+        .key-points { 
+            background: rgba(70, 109, 135, 0.1); /* Low opacity Slate Blue */
+            border-radius: 12px; 
+            padding: 2rem; 
+            margin-bottom: 3rem; 
+            border-left: 4px solid var(--primary); 
+            border: 1px solid var(--primary-dark);
+            border-left-width: 4px;
+        }
+        .key-points h2 { color: var(--primary); margin-bottom: 1rem; }
+        .key-points ul { list-style: none; padding: 0; }
+        .key-points li { margin-bottom: 0.75rem; display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-muted); }
+        .key-points li strong { color: var(--text-main); }
+        .key-points li::before { content: "✓"; color: var(--accent); font-weight: bold; margin-top: 2px; }
+        
+        .legal-content { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; 
+            padding: 3rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .legal-content h1, .legal-content h2, .legal-content h3 { color: var(--primary); margin-bottom: 1rem; }
+        .legal-content h1 { font-size: 2rem; }
+        .legal-content h2 { margin-top: 2.5rem; font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        .legal-content h3 { color: var(--primary-light); margin-top: 1.5rem; font-size: 1.2rem; border-bottom: none; }
+        .legal-content ul, .legal-content ol { margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-muted); }
+        .legal-content li { margin-bottom: 0.5rem; }
+        .legal-content p { margin-bottom: 1rem; color: var(--text-muted); }
+        .legal-content strong { color: var(--text-main); }
+        
+        footer { background: var(--bg-header); color: var(--text-muted); text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color); }
+        
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .privacy-highlights { grid-template-columns: 1fr; }
+            .legal-content { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" fill="url(#logoGradient)" opacity="1"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="#D4A373"/>
+                    <rect x="18" y="20" width="4" height="8" fill="#D4A373"/>
+                </svg>
+                SiftDNS
+            </a>
+            <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Terms Built for Privacy</h2>
+        <p class="subtitle">Clear, honest terms that protect your privacy while ensuring a great service.</p>
+        
+        <div class="privacy-highlights">
+            <div class="highlight-card">
+                <h3>🔒 Zero Data Collection</h3>
+                <p>We don't store your personal info. Stripe handles payments, we handle DNS.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>📝 No Hidden Clauses</h3>
+                <p>Straightforward terms. No surprise data collection or unexpected charges.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>🚫 Zero DNS Logging</h3>
+                <p>We never log the websites you visit. Your browsing activity remains private.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>💳 Stripe-Managed Billing</h3>
+                <p>All payments are handled by Stripe. Cancel anytime through their secure portal.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="key-points">
+            <h2>What Makes Our Terms Different</h2>
+            <ul>
+                <li><strong>Minimal Data Collection:</strong> We only store your email if you contact support.</li>
+                <li><strong>Stripe Integration:</strong> All customer accounts and billing are managed securely by Stripe.</li>
+                <li><strong>No Account Database:</strong> We don't maintain our own database of customer records or personal information.</li>
+                <li><strong>True Privacy:</strong> We operate a strict zero-logging policy for DNS queries.</li>
+                <li><strong>Easy Cancellation:</strong> You can cancel your subscription at any time via Stripe's customer portal.</li>
+                <li><strong>Transparent Pricing:</strong> $3/month for Individual, $10/month for Business, with a 30-day free trial.</li>
+            </ul>
+        </div>
+
+        <div class="legal-content">
+            <h1>SiftDNS Terms of Service</h1>
+            <p><strong>Effective Date: September 3, 2025</strong></p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By using the SiftDNS service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree with these Terms, you may not use our Service. You must be at least 18 years old and have the legal capacity to enter into binding agreements.</p>
+
+            <h2>2. Description of Service</h2>
+            <p>SiftDNS provides a Domain Name System (DNS) resolution service designed to enhance online privacy and security. Our service blocks access to over 350,000 domains known to host advertisements, trackers, malware, and other unwanted content. Key features include zero-logging DNS queries, direct root server queries, and a global DNS infrastructure. Access to the Service is granted upon successful activation of a subscription.</p>
+
+            <h2>3. Subscriptions, Billing, and Cancellation</h2>
+            <h3>3.1. Subscription Plans & Free Trial</h3>
+            <ul>
+                <li><strong>Individual Plan:</strong> $3.00 per month for personal use.</li>
+                <li><strong>Business Plan:</strong> $10.00 per month for commercial or organizational use.</li>
+                <li>All new subscriptions include a 30-day free trial. Billing begins automatically after the trial period unless you cancel beforehand. You can cancel at any time during the trial without charge.</li>
+            </ul>
+
+            <h3>3.2. Billing and Payment</h3>
+            <ul>
+                <li>All payment processing, billing, and subscription management are handled exclusively by our third-party payment processor, <strong>Stripe, Inc.</strong></li>
+                <li>SiftDNS does not collect or store your payment information. We only receive notifications from Stripe regarding your subscription status (e.g., active, canceled).</li>
+                <li>Your relationship with Stripe is governed by their own Terms of Service and Privacy Policy.</li>
+                <li>Subscription fees are billed monthly in advance and are non-refundable, except as required by law.</li>
+            </ul>
+
+            <h3>3.3. Cancellation</h3>
+            <ul>
+                <li>You may cancel your subscription at any time through the Stripe customer portal.</li>
+                <li>Cancellation takes effect at the end of the current billing period, and you will not be charged again. SiftDNS does not have direct access to cancel your subscription.</li>
+            </ul>
+
+            <h2>4. Acceptable Use Policy</h2>
+            <p>You agree to use SiftDNS only for lawful purposes. You are prohibited from:</p>
+            <ul>
+                <li>Using the Service for any illegal, fraudulent, or malicious activities.</li>
+                <li>Attempting to disrupt, overload, or gain unauthorized access to our systems or infrastructure (e.g., through denial-of-service attacks).</li>
+                <li>Reselling, redistributing, or otherwise providing access to SiftDNS to third parties without our express written permission.</li>
+                <li>Reverse engineering, decompiling, or attempting to discover the source code of our technology.</li>
+            </ul>
+
+            <h2>5. Privacy and Data Protection</h2>
+            <h3>5.1. Zero Logging Policy</h3>
+            <p>We are committed to your privacy. SiftDNS <strong>does not log, store, or monitor your DNS queries</strong>. We do not track the websites you visit or maintain browsing histories. We may monitor aggregate network traffic for performance and security purposes only, without any personally identifiable information.</p>
+            
+            <h3>5.2. Data Collection</h3>
+            <p>SiftDNS does not maintain a database of customer accounts or billing information. The only personal data we may retain is your email address and the content of your message if you contact us for support. For complete details, please review our <strong>Privacy Policy</strong>.</p>
+            
+            <h2>6. Service Availability and Disclaimers</h2>
+            <h3>6.1. Service Availability</h3>
+            <p>We strive to maintain high availability for our DNS services but do not guarantee uninterrupted service. From time to time, we may need to perform maintenance or change the IP addresses of our DNS servers. We will provide advance notice to active subscribers via email of any changes that require your action.</p>
+
+            <h3>6.2. No Warranties</h3>
+            <p>The Service is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind. We do not warrant that the Service will meet all your requirements, be error-free, or that the filtering will block 100% of unwanted domains or never block a legitimate one. Your use of the Service is at your own risk.</p>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, SiftDNS and its affiliates shall not be liable for any indirect, incidental, consequential, or punitive damages, or any loss of profits or revenues, arising from your use of the Service. Our total liability to you for any claims arising from these Terms shall not exceed the total amount you paid us in the twelve (12) months preceding the claim.</p>
+            <p>You agree to indemnify and hold SiftDNS harmless from any claims, damages, or expenses arising from your violation of these Terms or your use of the Service.</p>
+
+            <h2>8. Termination</h2>
+            <p>We reserve the right to suspend or terminate your access to the Service immediately, without prior notice, if you violate these Terms. Upon termination, your right to use the Service will cease. Provisions regarding liability, disclaimers, and dispute resolution shall survive termination.</p>
+
+            <h2>9. General Provisions</h2>
+            <h3>9.1. Modifications to Terms</h3>
+            <p>We may update these Terms occasionally. We will post the revised terms on our website and update the "Effective Date." For material changes, we will notify subscribers via email. Your continued use of the Service after changes are posted constitutes your acceptance of the new Terms.</p>
+            
+            <h3>9.2. Governing Law and Dispute Resolution</h3>
+            <p>These Terms are governed by and construed in accordance with the laws of the <strong>State of Texas, United States</strong>, without regard to its conflict of law principles. Any disputes arising from these Terms shall be resolved through binding arbitration in Williamson County, Texas. You waive any right to participate in class-action lawsuits.</p>
+
+            <h3>9.3. Entire Agreement</h3>
+            <p>These Terms, along with our Privacy Policy, constitute the entire agreement between you and SiftDNS. If any provision is found to be unenforceable, the remaining provisions will remain in full force.</p>
+
+            <h2>10. Contact Information</h2>
+            <p>For questions about these Terms, please contact us at: <strong>support@siftdns.com</strong></p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border-color);">
+            <p><em>Last updated: September 3, 2025</em></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SiftDNS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

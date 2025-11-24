@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>SiftDNS - Setup Guide</title>
+
+    <meta name="description" content="Step-by-step instructions to set up SiftDNS on Windows, macOS, Android, iOS, routers, and gaming consoles in under 2 minutes.">
+    <link rel="canonical" href="https://siftdns.com/setup">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <style>
+        :root {
+            /* --- Sediment & Stream Palette --- */
+            
+            /* Backgrounds */
+            --bg-main: #1a1a1a;       /* Deep Bedrock */
+            --bg-card: #2C2C2C;       /* Dark Stone */
+            --bg-header: #232323;     /* Header BG */
+            
+            /* Brand Colors */
+            --primary: #466D87;       /* Slate Blue */
+            --primary-dark: #355266;  /* Dark Slate */
+            --primary-light: #598392; /* Eucalyptus */
+            
+            /* Accents */
+            --accent: #D4A373;        /* Raw Copper */
+            --accent-hover: #E0C097;  /* Sand */
+            
+            /* Text */
+            --text-main: #f0f0f0;     /* Off-white */
+            --text-muted: #b0b0b0;    /* Light Grey */
+            --text-on-accent: #1a1a1a; /* Dark text for buttons */
+            
+            /* Borders */
+            --border-color: #3a3a3a;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { 
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--bg-main);
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 6px;
+            border: 3px solid var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--accent);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Accessibility: Styles for skip link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--accent);
+            color: var(--text-on-accent);
+            padding: 1rem;
+            z-index: 9999;
+            transition: top 0.3s ease-in-out;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+        }
+
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            color: var(--accent);
+        }
+
+        .setup-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2E4A5C 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .setup-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .setup-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-muted);
+        }
+
+        .setup-content {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .device-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .device-button {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-muted);
+        }
+
+        .device-button:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            color: var(--text-main);
+        }
+
+        .device-button.active {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--text-on-accent);
+        }
+
+        .device-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .setup-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .setup-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .setup-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .setup-step h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .setup-step ol, .setup-step ul {
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .setup-step li {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .setup-step strong {
+            color: var(--text-main);
+        }
+
+        .dns-servers {
+            background: var(--bg-header);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .dns-servers h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .dns-servers p {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            color: var(--text-main);
+        }
+
+        /* Updated Note Style to match About page "obsolete-callout" vibe */
+        .important-note {
+            background: rgba(212, 163, 115, 0.1); /* Low opacity copper */
+            border: 1px solid var(--accent);
+            color: var(--text-main);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .important-note strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        /* Success Message - Keeping it solid for visibility */
+        #success-message {
+            background: var(--accent);
+            color: var(--text-on-accent);
+            border: none;
+        }
+        #success-message strong {
+            color: var(--text-on-accent);
+        }
+        #success-message a {
+            color: var(--text-on-accent) !important;
+            font-weight: bold;
+        }
+
+        code {
+            background: #111; /* Deep black for code blocks */
+            color: var(--accent); /* Copper text for IPs/commands */
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #333;
+        }
+
+        a {
+            color: var(--primary);
+        }
+        a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .device-selector {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .setup-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <nav>
+            <a href="https://siftdns.com" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z"
+                          fill="url(#logoGradient)" opacity="1"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="#D4A373"/>
+                    <rect x="18" y="20" width="4" height="8" fill="#D4A373"/>
+                </svg>
+                SiftDNS
+            </a>
+            <a href="https://siftdns.com" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
+    
+    <main id="main-content">
+        <section class="setup-hero">
+            <h1>Setup SiftDNS in 2 Minutes</h1>
+            <p>Choose your device below for step-by-step instructions.</p>
+            <p style="margin-top: 0.5rem;">No technical skills required!</p>
+            <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">
+                <strong>New subscriber?</strong> Your DNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> and will also be sent via email.
+            </p>
+        </section>
+
+        <div class="setup-content">
+            <div class="device-selector" role="tablist" aria-label="Device selection">
+                <button class="device-button active" role="tab" aria-selected="true" aria-controls="windows-setup" id="btn-windows">
+                    <div class="device-icon">💻</div>
+                    <h3>Windows</h3>
+                </button>
+                <button class="device-button" role="tab" aria-selected="false" aria-controls="mac-setup" id="btn-mac">
+                    <div class="device-icon">🖥️</div>
+                    <h3>macOS</h3>
+                </button>
+                <button class="device-button" role="tab" aria-selected="false" aria-controls="android-setup" id="btn-android">
+                    <div class="device-icon">📱</div>
+                    <h3>Android</h3>
+                </button>
+                <button class="device-button" role="tab" aria-selected="false" aria-controls="ios-setup" id="btn-ios">
+                    <div class="device-icon">📱</div>
+                    <h3>iPhone/iPad</h3>
+                </button>
+                <button class="device-button" role="tab" aria-selected="false" aria-controls="router-setup" id="btn-router">
+                    <div class="device-icon">📡</div>
+                    <h3>Router</h3>
+                </button>
+                <button class="device-button" role="tab" aria-selected="false" aria-controls="gaming-setup" id="btn-gaming">
+                    <div class="device-icon">🎮</div>
+                    <h3>Gaming</h3>
+                </button>
+            </div>
+
+            <div class="important-note">
+                <strong>📧 Your DNS Server Addresses:</strong>
+                After completing your Stripe payment, your exclusive SiftDNS server addresses are available immediately in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> and will also be emailed to you shortly. Keep both handy during setup!
+            </div>
+
+            <div class="dns-servers">
+                <h4>Primary DNS Server:</h4>
+                <p>Available in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> and delivered via email</p>
+                <h4>Secondary DNS Server:</h4>
+                <p>Available in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> and delivered via email</p>
+                <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-muted);">
+                    <strong>New subscriber?</strong> Check the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> immediately or your email inbox for "Welcome to SiftDNS" with your server addresses.
+                </p>
+            </div>
+
+            <div id="success-message" class="important-note" style="background: var(--accent); display: none; border: none;">
+                <strong>🎉 Welcome to SiftDNS!</strong>
+                Your subscription is active. Your exclusive DNS server addresses are in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: white; text-decoration: underline;">invoice</a> and will also be emailed to you. Follow the setup instructions below. Your first month is free!
+            </div>
+
+            <div class="setup-section active" id="windows-setup" role="tabpanel" aria-labelledby="btn-windows">
+                <div class="setup-step">
+                    <h3>Setting up SiftDNS on Windows 10/11</h3>
+                    <ol>
+                        <li>
+                            <strong>Open Network Connections:</strong><br>
+                            Right-click on the Start Menu (Windows icon) and click on "Network Connections"
+                        </li>
+                        <li>
+                            <strong>Find Your Network Adapter:</strong><br>
+                            Right-click on your active connection (Wi-Fi or Ethernet) and select "Properties"
+                        </li>
+                        <li>
+                            <strong>Select Internet Protocol Version 4:</strong><br>
+                            Find and select "Internet Protocol Version 4 (TCP/IPv4)" and click "Properties"
+                        </li>
+                        <li>
+                            <strong>Change DNS Server Addresses:</strong><br>
+                            Select "Use the following DNS server addresses" and enter:
+                            <ul>
+                                <li>Preferred DNS server: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li>Alternate DNS server: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Save Your Changes:</strong><br>
+                            Click "OK" on all windows to save
+                        </li>
+                        <li>
+                            <strong>Flush DNS Cache (Recommended):</strong><br>
+                            Open Command Prompt and type: <code>ipconfig /flushdns</code>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="setup-section" id="mac-setup" role="tabpanel" aria-labelledby="btn-mac">
+                <div class="setup-step">
+                    <h3>Setting up SiftDNS on macOS</h3>
+                    <ol>
+                        <li>
+                            <strong>Open System Settings:</strong><br>
+                            Click the Apple menu (🍎) and select "System Settings" (or "System Preferences" on older versions)
+                        </li>
+                        <li>
+                            <strong>Go to Network:</strong><br>
+                            Click on "Network" in the settings window
+                        </li>
+                        <li>
+                            <strong>Select Your Connection:</strong><br>
+                            Choose your active connection (Wi-Fi or Ethernet) from the left sidebar
+                        </li>
+                        <li>
+                            <strong>Click Advanced:</strong><br>
+                            Click the "Advanced..." button at the bottom
+                        </li>
+                        <li>
+                            <strong>Go to DNS Tab:</strong><br>
+                            Click on the "DNS" tab in the popup window
+                        </li>
+                        <li>
+                            <strong>Add DNS Servers:</strong><br>
+                            Click the "+" button and add:
+                            <ul>
+                                <li><code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li><code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Apply Changes:</strong><br>
+                            Click "OK" then "Apply" to save your settings
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="setup-section" id="android-setup" role="tabpanel" aria-labelledby="btn-android">
+                <div class="setup-step">
+                    <h3>Setting up SiftDNS on Android</h3>
+                    <ol>
+                        <li>
+                            <strong>Open Settings:</strong><br>
+                            Swipe down and tap the Settings icon (⚙️)
+                        </li>
+                        <li>
+                            <strong>Go to Network & Internet:</strong><br>
+                            Look for "Network & Internet", "Connections", or "Wi-Fi"
+                        </li>
+                        <li>
+                            <strong>Tap on Wi-Fi:</strong><br>
+                            Select Wi-Fi from the menu
+                        </li>
+                        <li>
+                            <strong>Long-Press Your Network:</strong><br>
+                            Find your connected Wi-Fi network and long-press on it
+                        </li>
+                        <li>
+                            <strong>Modify Network:</strong><br>
+                            Select "Modify network" or "Manage network settings"
+                        </li>
+                        <li>
+                            <strong>Show Advanced Options:</strong><br>
+                            Scroll down or tap on "Advanced options"
+                        </li>
+                        <li>
+                            <strong>Change IP Settings:</strong><br>
+                            Change "IP settings" from "DHCP" to "Static"
+                        </li>
+                        <li>
+                            <strong>Enter DNS Servers:</strong><br>
+                            In DNS 1: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code><br>
+                            In DNS 2: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code>
+                        </li>
+                        <li>
+                            <strong>Save:</strong><br>
+                            Tap "Save" to apply changes
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="setup-section" id="ios-setup" role="tabpanel" aria-labelledby="btn-ios">
+                <div class="setup-step">
+                    <h3>Setting up SiftDNS on iPhone/iPad</h3>
+                    <ol>
+                        <li>
+                            <strong>Open Settings:</strong><br>
+                            Tap the Settings app on your home screen
+                        </li>
+                        <li>
+                            <strong>Tap on Wi-Fi:</strong><br>
+                            Select Wi-Fi from the settings menu
+                        </li>
+                        <li>
+                            <strong>Tap the "i" Icon:</strong><br>
+                            Find your connected network and tap the information icon (ⓘ) next to it
+                        </li>
+                        <li>
+                            <strong>Configure DNS:</strong><br>
+                            Scroll down and tap "Configure DNS"
+                        </li>
+                        <li>
+                            <strong>Select Manual:</strong><br>
+                            Choose "Manual" instead of "Automatic"
+                        </li>
+                        <li>
+                            <strong>Add DNS Servers:</strong><br>
+                            Tap "Add Server" and enter:
+                            <ul>
+                                <li><code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li><code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                            </ul>
+                            Remove any existing servers by tapping the red minus button
+                        </li>
+                        <li>
+                            <strong>Save:</strong><br>
+                            Tap "Save" in the top-right corner
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="setup-section" id="router-setup" role="tabpanel" aria-labelledby="btn-router">
+                <div class="setup-step">
+                    <h3>Setting up SiftDNS on Your Router (Recommended!)</h3>
+                    <p style="margin-bottom: 1.5rem;">Setting up SiftDNS on your router protects ALL devices on your network automatically!</p>
+
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Method 1: Router Web Interface</h4>
+                    <ol>
+                        <li>
+                            <strong>Access Your Router:</strong><br>
+                            Open a web browser and go to your router's IP address (usually <code>192.168.1.1</code> or <code>192.168.0.1</code>)
+                        </li>
+                        <li>
+                            <strong>Log In:</strong><br>
+                            Enter your router's username and password (check the sticker on your router if unsure)
+                        </li>
+                        <li>
+                            <strong>Find DNS Settings:</strong><br>
+                            Look for "DNS Settings", "Network Settings", or "Internet Settings". Sometimes these options are found under the "DHCP Settings" or "LAN Settings" section.
+                        </li>
+                        <li>
+                            <strong>Enter SiftDNS Servers:</strong><br>
+                            Replace existing DNS with:
+                            <ul>
+                                <li>Primary DNS: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                                <li>Secondary DNS: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Save and Restart:</strong><br>
+                            Save settings and restart your router if prompted
+                        </li>
+                    </ol>
+
+                    <h4 style="color: var(--primary); margin: 2rem 0 1rem;">Method 2: Router Mobile Apps</h4>
+                    <p style="margin-bottom: 1rem;">Many newer routers use smartphone apps instead of web interfaces:</p>
+                    <ul style="margin-bottom: 1.5rem;">
+                        <li><strong>ASUS:</strong> ASUS Router app → Settings → LAN → DNS Server</li>
+                        <li><strong>Eero:</strong> Open Eero app → Settings → Network Settings → DNS</li>
+                        <li><strong>Google Nest Wifi:</strong> Google Home app → WiFi → Settings → Advanced networking → DNS</li>
+                        <li><strong>Linksys:</strong> Linksys app → Advanced Settings → Internet Settings → DNS</li>
+                        <li><strong>Netgear (Nighthawk):</strong> Nighthawk app → WiFi Settings → DNS</li>
+                        <li><strong>Netgear (Orbi):</strong> Orbi app → Settings → Internet Settings → DNS</li>
+                        <li><strong>TP-Link (Tether App):</strong> Tether app → Tools → Internet Connection → DNS Server</li>
+                        <li><strong>TP-Link (Deco App):</strong> Deco app → Advanced → IPv4 → DNS Server</li>
+                        <li><strong>Ubiquiti UniFi:</strong> UniFi Network app → Settings → Networks → [Your Network] → DHCP DNS Server</li>
+                    </ul>
+                    <p style="margin-bottom: 1.5rem;">Look for "DNS", "Custom DNS", or "Advanced Network Settings" in your router's app, then enter your SiftDNS server addresses from the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> or email.</p>
+
+                    <div class="important-note" style="margin-top: 2rem;">
+                        <strong>✨ Pro Tip:</strong>
+                        This is the best option! All your devices (phones, tablets, smart TVs, gaming consoles) will automatically use SiftDNS without any individual setup.
+                    </div>
+                </div>
+            </div>
+
+            <div class="setup-section" id="gaming-setup" role="tabpanel" aria-labelledby="btn-gaming">
+                <div class="setup-step">
+                    <h3>🎮 Gamer's Guide to SiftDNS</h3>
+                    <p style="margin-bottom: 1.5rem;">Level up your gaming with faster connections and DDoS protection!</p>
+
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Why Gamers Love SiftDNS:</h4>
+                    <ul style="margin-bottom: 2rem;">
+                        <li>✅ <strong>Reduced Ping:</strong> Direct root server queries mean faster DNS resolution</li>
+                        <li>✅ <strong>Helps Mitigate Throttling:</strong> Helps bypass ISP traffic shaping that targets DNS</li>
+                        <li>✅ <strong>DDoS Protection:</strong> Reduces risk from DNS-based DDoS attacks</li>
+                        <li>✅ <strong>Faster Matchmaking:</strong> Quick DNS lookups for game servers</li>
+                    </ul>
+
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">PlayStation Setup:</h4>
+                    <ol>
+                        <li>Go to Settings → Network → Set Up Internet Connection</li>
+                        <li>Choose Wi-Fi or LAN Cable</li>
+                        <li>Select "Custom"</li>
+                        <li>For DNS Settings, choose "Manual"</li>
+                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                    </ol>
+
+                    <h4 style="color: var(--primary); margin: 2rem 0 1rem;">Xbox Setup:</h4>
+                    <ol>
+                        <li>Press Xbox button → Settings → Network</li>
+                        <li>Select "Network settings" → "Advanced settings"</li>
+                        <li>Select "DNS settings" → "Manual"</li>
+                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                    </ol>
+
+                    <h4 style="color: var(--primary); margin: 2rem 0 1rem;">Nintendo Switch Setup:</h4>
+                    <ol>
+                        <li>System Settings → Internet → Internet Settings</li>
+                        <li>Select your network → Change Settings</li>
+                        <li>DNS Settings → Manual</li>
+                        <li>Enter Primary: <code>[Primary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code> and Secondary: <code>[Secondary IP from Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: var(--accent); text-decoration: underline;">invoice</a> notes or email]</code></li>
+                    </ol>
+                </div>
+
+                <div class="important-note">
+                    <strong>🏆 Pro Gamer Tip:</strong>
+                    One user reported their latency dropping from 27ms to 9ms after switching to SiftDNS. Your results may vary, but the improvement is real!
+                </div>
+            </div>
+            
+            <div class="setup-step" style="margin-top: 4rem;">
+                <h3>🔧 Troubleshooting & Tips</h3>
+
+                <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Common Issues:</h4>
+                <ul>
+                    <li><strong>Can't access certain websites:</strong> Some sites may be in our blocklist. Custom whitelisting is available for Business plan customers only. Individual plan users cannot modify the blocklist.</li>
+                    <li><strong>Slow internet after setup:</strong> Try flushing your DNS cache or restarting your device.</li>
+                    <li><strong>Settings won't save:</strong> Make sure you have admin/administrator privileges on your device.</li>
+                </ul>
+
+                <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Testing Your Setup:</h4>
+                <ol>
+                    <li>Visit <a href="https://ads-blocker.com/testing" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">ads-blocker.com/testing</a> — you should see fewer or no ads.</li>
+                    <li>Run a DNS leak test at <a href="https://www.dnsleaktest.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">dnsleaktest.com</a> to confirm your queries are going through DigitalOcean, SiftDNS's cloud host.</li>
+                    <li>Try browsing news websites — ads should be blocked or reduced.</li>
+                </ol>
+
+                <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Don't Have Your DNS Addresses Yet?</h4>
+                <p>You'll need an active SiftDNS subscription to get your exclusive server addresses. <a href="/" style="color: var(--accent); text-decoration: none;"><strong>Start your free trial here →</strong></a></p>
+
+                <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Need Help?</h4>
+                <p>Contact us at <strong>support@siftdns.com</strong> with your setup questions. We respond quickly and are here to help! Please include your email address from your Stripe purchase so we can verify your account.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const deviceButtons = document.querySelectorAll('.device-button[role="tab"]');
+        const setupSections = document.querySelectorAll('.setup-section[role="tabpanel"]');
+
+        deviceButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetPanelId = button.getAttribute('aria-controls');
+
+                // Update button states
+                deviceButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                button.classList.add('active');
+                button.setAttribute('aria-selected', 'true');
+
+                // Update panel visibility
+                setupSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(targetPanelId).classList.add('active');
+            });
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('success-message').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

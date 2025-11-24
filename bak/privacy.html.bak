@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="SiftDNS is a zero-logging DNS service. Read our clear, simple privacy policy to understand what little data we handle and how we are committed to protecting your online privacy.">
+    <title>SiftDNS Privacy Policy - Zero-Log DNS Service</title>
+    <style>
+        :root {
+            /* --- Sediment & Stream Palette --- */
+            
+            /* Backgrounds */
+            --bg-main: #1a1a1a;       /* Deep Bedrock */
+            --bg-card: #2C2C2C;       /* Dark Stone */
+            --bg-header: #232323;     /* Header BG */
+            
+            /* Brand Colors */
+            --primary: #466D87;       /* Slate Blue */
+            --primary-dark: #355266;  /* Dark Slate */
+            --primary-light: #598392; /* Eucalyptus */
+            
+            /* Accents */
+            --accent: #D4A373;        /* Raw Copper */
+            --accent-hover: #E0C097;  /* Sand */
+            --success: #8EB69B;       /* Sage Green */
+            --error: #D98C8C;         /* Muted Red */
+            
+            /* Text */
+            --text-main: #f0f0f0;     /* Off-white */
+            --text-muted: #b0b0b0;    /* Light Grey */
+            --text-on-accent: #1a1a1a; /* Dark text for buttons */
+            
+            /* Borders */
+            --border-color: #3a3a3a;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+        }
+        
+        /* Custom Scrollbars */
+        html { 
+            scrollbar-width: thin; 
+            scrollbar-color: var(--primary) var(--bg-main); 
+        }
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background-color: var(--primary); border-radius: 6px; border: 3px solid var(--bg-main); }
+        ::-webkit-scrollbar-thumb:hover { background-color: var(--accent); }
+
+        header { 
+            background: rgba(26, 26, 26, 0.95); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--border-color); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
+        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.75rem; color: var(--primary); text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; margin-right: 12px; }
+        
+        .back-link { color: var(--text-muted); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease, color 0.3s ease; }
+        .back-link:hover { transform: translateX(-5px); color: var(--accent); }
+        
+        .hero { 
+            background: linear-gradient(135deg, #1a1a1a 0%, #2E4A5C 100%); 
+            color: white; 
+            padding: 4rem 2rem; 
+            text-align: center; 
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 900; color: var(--text-main); }
+        .hero .subtitle { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto; color: var(--text-muted); }
+        
+        .privacy-promise { 
+            background: rgba(26, 26, 26, 0.6); 
+            backdrop-filter: blur(10px); 
+            border-radius: 16px; 
+            padding: 2rem; 
+            margin: 2rem auto; 
+            max-width: 600px; 
+            border: 1px solid var(--accent); 
+        }
+        .privacy-promise h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent); }
+        .privacy-promise p { font-size: 1.1rem; opacity: 0.95; color: var(--text-main); }
+        
+        .content { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        
+        .data-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        .data-card { padding: 2rem; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color); }
+        .data-card h3 { margin-bottom: 1rem; }
+        .data-card ul { list-style: none; padding: 0; }
+        .data-card li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted); }
+        
+        /* "No" Card (Muted Red) */
+        .data-card--no { border-color: var(--error); background: rgba(217, 140, 140, 0.05); }
+        .data-card--no h3 { color: var(--error); }
+        .data-card--no li::before { content: "✗"; color: var(--error); font-weight: bold; }
+        
+        /* "Yes" Card (Sage Green) */
+        .data-card--yes { border-color: var(--success); background: rgba(142, 182, 155, 0.05); }
+        .data-card--yes h3 { color: var(--success); }
+        .data-card--yes li::before { content: "✓"; color: var(--success); font-weight: bold; }
+        
+        .legal-content { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 3rem; box-shadow: var(--shadow-md); }
+        .legal-content h1, .legal-content h2, .legal-content h3 { color: var(--primary); margin-bottom: 1rem; }
+        .legal-content h1 { font-size: 2rem; }
+        .legal-content h2 { margin-top: 2.5rem; font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        .legal-content p { margin-bottom: 1rem; color: var(--text-muted); }
+        .legal-content strong { color: var(--text-main); }
+        .legal-content ul { margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-muted); }
+        .legal-content li { margin-bottom: 0.5rem; }
+        
+        .highlight-box { 
+            background: rgba(212, 163, 115, 0.1); /* Low opacity copper */
+            border: 1px solid var(--accent); 
+            border-radius: 8px; 
+            padding: 1.5rem; 
+            margin: 1.5rem 0; 
+            color: var(--text-main);
+        }
+        .highlight-box strong { color: var(--accent); }
+        
+        footer { background: var(--bg-header); color: var(--text-muted); text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color); }
+        
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .data-comparison { grid-template-columns: 1fr; }
+            .legal-content { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w.org/2000/svg" aria-hidden="true" focusable="false">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#466D87;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2E4A5C;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M20,2 L35,10 L35,25 C35,30 30,36 20,38 C10,36 5,30 5,25 L5,10 L20,2z" fill="url(#logoGradient)" opacity="1"/>
+                    <path d="M15,15 L25,15 L23,20 L17,20 Z" fill="#D4A373"/>
+                    <rect x="18" y="20" width="4" height="8" fill="#D4A373"/>
+                </svg>
+                SiftDNS
+            </a>
+            <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Privacy by Design</h2>
+        <p class="subtitle">Our business is protecting your privacy, not profiting from your data. This policy explains our simple, privacy-first approach.</p>
+        <div class="privacy-promise">
+            <h3>🔒 Our Core Privacy Commitment</h3>
+            <p><strong>We do not log, store, or sell your DNS queries. Period.</strong></p>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="data-comparison">
+            <div class="data-card data-card--no">
+                <h3>What We NEVER Collect</h3>
+                <ul>
+                    <li>DNS query logs</li>
+                    <li>Your IP address</li>
+                    <li>Browsing history</li>
+                    <li>Personal information</li>
+                    <li>Billing details</li>
+                </ul>
+            </div>
+            <div class="data-card data-card--yes">
+                <h3>The ONLY Data We Handle</h3>
+                <ul>
+                    <li>Your email (if you contact support)</li>
+                    <li>Subscription status from Stripe</li>
+                    <li>Anonymous website visit counts</li>
+                    <li>Aggregate network performance stats</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h1>SiftDNS Privacy Policy</h1>
+            <p><strong>Effective Date: September 3, 2025</strong></p>
+            <p>At SiftDNS ("we", "us", "our"), your privacy is the foundation of our service. This policy outlines the extremely limited information we handle and our unwavering commitment to protecting your data.</p>
+
+            <div class="highlight-box">
+                <p><strong>Important Distinction:</strong> Our **DNS Service** (the product you use) is separate from our **Website** (siftdns.com). This policy covers both. The DNS Service has a strict **zero-logging policy**. Our Website uses privacy-respecting analytics to count visitors, which does not track you across the internet.</p>
+            </div>
+
+            <h2>1. Our Zero-Log DNS Service</h2>
+            <p>Our core promise is simple: <strong>we do not log your DNS queries</strong>. When you use SiftDNS, we don't know who you are, what your IP address is, or what websites you visit. Your browsing activity is never stored, analyzed, or sold. It's your business, not ours.</p>
+            <p>To ensure our network runs smoothly, we monitor aggregate, anonymized traffic data (e.g., total queries per server). This data contains no personally identifiable information.</p>
+
+            <h2>2. What Information We Handle and Why</h2>
+            <p>We've built our systems to function without needing your personal data. The only situations where we encounter any information are:</p>
+            <ul>
+                <li><strong>When you pay for SiftDNS:</strong> Your payment and subscription are managed entirely by our payment processor, <strong>Stripe</strong>. We do not see or store your name, credit card details, or billing address. We only receive a basic token from Stripe that confirms you have an active subscription.</li>
+                <li><strong>When you contact us for support:</strong> If you email us for help, we will have your email address and the contents of our conversation. We only use this to help you and will delete the conversation upon your request.</li>
+                <li><strong>When you visit our website:</strong> We use a privacy-focused analytics tool to count website visitors and see which pages are popular. This helps us improve our site. This tool does not use cookies or track your activity across other sites.</li>
+            </ul>
+
+            <h2>3. Information Sharing</h2>
+            <p>We do not sell or rent your data. Because we collect almost no data, there is very little to share. The only circumstances in which information might be disclosed are:</p>
+            <ul>
+                <li><strong>With Service Providers:</strong> We use Stripe for payments and trusted vendors for our server infrastructure. These partners are chosen for their high security and privacy standards.</li>
+                <li><strong>To Comply with the Law:</strong> We are based in the United States. If we receive a valid legal order from a court with proper jurisdiction, we would be required to comply. However, since we do not store DNS logs or personally identifiable subscriber information, we would have nothing to provide in response to requests for that data.</li>
+            </ul>
+
+            <h2>4. Data Security and Retention</h2>
+            <p>We employ strong technical measures to protect our infrastructure, including encryption and secure server configurations. As we don't store your personal data, the risk of a breach is minimized by design.</p>
+            <p>Any support emails we have are retained only as long as needed to assist you and are deleted upon request.</p>
+            
+            <h2>5. Your Data Rights (GDPR, CCPA)</h2>
+            <p>You have rights over your data, such as the right to access, correct, or delete it. Since we hold almost no personal information, these rights are straightforward:</p>
+            <ul>
+                <li><strong>To manage your subscription and billing information</strong>, please use the Stripe customer portal, as they are the controller of that data.</li>
+                <li><strong>To access or delete a support conversation</strong>, simply email us from the same address, and we will handle your request promptly.</li>
+            </ul>
+            <p>Our service is not intended for individuals under the age of 18.</p>
+
+            <h2>6. Changes to This Policy</h2>
+            <p>We may update this policy from time to time to reflect changes in our practices or for legal reasons. We will post any updates on this page and notify active subscribers of significant changes via email.</p>
+
+            <h2>7. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please don't hesitate to reach out.</p>
+            <p><strong>Email:</strong> support@siftdns.com</p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border-color);">
+            <p><em>Last updated: September 3, 2025</em></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SiftDNS. All rights reserved.</p>
+    </footer>
+</body>
+</html>
