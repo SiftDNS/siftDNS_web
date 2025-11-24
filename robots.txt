@@ -1,42 +1,10 @@
-# robots.txt for siftdns.com
-# Optimized for Google SEO, Core Vitals, and mobile-first indexing.
-# Managed by SiftDNS SEO automation pipeline — Last updated 2025-10-27
-
-# === Default: Allow Google and major crawlers to fully render the site ===
 User-agent: *
-Disallow: /admin/
-Disallow: /private/
-Disallow: /config/
-Disallow: /logs/
-Disallow: /tmp/
-Disallow: /temp/
-Disallow: /.git/
-Disallow: /node_modules/
-Disallow: /staging/
-Disallow: /test/
-Disallow: /backup/
+Allow: /
 
-# === Prevent duplicate content from tracking parameters ===
-Disallow: /*?*utm_*
-Disallow: /*?*ref=*
-Disallow: /*?*source=*
-Disallow: /*?*success=*
+# Do not index drafts or utility scripts
+Disallow: /transparency.html
+Disallow: /scripts/
 
-# === Specific bot behavior (non-Google) ===
-User-agent: AhrefsBot
-Crawl-delay: 10
-
-User-agent: SemrushBot
-Crawl-delay: 10
-
-User-agent: MJ12bot
-Crawl-delay: 10
-
-User-agent: DotBot
-Disallow: /
-
-User-agent: BLEXBot
-Disallow: /
-
-# === Sitemap ===
+# Note: .git folder is blocked by the server automatically
+# Assets are allowed so Google can see your layout/images
 Sitemap: https://siftdns.com/sitemap.xml
