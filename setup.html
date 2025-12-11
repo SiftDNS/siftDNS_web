@@ -205,9 +205,20 @@
             color: var(--text-on-accent);
         }
 
+        /* MODIFIED: Changed from div/h3 styling to span styling for compliance */
         .device-icon {
+            display: block; /* Forces line break like a div */
             font-size: 3rem;
             margin-bottom: 0.5rem;
+        }
+
+        /* NEW: Styling for the span that replaces the h3 */
+        .device-title {
+            display: block; /* Forces line break */
+            font-size: 1.17em; /* Matches standard h3 size */
+            font-weight: bold;
+            margin-block-start: 0;
+            margin-block-end: 0;
         }
 
         .setup-section {
@@ -371,28 +382,28 @@
         <div class="setup-content">
             <div class="device-selector" role="tablist" aria-label="Device selection">
                 <button class="device-button active" role="tab" aria-selected="true" aria-controls="windows-setup" id="btn-windows">
-                    <div class="device-icon">💻</div>
-                    <h3>Windows</h3>
+                    <span class="device-icon">💻</span>
+                    <span class="device-title">Windows</span>
                 </button>
                 <button class="device-button" role="tab" aria-selected="false" aria-controls="mac-setup" id="btn-mac">
-                    <div class="device-icon">🖥️</div>
-                    <h3>macOS</h3>
+                    <span class="device-icon">🖥️</span>
+                    <span class="device-title">macOS</span>
                 </button>
                 <button class="device-button" role="tab" aria-selected="false" aria-controls="android-setup" id="btn-android">
-                    <div class="device-icon">📱</div>
-                    <h3>Android</h3>
+                    <span class="device-icon">📱</span>
+                    <span class="device-title">Android</span>
                 </button>
                 <button class="device-button" role="tab" aria-selected="false" aria-controls="ios-setup" id="btn-ios">
-                    <div class="device-icon">📱</div>
-                    <h3>iPhone/iPad</h3>
+                    <span class="device-icon">📱</span>
+                    <span class="device-title">iPhone/iPad</span>
                 </button>
                 <button class="device-button" role="tab" aria-selected="false" aria-controls="router-setup" id="btn-router">
-                    <div class="device-icon">📡</div>
-                    <h3>Router</h3>
+                    <span class="device-icon">📡</span>
+                    <span class="device-title">Router</span>
                 </button>
                 <button class="device-button" role="tab" aria-selected="false" aria-controls="gaming-setup" id="btn-gaming">
-                    <div class="device-icon">🎮</div>
-                    <h3>Gaming</h3>
+                    <span class="device-icon">🎮</span>
+                    <span class="device-title">Gaming</span>
                 </button>
             </div>
 
@@ -413,7 +424,7 @@
 
             <div id="success-message" class="important-note" style="background: var(--accent); display: none; border: none;">
                 <strong>🎉 Welcome to SiftDNS!</strong>
-                Your subscription is active. Your exclusive DNS server addresses are in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: white; text-decoration: underline;">invoice</a> and will also be emailed to you. Follow the setup instructions below. Your first month is free!
+                Your subscription is active. Your exclusive DNS server addresses are in the plaintext notes section of your Stripe <a href="https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00" style="color: white; text-decoration: underline;">invoice</a> and will also be emailed to you. Follow the setup instructions below. Just $3/month, cancel anytime.
             </div>
 
             <div class="setup-section active" id="windows-setup" role="tabpanel" aria-labelledby="btn-windows">
@@ -696,7 +707,7 @@
                 </ol>
 
                 <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Don't Have Your DNS Addresses Yet?</h4>
-                <p>You'll need an active SiftDNS subscription to get your exclusive server addresses. <a href="/" style="color: var(--accent); text-decoration: none;"><strong>Start your free trial here →</strong></a></p>
+                <p>You'll need an active SiftDNS subscription to get your exclusive server addresses. <a href="/" style="color: var(--accent); text-decoration: none;"><strong>Get started for $3/month, cancel anytime →</strong></a></p>
 
                 <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">Need Help?</h4>
                 <p>Contact us at <strong>support@siftdns.com</strong> with your setup questions. We respond quickly and are here to help! Please include your email address from your Stripe purchase so we can verify your account.</p>
