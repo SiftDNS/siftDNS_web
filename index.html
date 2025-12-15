@@ -1370,47 +1370,75 @@
         <section class="pricing" id="pricing">
             <div class="section-header">
                 <h2>Choose Your Plan</h2>
-                <p>Simple pricing for individuals. Business plans coming soon for teams and organizations.</p>
+                <p>Simple pricing for individuals. Dedicated infrastructure for businesses.</p>
             </div>
 
             <div class="pricing-cards">
-                <div class="pricing-card featured">
-                    <h3>Individual</h3>
+                <div class="pricing-card">
+                    <h3>Individual and Family</h3>
                     <div class="price">
                         <sup>$</sup>3
                         <span>/ month</span>
                     </div>
-                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Perfect for personal use. Protect all your devices.</p>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 0.9rem;">Perfect for personal use. Protect all your devices.</p>
                     <ul style="list-style: none; margin-bottom: 2rem;">
-                        <li>✓ 630K+ domains & malware blocking</li>
-                        <li>✓ Deep ABP-style ad blocking</li>
-                        <li>✓ Zero logging & auditable lists</li>
-                        <li>✓ Direct root DNS server queries</li>
-                        <li>✓ Geo-redundant HA infrastructure</li>
-                        <li>✓ Monthly security hardening</li>
-                        <li>✓ Direct founder-led support</li>
-                        <li>✓ No account or software needed</li>
-                        <li>✓ Unlimited personal devices</li>
-                        <li>✓ Cancel anytime</li>
+                        <li>✓ 630K+ Domains & Malware Blocking</li>
+                        <li>✓ Deep ABP-Style Ad Blocking</li>
+                        <li>✓ Zero Logging & Auditable Lists</li>
+                        <li>✓ Direct Root DNS Server Queries</li>
+                        <li>✓ Geo-Redundant HA Infrastructure</li>
+                        <li>✓ Monthly Security Hardening</li>
+                        <li>✓ Direct Founder-Led Support</li>
+                        <li>✓ No Account or Software Needed</li>
+                        <li>✓ Unlimited Personal Devices</li>
+                        <li>✓ Cancel Anytime</li>
                     </ul>
                     <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer" style="width: 100%; text-align: center;">Subscribe Now</a>
                 </div>
 
                 <div class="pricing-card coming-soon">
                     <div class="coming-soon-badge">Coming Soon</div>
-                    <h3>Business</h3>
+                    <h3>Business Standard</h3>
                     <div class="price">
-                        <sup>$</sup>10<sup style="font-size: 1rem;">*</sup>
+                        <sup>$</sup>49
                         <span>/ month</span>
                     </div>
-                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Enhanced features for teams and businesses.</p>
+                    <p style="margin-top: -1rem; margin-bottom: 0.5rem; font-size: 0.8rem; color: var(--accent);">(Includes 5 seats. +$4/seat additional)</p>
+                    <p style="margin-bottom: 1.5rem; font-size: 0.9rem; font-weight: bold; color: var(--text-muted);">$99 One-time architecture fee</p>
+                    
+                    <p style="margin-bottom: 1rem; color: var(--text-muted);"><strong>Dedicated privacy for small teams.</strong><br><em style="font-size: 0.85rem; opacity: 0.8;">Best for: Cafes, Retail, Small Offices (&lt;20 users)</em></p>
+                    
                     <ul style="list-style: none; margin-bottom: 2rem;">
-                        <li>✓ Everything in Individual</li>
-                        <li>✓ Priority support</li>
-                        <li>✓ Custom whitelisting</li>
-                        <li>✓ Advanced analytics</li>
-                        <li>✓ Multiple locations support</li>
-                        <li>✓ Service level agreement (SLA)</li>
+                        <li style="color: var(--primary); font-weight: 600; margin-bottom: 1rem;">Everything in Individual and Family, plus:</li>
+                        <li><strong>Private Single-Tenant Instance</strong><br><span style="font-size: 0.9em; opacity: 0.8;">A dedicated cloud server provisioned just for you.</span></li>
+                        <li><strong>Dedicated Static IPv4 Address</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Direct IP assignment with a clean reputation.</span></li>
+                        <li><strong>Custom Encrypted DNS Subdomain</strong><br><span style="font-size: 0.9em; opacity: 0.8;">company.siftdns.com (DoH/DoT) for internal privacy.</span></li>
+                        <li><strong>Custom Whitelisting</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Full control to add your own allowed domains.</span></li>
+                        <li><strong>Standard Availability</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Single-node architecture with automated nightly backups.</span></li>
+                    </ul>
+                    <button class="cta-button-disabled" disabled style="width: 100%; text-align: center;">Notify Me When Available</button>
+                </div>
+
+                <div class="pricing-card featured coming-soon">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <h3>Business HA</h3>
+                    <div class="price">
+                        <sup>$</sup>99
+                        <span>/ month</span>
+                    </div>
+                    <p style="margin-top: -1rem; margin-bottom: 0.5rem; font-size: 0.8rem; color: var(--accent);">(Includes 5 seats. +$4/seat additional)</p>
+                    <p style="margin-bottom: 1.5rem; font-size: 0.9rem; font-weight: bold; color: var(--text-muted);">$149 One-time architecture fee</p>
+                    
+                    <p style="margin-bottom: 1rem; color: var(--text-muted);"><strong>Redundant infrastructure for zero-downtime requirements.</strong><br><em style="font-size: 0.85rem; opacity: 0.8;">Best for: Tech Companies, Financial Firms, 24/7 Operations</em></p>
+                    
+                    <ul style="list-style: none; margin-bottom: 2rem;">
+                        <li style="color: var(--primary); font-weight: 600; margin-bottom: 1rem;">Everything in Business Standard, plus:</li>
+                        <li><strong>Private HA Cluster (2+ Nodes)</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Traffic is balanced across multiple redundant servers.</span></li>
+                        <li><strong>Managed Load Balancer</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Enterprise-grade entry point handling traffic spikes.</span></li>
+                        <li><strong>Rolling Updates</strong><br><span style="font-size: 0.9em; opacity: 0.8;">System patching is performed node-by-node to ensure continuous availability.</span></li>
+                        <li><strong>Internal Network Compatible</strong> <small style="color: var(--accent); font-weight: bold;">(Coming Soon)</small><br><span style="font-size: 0.9em; opacity: 0.8;">Split-horizon support for local VPN/Printers.</span></li>
+                        <li><strong>Priority Support</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Skip the general queue for expedited assistance.</span></li>
+                        <li><strong>Service Level Agreement (SLA)</strong><br><span style="font-size: 0.9em; opacity: 0.8;">Guaranteed uptime for business continuity.</span></li>
                     </ul>
                     <button class="cta-button-disabled" disabled style="width: 100%; text-align: center;">Notify Me When Available</button>
                 </div>
@@ -1419,10 +1447,6 @@
             <div style="background: var(--bg-card); border-radius: 12px; padding: 1.5rem; margin: 2rem auto; max-width: 600px; border-left: 4px solid var(--secondary);">
                 <p style="margin: 0; color: var(--text-muted);"><strong style="color: var(--secondary);">🔧 Service Updates:</strong> DNS server IPs may occasionally change for service improvements. We'll email you with new IPs and instructions if needed. These changes are rare with plenty of advance notice.</p>
             </div>
-            
-            <p style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;">
-                * Business plan pricing is estimated and will include enhanced support and features for commercial use. Perfect for offices, teams, and organizations that need reliable DNS filtering across multiple locations. Sign up for individual now and get notified when business plans launch.
-            </p>
         </section>
 
         <section class="faq" id="faq">
