@@ -188,12 +188,13 @@
             </ul>
 
             <h2>3. Security & Safeguards (NY SHIELD Act)</h2>
-            <p>As we maintain servers in New York and California, we adhere to the "Reasonable Safeguards" required by the NY SHIELD Act. Our technical safeguards include:</p>
-            <ul>
-                <li><strong>MFA-Equivalent SSH:</strong> Administrative access to production servers is restricted to RSA SSH keys protected by mandatory local passphrases, satisfying multi-factor authentication requirements.</li>
-                <li><strong>Hardware-Based MFA:</strong> Access to Cloudflare, Stripe, and GitHub is secured via hardware-based 2FA (FIDO2).</li>
-                <li><strong>Zero-Log Safeguard:</strong> Our most effective security measure is the absolute exclusion of private data logging, eliminating the risk of data exposure at its source.</li>
-            </ul>
+<p>As we maintain infrastructure in New York and California, we adhere to the "Reasonable Safeguards" required by the NY SHIELD Act. Our technical safeguards are tuned for a zero-trust production environment:</p>
+<ul>
+    <li><strong>Multi-Factor Infrastructure Access:</strong> Access to our hosting control plane (DigitalOcean) is secured via <strong>TOTP-based Multi-Factor Authentication</strong>.</li>
+    <li><strong>Phishing-Resistant MFA:</strong> Administrative access to GitHub, Stripe, and Cloudflare is enforced via native <strong>FIDO2/WebAuthn</strong> security keys.</li>
+    <li><strong>Passphrase-Protected RSA Keys:</strong> Direct OS-level SSH access to SiftDNS nodes is restricted to RSA key-based authentication with mandatory high-entropy passphrases, satisfying multi-factor requirements (Possession + Knowledge).</li>
+    <li><strong>Data Minimization by Design:</strong> Our most robust safeguard is the absolute exclusion of private data logging, which eliminates the risk of data exposure at its source.</li>
+</ul>
 
             <h2>4. State-Specific Rights (CCPA, TDPSA)</h2>
             <p>We provide a high bar for privacy that meets or exceeds the requirements of the California Consumer Privacy Act (CCPA) and the Texas Data Privacy and Security Act (TDPSA).</p>
