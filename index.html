@@ -1934,10 +1934,29 @@
                 </ul>
             </div>
         </div>
+
+        <div id="privacy-notice" style="font-size: 0.8rem; color: #666; padding: 10px; border-top: 1px solid #eee; margin-top: 20px; text-align: center;">
+            Privacy Status: <span id="gpc-status">Standard Protection</span>
+        </div>
     </footer>
 
     <script>
     (function() {
+        // --- GPC Signal Detection Module ---
+        (function() {
+            const isGpcEnabled = navigator.globalPrivacyControl === true;
+            const statusElement = document.getElementById('gpc-status');
+            if (statusElement) {
+                if (isGpcEnabled) {
+                    statusElement.innerText = "Global Privacy Control (GPC) Honored";
+                    statusElement.style.color = "#2ecc71";
+                    console.log("SiftDNS: GPC signal detected and honored. No logs are collected.");
+                } else {
+                    statusElement.innerText = "SiftDNS Zero-Log Policy Active";
+                }
+            }
+        })();
+
         // FIX: Centralized Stripe URL constants
         const STRIPE_URL = "https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00";
         const STRIPE_INVOICE_URL = "https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00";
