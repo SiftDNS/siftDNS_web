@@ -86,6 +86,18 @@
             background-color: var(--accent);
         }
 
+        /* Sunset Notice Bar */
+        .sunset-bar {
+            background: #442b1d;
+            color: var(--text-main);
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+            position: relative;
+            z-index: 1001;
+        }
+
         /* Screen Reader Only Utility Class */
         .sr-only {
             position: absolute;
@@ -246,6 +258,11 @@
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
+        }
+
+        /* Adjust header position when sunset bar is present */
+        .sunset-bar + header {
+            top: auto;
         }
 
         header.scrolled {
@@ -1100,6 +1117,10 @@
     </style>
 </head>
 <body>
+    <div class="sunset-bar">
+SiftDNS has officially sunset its operations due to evolving regulatory requirements.
+    </div>
+
     <div class="loading-bar"></div>
     <div class="animated-bg"></div>
 
@@ -1129,7 +1150,7 @@
                 <a href="/setup">Setup</a>
                 <a href="https://stats.uptimerobot.com/6szE9Aycaz" target="_blank" rel="noopener noreferrer">System Status</a>
                 <a href="https://siftdns.com/testimonials">Testimonials</a>
-                <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
+                <a href="" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
             </div>
 
             <button class="hamburger" id="hamburger-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-links">
@@ -1192,7 +1213,7 @@
                     </div>
                 </div>
 
-                <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1rem 3rem;">
+                <a href="" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1rem 3rem;">
                     Subscribe Now →
                 </a>
                 <p style="margin-top: 1rem; opacity: 0.9;">Just $3/month. Cancel anytime.</p>
@@ -1393,7 +1414,7 @@
                         <li>✓ Unlimited Personal Devices</li>
                         <li>✓ Cancel Anytime</li>
                     </ul>
-                    <a href="https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer" style="width: 100%; text-align: center;">Subscribe Now</a>
+                    <a href="" class="cta-button stripe-link" target="_blank" rel="noopener noreferrer" style="width: 100%; text-align: center;">Subscribe Now</a>
                 </div>
 
                 <div class="pricing-card coming-soon">
@@ -1958,7 +1979,7 @@
         })();
 
         // FIX: Centralized Stripe URL constants
-        const STRIPE_URL = "https://buy.stripe.com/4gMdR845R7eLcMNdAXcQU00";
+        const STRIPE_URL = "";
         const STRIPE_INVOICE_URL = "https://billing.stripe.com/p/login/4gMdR845R7eLcMNdAXcQU00";
 
         window.addEventListener('scroll', () => {
